@@ -12,16 +12,16 @@
 
 /* Topo Senado------------------*/
 /* Estilos do topo do Senado Federal */
-#topoSenado{width:100%; height:30px; background:url(../img/topo_bg.gif) repeat-x #01305c; padding:10px;}
+#topoSenado{width:100%; height:30px; background:url([[pix:theme|topo_bg]]) repeat-x #01305c; padding:10px;}
 /* Estilos do Topo */
-#topo{background:url(http://www.senado.gov.br/img/topo_bg.gif) repeat-x; width:100%;}
+#topo{background:url([[pix:theme|topo_bg]]) repeat-x; width:100%;}
 #topoPortal
 {
 width:995px;
 height:46px;
 margin:0 auto;
 padding-top:5px;
-background-image:url(http://www.senado.gov.br/img/topo_bg.gif);
+background-image:url([[pix:theme|topo_bg]]);
 }
 
 .logo
@@ -48,7 +48,7 @@ padding-left:40px;
 
 #menuPortais ul
 {
-background-image:url(http://www.senado.gov.br/img/bg-menutopo.png);
+background-image:url([[pix:theme|bg-menutopo]]);
 list-style: none;
 margin:0 auto;
 text-align:left;

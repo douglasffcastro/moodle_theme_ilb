@@ -42,68 +42,9 @@ echo $OUTPUT->doctype() ?>
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
 <div id="page">
-	<div id="topo">
+<?php require_once "topo.php" ?>
 
-		<div id="topoPortal">
 
-			<a href="http://www.senado.gov.br/" title="Volta para a p&aacute;gina inicial." class="logo"><img src="http://www.senado.gov.br/img/logo-senado-pb.gif" alt="Volta para a p&aacute;gina inicial"/></a>
-
-			<div id="menuPortais">
-
-				<ul> 
-
-					<li>
-
-						<div class="topo_portalmenu">
-
-							<img src="http://www.senado.gov.br/img/icoSelPortais.png" alt="Selecione o Portal desejado"/>
-
-						</div>
-
-						<ul>
-
-							<li style="padding-top:15px;"><a href="http://www.senado.gov.br/senado/">O Senado</a></li>
-
-							<li><a href="http://www.senado.gov.br/senadores/">Senadores</a></li>
-
-							<li><a href="http://www.senado.gov.br/atividade/">Atividade Legislativa</a></li>
-
-							<li><a href="http://www.senado.gov.br/legislacao/">Legisla&ccedil;&atilde;o</a></li>
-
-							<li><a href="http://www.senado.gov.br/noticias/">Not&iacute;cias</a></li>
-
-							<li><a href="http://www.senado.gov.br/publicacoes/">Publica&ccedil;&otilde;es</a></li>
-
-							<li><a href="http://www12.senado.gov.br/orcamento">Or&ccedil;amento</a></li>
-
-							<li><a href="http://www.senado.gov.br/transparencia/">Transpar&ecirc;ncia</a></li>
-
-							<li><a href="http://www.senado.gov.br/ecidadania/">e-Cidadania</a></li>
-
-						</ul>
-
-					</li>
-
-				</ul>
-
-			</div>
-
-			<div id="divLinksTopo">
-
-				<img src="http://www.senado.gov.br/img/separador-topo.gif" alt="separador" />
-
-				<a id="btn0800" href="http://www.senado.gov.br/alosenado/" title="Al&ocirc; Senado, a voz do Cidad&atilde;o."><img src="http://www.senado.gov.br/img/btn0800.gif" alt="Alô Senado, a voz do Cidadão." /></a>
-
-				<img src="http://www.senado.gov.br/img/separador-topo.gif" alt="separador" />
-
-			</div>
-
-			<div style="clear:both;" class="noprint">
-			</div>
-
-		</div>
-
-	</div>
 <?php if ($hasheading) { ?>
 <div id="page-header">
 	<div id="page-header-wrapper" class="wrapper clearfix">
