@@ -47,9 +47,9 @@ echo $OUTPUT->doctype() ?>
 <?php if ($hasheading) { ?>
     <div id="page-header">
         <div id="page-header-wrapper" class="wrapper clearfix">
-                <div class="logo-wrapper">
+                <div class="course-logo-wrapper">
                     <a href="<?php echo $CFG->wwwroot; ?>" title="<?php print_string('home'); ?>">
-                        <img src="<?php echo $OUTPUT->pix_url('logo-saberes', 'theme')?>" class="logo-header">
+                        <img src="<?php echo $OUTPUT->pix_url('logo-saberes', 'theme')?>" class="course-logo-header">
                     </a>
                 </div>
                 <div class="heading-wrapper">
@@ -64,11 +64,11 @@ echo $OUTPUT->doctype() ?>
                         echo $PAGE->headingmenu
                         ?>
                         <div class="header-banners">
-                                <a href="http://www12.senado.gov.br/senado/ilb" target="_blank">
-                                        <img src="<?php echo $OUTPUT->pix_url('logo-ilb', 'theme')?>">
-                                </a>
                                 <a href="http://www.interlegis.leg.br" target="_blank">
                                         <img src="<?php echo $OUTPUT->pix_url('logo-interlegis', 'theme')?>">
+                                </a>
+                                <a href="http://www12.senado.gov.br/senado/ilb" target="_blank">
+                                        <img src="<?php echo $OUTPUT->pix_url('logo-ilb', 'theme')?>">
                                 </a>
                         </div>
                 </div>
@@ -106,7 +106,7 @@ echo $OUTPUT->doctype() ?>
                             <?php echo $coursecontentheader; ?>
                             <?php echo $OUTPUT->main_content() ?>
                             <?php echo $coursecontentfooter; ?>
-                            <a href="<?php global $DB; echo course_get_url($PAGE->course, $DB->get_field('course_sections', 'section', array('id' => $PAGE->cm->section))); ?>">Voltar ao curso</a>
+                            <div class="voltar-curso"> <a href="<?php global $DB; echo course_get_url($PAGE->course, $DB->get_field('course_sections', 'section', array('id' => $PAGE->cm->section))); ?>">Voltar ao curso</a></div>
 
                         </div>
                     </div>

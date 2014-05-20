@@ -43,6 +43,12 @@ $THEME->parents = array(
 );
 
 /////////////////////////////////////////////////////
+// theme renderers
+/////////////////////////////////////////////////////
+
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';
+
+/////////////////////////////////////////////////////
 // Which existing theme(s) in the /theme/ directory
 // do you want this theme to extend. A theme can
 // extend any number of themes. Rather than
@@ -88,7 +94,7 @@ $THEME->layouts = array(
         'defaultregion' => 'side-pre',
     ),
     'course' => array(
-        'file' => 'general.php',
+        'file' => 'course.php',
         'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-pre'
     ),

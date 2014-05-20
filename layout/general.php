@@ -53,9 +53,6 @@ echo $OUTPUT->doctype() ?>
 			<img src="<?php echo $OUTPUT->pix_url('logo-saberes', 'theme')?>" class="logo-header">
                     </a>
 		</div>
-		<div class="heading-wrapper">
-			<h1 class="headermain inside"><?php echo $PAGE->heading ?></h1>
-		</div>
 		<div class="headermenu">
 			<?php
 			echo $OUTPUT->login_info();
@@ -65,11 +62,11 @@ echo $OUTPUT->doctype() ?>
 			echo $PAGE->headingmenu 
 			?>
 			<div class="header-banners">
+                                <a href="http://www.interlegis.leg.br" target="_blank">
+                                        <img src="<?php echo $OUTPUT->pix_url('logo-interlegis', 'theme')?>">
+                                </a>
 				<a href="http://www12.senado.gov.br/senado/ilb" target="_blank">
 					<img src="<?php echo $OUTPUT->pix_url('logo-ilb', 'theme')?>">
-				</a>
-				<a href="http://www.interlegis.leg.br" target="_blank">
-					<img src="<?php echo $OUTPUT->pix_url('logo-interlegis', 'theme')?>">
 				</a>
 			</div>
 		</div>

@@ -108,6 +108,68 @@ margin:0 0 0 0 auto;
 padding:0 0 0 0;
 }
 
+/*Pagina Placeholder de Login*/
+
+.login-placeholder{
+width: 30.2% !important;
+float: left !important;
+margin-bottom: -2000px !important;
+padding-bottom: 2000px !important;
+border: 0 !important;
+padding-top: 30px;
+}
+
+.signuppanel2{
+border-left: 2px solid #E6E6E6 !important;
+border-right: 2px solid #E6E6E6 !important;
+}
+
+.login-placeholder.signuppanel2 .subcontent{
+text-align: justify !important;
+}
+
+.login-placeholder.signuppanel .subcontent{
+text-align: center !important;
+}
+
+.login-placeholder.signuppanel2{
+padding-left: 2%;
+padding-right: 2%;
+}
+
+.login-placeholder.signuppanel{
+padding-left: 2%;
+}
+
+.login-placeholder.loginpanel{
+padding-right: 2%;
+}
+
+.login-placeholder h2{
+margin: 0;
+padding: 0;
+color: #042656;
+}
+
+.signuppanel2 .subcontent, .signuppanel .subcontent, .loginpanel .desc{
+color: #042656;
+}
+
+.obs-box{
+margin-top: 35px;
+padding-top: 35px;
+border-top: 2px solid #E6E6E6;
+font-size: 12px;
+}
+
+.obs{
+width: 28.95%;
+padding: 0 2%;
+float: left;
+text-align: justify;
+}
+
+
 /* Global 
 ------------------------*/
 
@@ -127,6 +189,7 @@ background: #00305c;
 color: whitesmoke;
 font-weight: bold;
 border: 0;
+margin: 4px 2px;
 padding: 4px 10px;
 white-space: normal;
 }
@@ -166,6 +229,23 @@ a img {
 a:active {
     outline: none;
 }
+/*Incourse e Coursecategory*/
+
+.voltar-curso{
+text-align: center;
+margin-top: 10px;
+}
+
+.coursebox > .info > .name{
+width: 90%;
+}
+
+.coursebox .content .summary{
+width: 90%;
+float: left;
+padding-left: 31px;
+text-align: justify;
+}
 
 /* Header 
 -----------------------*/
@@ -194,14 +274,17 @@ a:active {
 
 #page-header-wrapper {
     height: 110px;
+    position: relative;
 }
 
 .headermenu {
     margin: 0;
     font-size: 0.9em;
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 268px;
+    right: 0;
+    top: 0;
 }
 
 .vertical-helper{
@@ -212,21 +295,32 @@ a:active {
 
 .heading-wrapper{
     position: absolute;
-    margin-left: 230px;
+    margin-left: 320px;
     margin-right: 300px;
     margin-top: 30px;
 }
 
-.logo-header {
+.course-logo-header {
     margin-right: 25px;
-    height: 75px;
+    height: 70px;
+    vertical-align: middle;
+}
+
+.course-logo-wrapper {
+    float: left;
+    width: 220px;
+    margin-top: 18px;
+}
+
+.logo-header {
+    height: 91px;
     vertical-align: middle;
 }
 
 .logo-wrapper {
-    float: left;
-    width: 220px;
-    margin-top: 18px;
+    width: 402px;
+    margin: 0 auto;
+    padding-top: 8px;
 }
 .header-banners img{
     height: 35px;
@@ -349,7 +443,7 @@ color: #fff;
 background-color: #042656;
 text-align: center;
 font-weight: bold;
-font-size: 0.7em;
+font-size: 0.8em;
 height: 30px;
 margin-top: 10px;
 padding: 5px 13px;
