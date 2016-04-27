@@ -49,10 +49,6 @@
 
 				<img src="<?php echo $OUTPUT->pix_url('separador-topo', 'theme')?>" alt="separador" />
 
-				<a id="btn0800" href="http://www.senado.gov.br/alosenado/" title="Al&ocirc; Senado, a voz do Cidad&atilde;o."><img src="<?php echo $OUTPUT->pix_url('btn0800', 'theme')?>" alt="Alô Senado, a voz do Cidadão." /></a>
-
-				<img src="<?php echo $OUTPUT->pix_url('separador-topo', 'theme')?>" alt="separador" />
-
 			</div>
 
 			<div style="clear:both;" class="noprint">
