@@ -1,0 +1,60 @@
+{{{ output.doctype }}}
+<html {{{ output.htmlattributes }}}>
+<head>
+    <title>{{{ output.page_title }}}</title>
+    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
+    {{{ output.standard_head_html }}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{>theme_ilb/head}}
+
+</head>
+
+<body {{{ bodyattributes }}}>
+
+{{>theme_ilb/headerLogado}}
+
+<div id="page-wrapper">
+
+    <br/>
+
+    <div id="page" class="container-fluid">
+
+        <div id="page-content" class="row">
+            <div id="region-main-box" class="col-xs-12">
+                {{#hasregionmainsettingsmenu}}
+                <div id="region-main-settings-menu" class="hidden-print {{#hasblocks}}has-blocks{{/hasblocks}}">
+                    <div> {{{ output.region_main_settings_menu }}} </div>
+                </div>
+                {{/hasregionmainsettingsmenu}}
+                <section id="region-main" {{#hasblocks}}class="has-blocks"{{/hasblocks}}>
+                    <div class="card card-block">
+                    {{#hasregionmainsettingsmenu}}
+                        <div class="region_main_settings_menu_proxy"></div>
+                    {{/hasregionmainsettingsmenu}}
+                    {{{ output.course_content_header }}}
+                    {{{ output.main_content }}}
+                    {{{ output.course_content_footer }}}
+                    </div>
+                </section>
+                {{#hasblocks}}
+                <section data-region="blocks-column" class="hidden-print">
+                    {{{ sidepreblocks }}}
+                </section>
+                {{/hasblocks}}
+            </div>
+        </div>
+    </div>
+    {{> theme_ilb/nav-drawer }}
+</div>
+
+{{>theme_ilb/footerSimples}}
+
+</body>
+</html>
+{{#js}}
+require(['theme_ilb/loader']);
+require(['theme_ilb/drawer'], function(mod) {
+    mod.init();
+});
+{{/js}}

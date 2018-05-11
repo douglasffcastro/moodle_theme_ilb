@@ -15,234 +15,141 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Configuration for Moodle's ilb2014 theme.
+ * Ilb config.
  *
- * DO NOT MODIFY THIS THEME!
- * COPY IT FIRST, THEN RENAME THE COPY AND MODIFY IT INSTEAD.
- *
- * For full information about creating Moodle themes, see:
- *  http://docs.moodle.org/dev/Themes_2.0
- *
- * @package   theme_ilb2014
- * @copyright 2010 Patrick Malley
+ * @package   theme_ilb
+ * @copyright 2016 Frédéric Massart
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$THEME->name = 'ilb2014';
+defined('MOODLE_INTERNAL') || die();
 
-////////////////////////////////////////////////////
-// Name of the theme. Most likely the name of
-// the directory in which this file resides.
-////////////////////////////////////////////////////
+require_once(__DIR__ . '/lib.php');
 
+$THEME->name = 'ilb';
+$THEME->sheets = [];
+$THEME->editor_sheets = [];
+$THEME->scss = function($theme) {
+    return theme_ilb_get_main_scss_content($theme);
+};
 
-$THEME->parents = array(
-    'canvas',
-    'base',
-    'leatherbound',
-);
-
-/////////////////////////////////////////////////////
-// theme renderers
-/////////////////////////////////////////////////////
-
-$THEME->rendererfactory = 'theme_overridden_renderer_factory';
-
-/////////////////////////////////////////////////////
-// Which existing theme(s) in the /theme/ directory
-// do you want this theme to extend. A theme can
-// extend any number of themes. Rather than
-// creating an entirely new theme and copying all
-// of the CSS, you can simply create a new theme,
-// extend the theme you like and just add the
-// changes you want to your theme.
-////////////////////////////////////////////////////
-
-
-$THEME->sheets = array(
-    'core',
-);
-
-////////////////////////////////////////////////////
-// Name of the stylesheet(s) you've including in
-// this theme's /styles/ directory.
-////////////////////////////////////////////////////
-
-$THEME->enable_dock = true;
-
-////////////////////////////////////////////////////
-// Do you want to use the new navigation dock?
-////////////////////////////////////////////////////
-
-
-$THEME->editor_sheets = array('editor');
-
-////////////////////////////////////////////////////
-// An array of stylesheets to include within the
-// body of the editor.
-////////////////////////////////////////////////////
-
-$THEME->layouts = array(
+$THEME->layouts = [
+    // Most backwards compatible layout without the blocks - this is the layout used by default.
     'base' => array(
-        'file' => 'general.php',
-        'regions' => array('side-pre', 'side-post'),
-        'defaultregion' => 'side-pre',
+        'file' => 'columns2.php',
+        'regions' => array(),
     ),
+    // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
-        'file' => 'general.php',
-        'regions' => array('side-pre', 'side-post'),
-        'defaultregion' => 'side-pre',
-    ),
-    'course' => array(
-        'file' => 'course.php',
-        'regions' => array('side-pre', 'side-post'),
-        'defaultregion' => 'side-pre'
-    ),
-    'coursecategory' => array(
-        'file' => 'general.php',
-        'regions' => array('side-pre', 'side-post'),
-        'defaultregion' => 'side-pre',
-    ),
-    'incourse' => array(
-        'file' => 'incourse.php',
-        'regions' => array('side-pre', 'side-post'),
-        'defaultregion' => 'side-pre',
-    ),
-    'frontpage' => array(
-        'file' => 'frontpage.php',
-        'regions' => array('side-pre', 'side-post'),
-        'defaultregion' => 'side-pre',
-    ),
-    'admin' => array(
-        'file' => 'general.php',
+        'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),
-    'mydashboard' => array(
-        'file' => 'general.php',
-        'regions' => array('side-pre', 'side-post'),
+    // Main course page.
+    'course' => array(
+        'file' => 'columns2.php',
+        'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-        'options' => array('langmenu'=>true),
+        'options' => array('langmenu' => true),
     ),
+    'coursecategory' => array(
+        'file' => 'columns2.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+    ),
+    // Part of course, typical for modules - default page layout if $cm specified in require_login().
+    'incourse' => array(
+        'file' => 'columns2.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+    ),
+    // The site home page.
+    'frontpage' => array(
+        'file' => 'frontpage_ilb.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+        'options' => array('nonavbar' => true),
+    ),
+    // Server administration scripts.
+    'admin' => array(
+        'file' => 'columns2.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+    ),
+    // My dashboard page.
+    'mydashboard' => array(
+        'file' => 'columns2.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+        'options' => array('nonavbar' => true, 'langmenu' => true),
+    ),
+    // My public page.
     'mypublic' => array(
-        'file' => 'general.php',
-        'regions' => array('side-pre', 'side-post'),
+        'file' => 'columns2.php',
+        'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),
     'login' => array(
-        'file' => 'general.php',
+        'file' => 'login.php',
         'regions' => array(),
-        'options' => array('langmenu'=>true),
+        'options' => array('langmenu' => true),
     ),
+
+    // Pages that appear in pop-up windows - no navigation, no blocks, no header.
     'popup' => array(
-        'file' => 'general.php',
+        'file' => 'columns1.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'noblocks'=>true, 'nonavbar'=>true, 'nocourseheaderfooter'=>true),
+        'options' => array('nofooter' => true, 'nonavbar' => true),
     ),
+    // No blocks and minimal footer - used for legacy frame layouts only!
     'frametop' => array(
-        'file' => 'general.php',
+        'file' => 'columns1.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nocoursefooter'=>true),
+        'options' => array('nofooter' => true, 'nocoursefooter' => true),
     ),
-    'maintenance' => array(
-        'file' => 'general.php',
-        'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>true, 'nocourseheaderfooter'=>true),
-    ),
+    // Embeded pages, like iframe/object embeded in moodleform - it needs as much space as possible.
     'embedded' => array(
-        'theme' => 'canvas',
         'file' => 'embedded.php',
+        'regions' => array()
+    ),
+    // Used during upgrade and install, and for the 'This site is undergoing maintenance' message.
+    // This must not have any blocks, links, or API calls that would lead to database or cache interaction.
+    // Please be extremely careful if you are modifying this layout.
+    'maintenance' => array(
+        'file' => 'maintenance.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>true, 'nocourseheaderfooter'=>true),
     ),
     // Should display the content and basic headers only.
     'print' => array(
-        'file' => 'general.php',
+        'file' => 'columns1.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>false, 'noblocks'=>true, 'nocourseheaderfooter'=>true),
+        'options' => array('nofooter' => true, 'nonavbar' => false),
     ),
+    // The pagelayout used when a redirection is occuring.
+    'redirect' => array(
+        'file' => 'embedded.php',
+        'regions' => array(),
+    ),
+    // The pagelayout used for reports.
     'report' => array(
-        'file' => 'report.php',
+        'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),
-);
+    // The pagelayout used for safebrowser and securewindow.
+    'secure' => array(
+        'file' => 'secure.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre'
+    )
+];
 
-///////////////////////////////////////////////////////////////
-// These are all of the possible layouts in Moodle. The
-// simplest way to do this is to keep the theme and file
-// variables the same for every layout. Including them
-// all in this way allows some flexibility down the road
-// if you want to add a different layout template to a
-// specific page.
-///////////////////////////////////////////////////////////////
-
-// $THEME->csspostprocess
-
-////////////////////////////////////////////////////
-// Allows the user to provide the name of a function
-// that all CSS should be passed to before being
-// delivered.
-////////////////////////////////////////////////////
-
-// $THEME->javascripts
-
-////////////////////////////////////////////////////
-// An array containing the names of JavaScript files
-// located in /javascript/ to include in the theme.
-// (gets included in the head)
-////////////////////////////////////////////////////
-
-// $THEME->javascripts_footer
-
-////////////////////////////////////////////////////
-// As above but will be included in the page footer.
-////////////////////////////////////////////////////
-
-// $THEME->larrow
-
-////////////////////////////////////////////////////
-// Overrides the left arrow image used throughout
-// Moodle
-////////////////////////////////////////////////////
-
-// $THEME->rarrow
-
-////////////////////////////////////////////////////
-// Overrides the right arrow image used throughout Moodle
-////////////////////////////////////////////////////
-
-// $THEME->layouts
-
-////////////////////////////////////////////////////
-// An array setting the layouts for the theme
-////////////////////////////////////////////////////
-
-// $THEME->parents_exclude_javascripts
-
-////////////////////////////////////////////////////
-// An array of JavaScript files NOT to inherit from
-// the themes parents
-////////////////////////////////////////////////////
-
-// $THEME->parents_exclude_sheets
-
-////////////////////////////////////////////////////
-// An array of stylesheets not to inherit from the
-// themes parents
-////////////////////////////////////////////////////
-
-// $THEME->plugins_exclude_sheets
-
-////////////////////////////////////////////////////
-// An array of plugin sheets to ignore and not
-// include.
-////////////////////////////////////////////////////
-
-// $THEME->rendererfactory
-
-////////////////////////////////////////////////////
-// Sets a custom render factory to use with the
-// theme, used when working with custom renderers.
-////////////////////////////////////////////////////
-
+$THEME->parents = [];
+$THEME->enable_dock = false;
+$THEME->csstreepostprocessor = 'theme_ilb_css_tree_post_processor';
+$THEME->extrascsscallback = 'theme_ilb_get_extra_scss';
+$THEME->prescsscallback = 'theme_ilb_get_pre_scss';
+$THEME->yuicssmodules = array();
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';
+$THEME->requiredblocks = '';
+$THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;

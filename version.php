@@ -15,18 +15,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme version info
+ * Tema desenvolvido para o Saberes (ILB)
  *
- * @package    theme_ilb2014
- * @copyright  2010 Patrick Malley
+ * @package    theme_ilb
+ * @copyright  2016 Frédéric Massart
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2013050100; // The current module version (Date: YYYYMMDDXX)
-$plugin->requires  = 2013050100; // Requires this Moodle version
-$plugin->component = 'theme_ilb2014'; // Full name of the plugin (used for diagnostics)
-$plugin->dependencies = array(
-    'theme_canvas'  => 2013050100,
-);
+$plugin->version   = 2018050900;
+$plugin->requires  = 2016112900;
+$plugin->component = 'theme_ilb';
