@@ -70,6 +70,8 @@ function theme_ilb_get_main_scss_content($theme) {
         $scss .= file_get_contents($CFG->dirroot . '/theme/ilb/scss/preset/default.scss');
     }
 
+
+
     return $scss;
 }
 
@@ -104,5 +106,8 @@ function theme_ilb_get_pre_scss($theme) {
         $scss .= $theme->settings->scsspre;
     }
 
+    $scss .= file_get_contents($CFG->dirroot . '/theme/ilb/scss/preset/tema.scss');
+    $scss .= file_get_contents($CFG->dirroot . '/theme/ilb/scss/preset/basic.scss');
+    $scss .= file_get_contents($CFG->dirroot . '/theme/ilb/scss/preset/plain.scss');
     return $scss;
 }

@@ -69,6 +69,7 @@ if (isloggedin()) {
 	   	'sidepreblocks' => $blockshtml,
 	 		'hasblocks' => $hasblocks,
 	    'bodyattributes' => $bodyattributes,
+	    'CursosOnlineSemTutoria' => $OUTPUT->image_url('Cursos-on-line-sem-tutor', 'theme'),
 	  	'navdraweropen' => $navdraweropen,
 	  	'regionmainsettingsmenu' => $regionmainsettingsmenu,
 	  	'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
