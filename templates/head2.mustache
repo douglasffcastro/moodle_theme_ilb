@@ -1,3 +1,21 @@
+{{!
+    @template theme_boost/maintenance
+
+    Boost maintenance layout template.
+
+    Context variables required for this template:
+    * output - The core renderer for the page
+
+    Example context (json):
+    {
+        "output": {
+            "doctype": "<!DOCTYPE html>",
+            "page_title": "Test page",
+            "favicon": "favicon.ico",
+            "main_content": "<h1>Headings make html validators happier</h1>"
+         }
+    }
+}}
 <!-- Barra de Navegação dentro do Curso -->
 <style>
       .NavGlobal {
@@ -13,11 +31,11 @@
 
 
 <!-- Ícones da aba do navegador -->
-<link rel="apple-touch-icon" sizes="180x180" href="{{{moodle_url}}}/images/favicon_saberes.ico">
-<link rel="icon" type="image/png" href="{{{moodle_url}}}/images/favicon_saberes.ico" sizes="32x32" />
-<link rel="icon" type="image/png" href="{{{moodle_url}}}/images/favicon_saberes.ico" sizes="192x192" />
-<link rel="icon" type="image/png" href="{{{moodle_url}}}/images/favicon_saberes.ico" sizes="96x96" />
-<link rel="icon" type="image/png" href="{{{moodle_url}}}/images/favicon_saberes.ico" sizes="16x16" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{{ output.favicon }}}">
+<link rel="icon" type="image/ico" href="{{{ output.favicon }}}" sizes="32x32" />
+<link rel="icon" type="image/ico" href="{{{ output.favicon }}}" sizes="192x192" />
+<link rel="icon" type="image/ico" href="{{{ output.favicon }}}" sizes="96x96" />
+<link rel="icon" type="image/ico" href="{{{ output.favicon }}}" sizes="16x16" />
 
 <!-- Links para tinymce -->
 <link rel="stylesheet" type="text/css" href="{{{moodle_url}}}/static/collapse-image.css" />

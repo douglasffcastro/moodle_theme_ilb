@@ -667,8 +667,8 @@
     <div class="container">
         <p style="font-weight:bold;">Serviço de Ensino a Distância – SEED</p>
         <div class="col-xs-12">
-            <p><img src="images/icon_ContatoFone-azul.png" /> +55 (61) 3303-1475</p>
-            <p><img src="images/icon_ContatoEmail-azul.png" /> <a href="mailto:ilbead@senado.leg.br">ilbead@senado.leg.br</a> </p>
+            <p><img src="{{{icon_ContatoFone-azul}}}" /> +55 (61) 3303-1475</p>
+            <p><img src="{{{icon_ContatoEmail-azul}}}" /> <a href="mailto:ilbead@senado.leg.br">ilbead@senado.leg.br</a> </p>
             <p style="font-weight:bold;">Facebook</p>
             <p><a href="https://www.facebook.com/ilbsenado">https://www.facebook.com/ilbsenado</a></p>
         </div>
@@ -700,7 +700,7 @@
         <!-- logotipo e texto -->
         <div class="col-xs-12 col-md-4 text-center">
             <div style="background-color: #F7F7F7; border: 1px solid #E6E6E6; border-bottom: 0; padding: 11% 0 12% 0;">
-                <img src='images/logo_saberes_xl.png' width='48%' height='48%' />
+                <img src='{{{logo_saberes_xl}}}' width='48%' height='48%' />
             </div>
             <div >
                 <div class="col-xs-12" style="background-color: #0F5688; border: 1px solid #E6E6E6;">
@@ -822,20 +822,20 @@
 		    $("#modalCPF a.btn").on("click", function(e) {
 		        $("#modalCPF").modal('hide');
 		    });
-		});
-		$("#modalCPF").on("hide", function() {  
-		    $("#modalCPF a.btn").off("click");
-		});
-	       
-		$("#modalCPF").on("hidden", function() {
-		    $("#modalCPF").remove();
-		});
-	       
-		$("#modalCPF").modal({                  
-		  "backdrop"  : "static",
-		  "keyboard"  : true,
-		  "show"      : true                    
-		});
+    		});
+    		$("#modalCPF").on("hide", function() {  
+    		    $("#modalCPF a.btn").off("click");
+    		});
+    	       
+    		$("#modalCPF").on("hidden", function() {
+    		    $("#modalCPF").remove();
+    		});
+    	       
+    		$("#modalCPF").modal({                  
+    		  "backdrop"  : "static",
+    		  "keyboard"  : true,
+    		  "show"      : true                    
+    		});
 	    </script>
 	     
 	    <!-- CSS para localização do modal do CPF no centro da tela e no topo para mobile -->
@@ -891,7 +891,7 @@
 <!-- Categorias de cursos -->
 <div class="row">
     <div class="col-xs-12">
-        <div class="col-xs-12" style="background-image:url('images/fundo-c.png');background-repeat: repeat-x;">
+        <div class="col-xs-12" style="background-image:url('{{{fundo-c}}}');background-repeat: repeat-x;">
             <div class="col-xs-1" style="width:10px"></div>
             <div class="col-xs-3" style="background:white; margin-top:-17px; width:240px;">
                 <h3 class="text-uppercase" style="border: 0; font-weight: lighter;">C<span class="text-uppercase" style="font-size: 0.65em;">ategoria de cursos</span></h3>
@@ -900,35 +900,35 @@
     </div>
     <div align='center'>
         <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=134'><img src="images/Cursos-on-line-sem-tutor.png"></a>
+            <a href='course/index.php?categoryid=134'><img src="{{{Cursos-on-line-sem-tutor}}}"></a>
             <p>Cursos on-line sem tutoria</p>
         </div>
         <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=130'><img src="images/Cursos-on-line.png"></a>
+            <a href='course/index.php?categoryid=130'><img src="{{{Cursos-on-line}}}"></a>
             <p>Cursos on-line com tutoria</p>
         </div>
         <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=102'><img src="images/formacao_interna.png"></a>
+            <a href='course/index.php?categoryid=102'><img src="{{{formacao_interna}}}"></a>
             <p>Formação interna </p>
         </div>
         <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=46'><img src="images/pos-graduacao.png"></a>
+            <a href='course/index.php?categoryid=46'><img src="{{{pos-graduacao}}}"></a>
             <p>Pós-graduação</p>
         </div>
         <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=112'><img src="images/oficinas-interlegis.png"></a>
+            <a href='course/index.php?categoryid=112'><img src="{{{oficinas-interlegis}}}"></a>
             <p>Oficinas Interlegis</p>
         </div>
         <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=127'><img src="images/video-aula.png"></a>
+            <a href='course/index.php?categoryid=127'><img src="{{{video-aula}}}"></a>
             <p>Videoaulas</p>
         </div>
         <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=180'><img src="images/projetos_especiais.png"></a>
+            <a href='course/index.php?categoryid=180'><img src="{{{projetos_especiais}}}"></a>
             <p>Projetos Especiais</p>
         </div>
         <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=163'><img src="images/conheca-senado.png"></a>
+            <a href='course/index.php?categoryid=163'><img src="{{{conheca-senado}}}"></a>
             <p>Conheça o Senado</p>
         </div>
     </div>

@@ -77,7 +77,10 @@ if (isloggedin()) {
 	    'icon_ContatoEmail-azul' => $OUTPUT->image_url('icon_ContatoEmail-azul', 'theme'),
 	    'icon_ContatoFone-azul' => $OUTPUT->image_url('icon_ContatoFone-azul', 'theme'),
 	    'fundo-c' => $OUTPUT->image_url('fundo-c', 'theme'),
-	    'fundo-c' => $OUTPUT->image_url('fundo-c', 'theme'),
+	    'matricula_aberta' => $OUTPUT->image_url('matricula_aberta', 'theme'),
+	    'matricula_aberta_verde' => $OUTPUT->image_url('matricula_aberta_verde', 'theme'),
+	    'matricula_encerrada' => $OUTPUT->image_url('matricula_encerrada', 'theme'),
+	    'matricula_encerrada_vermelha' => $OUTPUT->image_url('matricula_encerrada_vermelho', 'theme'),
 	    'logo_saberes_xl' => $OUTPUT->image_url('logo_saberes_xl', 'theme'),
 	   	'sidepreblocks' => $blockshtml,
 	 		'hasblocks' => $hasblocks,
@@ -99,9 +102,8 @@ if (isloggedin()) {
 	];
 
 	$templatecontext['flatnavigation'] = $PAGE->flatnav;
-	//	echo $OUTPUT->render_from_template('theme_ilb/frontpage_ilblogado', $templatecontext);
-	//echo $OUTPUT->render_from_template('theme_ilb/columns2', $templatecontext);
-  echo $OUTPUT->render_from_template('theme_ilb/frontpage_ilb', $templatecontext);
+
+  echo $OUTPUT->render_from_template('theme_ilb/frontpage_ilblogado', $templatecontext);
 
 } else {
 	$bodyattributes = $OUTPUT->body_attributes([]);
@@ -117,6 +119,10 @@ if (isloggedin()) {
 	    'pos-graduacao' => $OUTPUT->image_url('pos-graduacao', 'theme'),
 	    'video-aula' => $OUTPUT->image_url('video-aula', 'theme'),
 	    'fundo-c' => $OUTPUT->image_url('fundo-c', 'theme'),
+	    'matricula_aberta' => $OUTPUT->image_url('matricula_aberta', 'theme'),
+	    'matricula_aberta_verde' => $OUTPUT->image_url('matricula_aberta_verde', 'theme'),
+	    'matricula_encerrada' => $OUTPUT->image_url('matricula_encerrada', 'theme'),
+	    'matricula_encerrada_vermelha' => $OUTPUT->image_url('matricula_encerrada_vermelho', 'theme'),
 	    'icon_ContatoEmail-azul' => $OUTPUT->image_url('icon_ContatoEmail-azul', 'theme'),
 	    'icon_ContatoFone-azul' => $OUTPUT->image_url('icon_ContatoFone-azul', 'theme'),
 	    'logo_saberes_xl' => $OUTPUT->image_url('logo_saberes_xl', 'theme'),
@@ -127,5 +133,5 @@ if (isloggedin()) {
 	
 
 	
-	echo $OUTPUT->render_from_template('theme_ilb/frontpage_ilb', $templatecontext);
+	echo $OUTPUT->render_from_template('theme_ilb/frontpage_ilblogado', $templatecontext);
 }
