@@ -35,15 +35,4 @@
         {{/showbutton}}
     </form>
 </div>
-{{^showbutton}}
-    {{#js}}
-        require(['core/yui'], function(Y) {
-            Y.use('moodle-core-formautosubmit', function() {
-                M.core.init_formautosubmit({
-                    selectid: '{{id}}',
-                    nothing: {{#hasnothing}}'{{nothingkey}}'{{/hasnothing}}{{^hasnothing}}false{{/hasnothing}}
-                });
-            });
-        });
-    {{/js}}
-{{/showbutton}}
+
