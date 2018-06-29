@@ -1,0 +1,38 @@
+[2018-06-27 11:59:57.369] [sharedprocess] [info] main {"machineId":"32fc33a07db46e0866783ede3b53e14dd04c65bfd9f1a0deec11c60ae7a844a6"}
+[2018-06-27 11:59:58.138] [sharedprocess] [info] Scanned user extensions: 11
+[2018-06-27 11:59:58.751] [sharedprocess] [info] Scanned system extensions: 70
+[2018-06-27 11:59:58.758] [sharedprocess] [info] Deleted from disk alexcvzz.vscode-sqlite-0.0.1
+[2018-06-27 11:59:59.611] [sharedprocess] [info] Scanned user extensions: 11
+[2018-06-27 11:59:59.612] [sharedprocess] [info] Scanned user extensions: 11
+[2018-06-27 11:59:59.620] [sharedprocess] [info] Scanned user extensions: 11
+[2018-06-27 11:59:59.653] [sharedprocess] [info] Scanned system extensions: 70
+[2018-06-27 11:59:59.655] [sharedprocess] [info] Scanned system extensions: 70
+[2018-06-27 12:00:02.091] [sharedprocess] [info] Scanned user extensions: 11
+[2018-06-27 12:00:02.145] [sharedprocess] [info] Scanned user extensions: 11
+[2018-06-27 12:00:27.033] [sharedprocess] [info] Scanned user extensions: 11
+[2018-06-27 12:00:27.037] [sharedprocess] [info] Scanned user extensions: 11
+[2018-06-27 12:00:27.038] [sharedprocess] [info] Scanned user extensions: 11
+[2018-06-27 12:00:27.079] [sharedprocess] [info] Scanned system extensions: 70
+[2018-06-27 12:00:27.082] [sharedprocess] [info] Scanned system extensions: 70
+[2018-06-27 12:00:34.770] [sharedprocess] [info] Installing extension: mustache
+[2018-06-27 12:00:34.780] [sharedprocess] [info] Scanned user extensions: 11
+[2018-06-27 12:00:35.913] [sharedprocess] [info] Downloaded extension: mustache
+[2018-06-27 12:00:35.977] [sharedprocess] [info] Extracted extension to /home/bruno/.vscode/extensions/.dawhite.mustache-1.1.1: dawhite.mustache-1.1.1
+[2018-06-27 12:00:35.978] [sharedprocess] [info] Renamed to /home/bruno/.vscode/extensions/dawhite.mustache-1.1.1
+[2018-06-27 12:00:35.978] [sharedprocess] [info] Installation completed. dawhite.mustache-1.1.1
+[2018-06-27 12:00:36.021] [sharedprocess] [info] Extensions installed successfully: dawhite.mustache
+[2018-06-27 12:00:36.189] [sharedprocess] [info] Scanned user extensions: 12
+[2018-06-27 12:00:36.237] [sharedprocess] [info] Scanned system extensions: 70
+[2018-06-27 12:00:37.376] [sharedprocess] [info] Starting to clean up unused language packs.
+[2018-06-27 12:00:38.840] [sharedprocess] [info] Scanned user extensions: 12
+[2018-06-27 12:00:38.841] [sharedprocess] [info] Scanned user extensions: 12
+[2018-06-27 12:00:38.846] [sharedprocess] [info] Scanned user extensions: 12
+[2018-06-27 12:00:38.847] [sharedprocess] [info] Scanned user extensions: 12
+[2018-06-27 12:00:38.850] [sharedprocess] [info] Scanned user extensions: 12
+[2018-06-27 12:00:38.920] [sharedprocess] [info] Scanned system extensions: 70
+[2018-06-27 12:00:38.922] [sharedprocess] [info] Scanned system extensions: 70
+[2018-06-27 12:00:38.924] [sharedprocess] [info] Scanned system extensions: 70
+[2018-06-27 12:00:42.002] [sharedprocess] [info] Scanned user extensions: 12
+[2018-06-27 12:00:42.013] [sharedprocess] [info] Scanned user extensions: 12
+[2018-06-27 12:05:42.080] [sharedprocess] [info] Scanned user extensions: 12
+[2018-06-27 12:10:42.119] [sharedprocess] [info] Scanned user extensions: 12
