@@ -141,41 +141,41 @@
   }
 }
 
-// // Dark links against a light background
-// .navbar-light {
-//   .navbar-brand {
-//     color: $navbar-light-active-color;
+// Dark links against a light background
+.navbar-light {
+  .navbar-brand {
+    color: $navbar-light-active-color;
 
-//     @include hover-focus {
-//       color: $navbar-light-active-color;
-//     }
-//   }
+    @include hover-focus {
+      color: $navbar-light-active-color;
+    }
+  }
 
-//   .navbar-nav {
-//     .nav-link {
-//       color: $navbar-light-color;
+  .navbar-nav {
+    .nav-link {
+      color: $navbar-light-color;
 
-//       @include hover-focus {
-//         color: $navbar-light-hover-color;
-//       }
-//     }
+      @include hover-focus {
+        color: $navbar-light-hover-color;
+      }
+    }
 
-//     .open > .nav-link,
-//     .active > .nav-link,
-//     .nav-link.open,
-//     .nav-link.active {
-//       @include plain-hover-focus {
-//         color: $navbar-light-active-color;
-//       }
-//     }
-//   }
+    .open > .nav-link,
+    .active > .nav-link,
+    .nav-link.open,
+    .nav-link.active {
+      @include plain-hover-focus {
+        color: $navbar-light-active-color;
+      }
+    }
+  }
 
-//   .navbar-divider {
-//     background-color: rgba(0,0,0,.075);
-//   }
-// }
+  .navbar-divider {
+    background-color: rgba(0,0,0,.075);
+  }
+}
 
-// // White links against a dark background
+// White links against a dark background
 .navbar-dark {
   .navbar-brand {
     color: $navbar-dark-active-color;

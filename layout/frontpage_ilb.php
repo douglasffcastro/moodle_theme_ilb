@@ -100,9 +100,7 @@ if (isloggedin()) {
 	];
 
 	$templatecontext['flatnavigation'] = $PAGE->flatnav;
-	//	echo $OUTPUT->render_from_template('theme_ilb/frontpage_ilblogado', $templatecontext);
-	//echo $OUTPUT->render_from_template('theme_ilb/columns2', $templatecontext);
-  echo $OUTPUT->render_from_template('theme_ilb/frontpage_ilb', $templatecontext);
+	echo $OUTPUT->render_from_template('theme_ilb/frontpage_ilb', $templatecontext);
 
 } else {
 	$bodyattributes = $OUTPUT->body_attributes([]);
