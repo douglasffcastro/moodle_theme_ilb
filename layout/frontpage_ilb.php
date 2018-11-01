@@ -26,44 +26,28 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/../config.php');
 
+$bodyattributes = $OUTPUT->body_attributes([]);
+
 if (isloggedin()) {
 	user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 	require_once($CFG->libdir . '/behat/lib.php');
 
-  $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
+  	$navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
 	$extraclasses = [];
 	if ($navdraweropen) {
 	    $extraclasses[] = 'drawer-open-left';
 	}
-//$bodyattributes = $OUTPUT->body_attributes($extraclasses);
+
 	$blockshtml = $OUTPUT->blocks('side-pre');
 	$hasblocks = strpos($blockshtml, 'data-block=') !== false;
 	$regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 
-  //$user_picture = false;
-  //if ($user->picture) {
-    //$user_picture = get_file_url($USER->id.'/'.$size['large'].'.jpg', null, 'user');
-  //}
-  global $USER,$PAGE;
-  $user_picture=new user_picture($USER);
-  $user_picture_url=$user_picture->get_url($PAGE);
-  $user_profile_url=$CFG->wwwroot . "/user/profile.php?id=" . $USER->id . "&course=1";
+	global $USER,$PAGE;
+  	$user_picture=new user_picture($USER);
+  	$user_picture_url=$user_picture->get_url($PAGE);
+  	$user_profile_url=$CFG->wwwroot . "/user/profile.php?id=" . $USER->id . "&course=1";
 
-
-	switch($USER->profile['situacaoaluno'])
-	{
-		case '1':
-			$cpf1 = 'cpf1';
-			break;
-		case '2':
-			$cpf2 = 'cpf2';
-			break;
-		case '3':
-			$cpf3 = 'cpf3';
-			break;			
-	}
-
-  $templatecontext = [
+  	$templatecontext = [
 	    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
 	    'output' => $OUTPUT,
 	    'projetos_especiais' => $OUTPUT->image_url('projetos_especiais', 'theme'),
@@ -80,31 +64,25 @@ if (isloggedin()) {
 	    'fundo-c' => $OUTPUT->image_url('fundo-c', 'theme'),
 	    'logo_saberes_xl' => $OUTPUT->image_url('logo_saberes_xl', 'theme'),
 	   	'sidepreblocks' => $blockshtml,
-	 		'hasblocks' => $hasblocks,
+ 		'hasblocks' => $hasblocks,
 	    'bodyattributes' => $bodyattributes,
 	    'CursosOnlineSemTutoria' => $OUTPUT->image_url('Cursos-on-line-sem-tutor', 'theme'),
 	  	'navdraweropen' => $navdraweropen,
 	  	'regionmainsettingsmenu' => $regionmainsettingsmenu,
 	  	'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-			'username' => $USER->username,
-			'firstname' => $USER->firstname,
-			'lastname' => $USER->lastname,
-			'sessKey' => $USER->sesskey,
-			'cpf1' => $cpf1,
-			'cpf2' => $cpf2,
-			'cpf3' => $cpf3,
-			'loginChangeNotification' => false,
-			'moodle_url' => $CFG->wwwroot,
-			'userpictureurl' => $user_picture_url,
-			'userprofileurl' => $user_profile_url,
+		'username' => $USER->username,
+		'firstname' => $USER->firstname,
+		'lastname' => $USER->lastname,
+		'sessKey' => $USER->sesskey,
+		'loginChangeNotification' => false,
+		'moodle_url' => $CFG->wwwroot,
+		'userpictureurl' => $user_picture_url,
+		'userprofileurl' => $user_profile_url,
 	];
 
-	$templatecontext['flatnavigation'] = $PAGE->flatnav;
-	echo $OUTPUT->render_from_template('theme_ilb/frontpage_ilb', $templatecontext);
 
 } else {
-	$bodyattributes = $OUTPUT->body_attributes([]);
-
+	
 	$templatecontext = [
     	'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     	'projetos_especiais' => $OUTPUT->image_url('projetos_especiais', 'theme'),
@@ -124,7 +102,7 @@ if (isloggedin()) {
 	    'moodle_url' => $CFG->wwwroot
 	];
 	
-
-	
-	echo $OUTPUT->render_from_template('theme_ilb/frontpage_ilb', $templatecontext);
 }
+
+$templatecontext['flatnavigation'] = $PAGE->flatnav;
+echo $OUTPUT->render_from_template('theme_ilb/frontpage_ilb', $templatecontext);
