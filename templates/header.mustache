@@ -26,6 +26,9 @@
     <div class="NavGlobal navbar navbar-static-top">
       <div class="NavGlobal-container">
         <div class="pull-right dropdown" role="navigation">
+
+
+
           <a data-toggle="dropdown" class="NavGlobal-toggle dropdown-toggle">
             <div class="Icon Icon--menu Icon--md"></div>
             <span class="u-alignMiddle"> Portais</span>
@@ -52,4 +55,65 @@
       </div>
     </div>
   </div>
+    <div class="propertiesSubHeader">
+        <div class="container">
+
+
+            <div class="Box Box--y pull-left">
+                <div class="l-fork--lg clearfix Barra-menu"><span class="milli">
+                    <span class="label label-brand">1</span> <a href="#div.principal" accesskey="1" class="text-muted">Ir
+                        para o conteúdo</a></span>
+
+                    <div class="u-verticalSeparator milli"></div>
+                    <span class="milli"><span class="label label-brand">2</span> <a href="#s-menu" class="text-muted">Ir para o
+                            menu</a></span>
+
+                    <div class="u-verticalSeparator milli"></div>
+                    <span class="milli"><span class="label label-brand">4</span> <a href="#footer-institucional" class="text-muted">Ir para o
+                            rodapé</a></span>
+
+                    <div class="u-verticalSeparator milli"></div>
+                    <div class="l-fork--sm clearfix milli-h milli">
+                        <img style="opacity: .7; margin-right: 3px;" height="17" src="https://www12.senado.leg.br/hpsenado/++resource++senado.hpsenado/img/vlibras-i.png">
+                    <div class="dropdown">
+                        <a onclick="myFunction()" class="text-muted dropbtn">VLibras</a>
+                        <div id="myDropdown" class="dropdown-content">
+                            <p class='text-center'><img src='https://www12.senado.leg.br/hpsenado/++resource++senado.hpsenado/img/vlibras.gif'/></p>
+                            <div class="text-properties">
+                                <p>O conteúdo deste portal pode ser acessível em Libras usando o <a href='http://www.vlibras.gov.br/'>VLibras </a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="u-verticalSeparator milli"></div>
+                        <a href="https://www12.senado.leg.br/institucional/programas/senado-inclusivo/documentos/acessibilidade" class="text-muted">Acessibilidade</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 </header><!-- FIM DA NAV SUPERIOR DO SENADO -->
+
+<script>
+    /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
