@@ -106,7 +106,7 @@ a#portal-home-link {
   padding-left: 0;
   padding-right: 0;
 }
-.Nav--secundaria > ul > li:not(:last-child)::after {   
+.Nav--secundaria > ul > li:not(:last-child)::after {
    line-height: 23px;
 }
 /* Extra small - Phone */
@@ -285,7 +285,7 @@ p.busca-avancada a {
 
 
 /*
-============================== 
+==============================
 Bootstrap Media Queries
 ==============================
 */
@@ -302,7 +302,6 @@ Bootstrap Media Queries
 .carousel-control .icon-prev {
   top: 30%;
 }
-
 } /* @media xs */
 
 /* Small - Tablet */
@@ -317,7 +316,6 @@ Bootstrap Media Queries
 
 /* Large - Desktop */
 @media(min-width:1200px){
-
 } /* @media lg */
 
 .propertiesSubHeader{
@@ -390,4 +388,47 @@ Bootstrap Media Queries
 .text-properties{
     color: #777;
     line-height: 1;
+}
+.tamanhoVideo{
+    max-width: 360px;
+    max-height: 228.5px;
+}
+@media screen and
+(min-width: 361px) and
+(max-width: 540px) {
+    .tamanhoVideo{
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
+    .heightVar{
+        height: 246.5px !important;
+    }
+}
+@media screen and
+(min-width: 541px) and
+(max-width: 660px) {
+    .tamanhoVideo{
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
+    .heightVar{
+        height: 310.5px !important;
+    }
+}
+@media screen and
+(min-width: 661px) and
+(max-width: 991px) {
+    .tamanhoVideo{
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
+    .heightVar{
+        height: 370.5px !important;
+    }
+}
+.propertiesVLibras{
+    z-index: 99999;
+}
+.heightVar{
+    height: 228.5px;
 }
