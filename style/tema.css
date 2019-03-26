@@ -394,8 +394,23 @@ Bootstrap Media Queries
     max-height: 228.5px;
 }
 @media screen and
+(min-width: 200px) and
+(max-width: 320px) {
+    .tamanhoVideo{
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
+    .heightVar{
+        height: 246.5px !important;
+    }
+    .dropdown-content {
+
+        left: 0px !important;
+    }
+}
+@media screen and
 (min-width: 361px) and
-(max-width: 540px) {
+(max-width: 418px) {
     .tamanhoVideo{
         max-width: 100% !important;
         max-height: 100% !important;
@@ -405,7 +420,40 @@ Bootstrap Media Queries
     }
 }
 @media screen and
+(min-width: 419px) and
+(max-width: 540px) {
+    .dropdown-content {
+
+        left: 0px !important;
+    }
+    .tamanhoVideo{
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
+    .heightVar{
+        height: 246.5px !important;
+    }
+}
+
+
+@media screen and
 (min-width: 541px) and
+(max-width: 591px) {
+    .dropdown-content {
+        left: 0px !important;
+    }
+
+    .tamanhoVideo{
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
+    .heightVar{
+        height: 310.5px !important;
+    }
+}
+
+@media screen and
+(min-width: 592px) and
 (max-width: 660px) {
     .tamanhoVideo{
         max-width: 100% !important;
