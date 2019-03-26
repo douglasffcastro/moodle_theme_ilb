@@ -763,34 +763,34 @@
     {{/username}}
     <!-- se está logado, exibe nome do usuário, login, boas vindas e opção para sair -->
     {{#username}}
-	
+
 	{{#cpf2}}
 		{{! Inserir modal do aviso caso o CPF seja duplicado e válido e o login foi migrado }}
 		<script>
 			$.ajax({url: "{{{ moodle_url }}}/login/logout.php?sesskey={{{ sessKey }}}", success: function(result){
-				alert("O usuário {{username}} foi desativado e seus certificados foram migrados para outro cadastro com mesmo CPF. " + 
-					"\n\nCaso tenha dificuldades com seu acesso, favor entrar em conosco pelo e-mail ilbead@senado.leg.br.\n\n" + 
+				alert("O usuário {{username}} foi desativado e seus certificados foram migrados para outro cadastro com mesmo CPF. " +
+					"\n\nCaso tenha dificuldades com seu acesso, favor entrar em conosco pelo e-mail ilbead@senado.leg.br.\n\n" +
 					"Atenciosamente, \nEquipe de Ensino a Distância do ILB"
 				);
 				window.location.replace("{{{ moodle_url }}}");
-			}});			
+			}});
 		</script>
 	{{/cpf2}}
 
-	{{#cpf3}}		
-		{{! Inserir modal do aviso caso o CPF seja duplicado e inválido, o usuário foi cancelado }}	
+	{{#cpf3}}
+		{{! Inserir modal do aviso caso o CPF seja duplicado e inválido, o usuário foi cancelado }}
 		<script>
 			$.ajax({url: "{{{ moodle_url }}}/login/logout.php?sesskey={{{ sessKey }}}", success: function(result){
-				alert("O usuário {{username}} foi desativado em virtude de haver outro cadastro com mesmo CPF. " + 
-					"\n\nCaso seja o titular do CPF informado, favor entrar em contato com ilbead@senado.leg.br para regularizar seu acesso.\n\n" + 
+				alert("O usuário {{username}} foi desativado em virtude de haver outro cadastro com mesmo CPF. " +
+					"\n\nCaso seja o titular do CPF informado, favor entrar em contato com ilbead@senado.leg.br para regularizar seu acesso.\n\n" +
 					"Atenciosamente, \nEquipe de Ensino a Distância do ILB"
 				);
 				window.location.replace("{{{ moodle_url }}}");
-			}});			
+			}});
 		</script>
 	{{/cpf3}}
 
-     
+
     <!-- JS do modal CPF (tem que ser inserido depois de #username) -->
     {{#loginChangeNotification}}
 	    <!-- Modal do CPF -->
@@ -806,10 +806,10 @@
 		    <p>A partir da próxima segunda-feira, 7/5/2018, o acesso à plataforma Saberes
 			será feito por meio de seu CPF e não mais pelo seu
 			nome de usuário. Sua senha permanece a mesma.</p>
-		    <p>Os certificados dos cursos que você 
+		    <p>Os certificados dos cursos que você
 		       participou serão mantidos, mesmo com essa mudança.</p>
-		    <p>Qualquer dúvida ou caso precise regularizar seu cadastro, 
-			entre em contato conosco pelo endereço de e-mail 
+		    <p>Qualquer dúvida ou caso precise regularizar seu cadastro,
+			entre em contato conosco pelo endereço de e-mail
 			ilbead@senado.leg.br</p><br>
 		    <p>Atenciosamente,</p>
 		    <p>Equipe de Ensino a Distância do ILB</p>
@@ -825,21 +825,21 @@
 		        $("#modalCPF").modal('hide');
 		    });
     		});
-    		$("#modalCPF").on("hide", function() {  
+    		$("#modalCPF").on("hide", function() {
     		    $("#modalCPF a.btn").off("click");
     		});
-    	       
+
     		$("#modalCPF").on("hidden", function() {
     		    $("#modalCPF").remove();
     		});
-    	       
-    		$("#modalCPF").modal({                  
+
+    		$("#modalCPF").modal({
     		  "backdrop"  : "static",
     		  "keyboard"  : true,
-    		  "show"      : true                    
+    		  "show"      : true
     		});
 	    </script>
-	     
+
 	    <!-- CSS para localização do modal do CPF no centro da tela e no topo para mobile -->
 	    <style>
 	    @media only screen and (min-width: 768px) {
@@ -901,37 +901,42 @@
         </div>
     </div>
     <div align='center'>
-        <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=134'><img src="{{{Cursos-on-line-sem-tutor}}}"></a>
-            <p>Cursos on-line sem tutoria</p>
+        <div class="row">
+            <div class="col-xs-6 col-md-3 text-center">
+                <a href='course/index.php?categoryid=134'><img src="{{{Cursos-on-line-sem-tutor}}}"></a>
+                <p>Cursos on-line sem tutoria</p>
+            </div>
+            <div class="col-xs-6 col-md-3 text-center">
+                <a href='course/index.php?categoryid=130'><img src="{{{Cursos-on-line}}}"></a>
+                <p>Cursos on-line com tutoria</p>
+            </div>
+            <div class="col-xs-6 col-md-3 text-center">
+                <a href='course/index.php?categoryid=102'><img src="{{{formacao_interna}}}"></a>
+                <p>Formação interna </p>
+            </div>
+            <div class="col-xs-6 col-md-3 text-center">
+                <a href='course/index.php?categoryid=46'><img src="{{{pos-graduacao}}}"></a>
+                <p>Pós-graduação</p>
+            </div>
+
         </div>
-        <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=130'><img src="{{{Cursos-on-line}}}"></a>
-            <p>Cursos on-line com tutoria</p>
-        </div>
-        <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=102'><img src="{{{formacao_interna}}}"></a>
-            <p>Formação interna </p>
-        </div>
-        <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=46'><img src="{{{pos-graduacao}}}"></a>
-            <p>Pós-graduação</p>
-        </div>
-        <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=112'><img src="{{{oficinas-interlegis}}}"></a>
-            <p>Oficinas Interlegis</p>
-        </div>
-        <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=127'><img src="{{{video-aula}}}"></a>
-            <p>Videoaulas</p>
-        </div>
-        <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=180'><img src="{{{projetos_especiais}}}"></a>
-            <p>Projetos Especiais</p>
-        </div>
-        <div class="col-xs-6 col-md-3 text-center">
-            <a href='course/index.php?categoryid=163'><img src="{{{conheca-senado}}}"></a>
-            <p>Conheça o Senado</p>
+        <div class="row">
+            <div class="col-xs-6 col-md-3 text-center">
+                <a href='course/index.php?categoryid=112'><img src="{{{oficinas-interlegis}}}"></a>
+                <p>Oficinas Interlegis</p>
+            </div>
+            <div class="col-xs-6 col-md-3 text-center">
+                <a href='course/index.php?categoryid=127'><img src="{{{video-aula}}}"></a>
+                <p>Videoaulas</p>
+            </div>
+            <div class="col-xs-6 col-md-3 text-center">
+                <a href='course/index.php?categoryid=180'><img src="{{{projetos_especiais}}}"></a>
+                <p>Projetos Especiais</p>
+            </div>
+            <div class="col-xs-6 col-md-3 text-center">
+                <a href='course/index.php?categoryid=163'><img src="{{{conheca-senado}}}"></a>
+                <p>Conheça o Senado</p>
+            </div>
         </div>
     </div>
     <div class="col-xs-12 col-md-12 col-lg-12" style="border: 1px solid grey;"></div>
