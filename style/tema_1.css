@@ -407,6 +407,10 @@ Bootstrap Media Queries
 
         left: 0px !important;
     }
+    .bemVindoHeight{
+        width: 100% !important;
+        height: 100% !important;
+    }
 }
 @media screen and
 (min-width: 361px) and
@@ -417,6 +421,10 @@ Bootstrap Media Queries
     }
     .heightVar{
         height: 246.5px !important;
+    }
+    .bemVindoHeight{
+        width: 100% !important;
+        height: 100% !important;
     }
 }
 @media screen and
@@ -432,6 +440,10 @@ Bootstrap Media Queries
     }
     .heightVar{
         height: 246.5px !important;
+    }
+    .bemVindoHeight{
+        width: 100% !important;
+        height: 100% !important;
     }
 }
 
@@ -450,6 +462,10 @@ Bootstrap Media Queries
     .heightVar{
         height: 310.5px !important;
     }
+    .bemVindoHeight{
+        width: 100% !important;
+        height: 100% !important;
+    }
 }
 
 @media screen and
@@ -462,6 +478,10 @@ Bootstrap Media Queries
     .heightVar{
         height: 310.5px !important;
     }
+    .bemVindoHeight{
+        width: 100% !important;
+        height: 100% !important;
+    }
 }
 @media screen and
 (min-width: 661px) and
@@ -473,10 +493,94 @@ Bootstrap Media Queries
     .heightVar{
         height: 370.5px !important;
     }
+    .bemVindoHeight{
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .mt-buttons{
+        margin-top: 1% !important;
+    }
+}
+
+@media screen and
+(min-width: 990px) and
+(max-width: 1199px) {
+    .paddingResponsible{
+        padding: 2% !important;
+    }
+    .tamanhoVideo{
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
+    .heightVar{
+        height: 218.33px !important;
+    }
+    .bemVindoHeight{
+        height: 218.33px !important;
+    }
+    .lessPaddingResponsible{
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    .BigScreen{
+        display: none !important;
+    }
+    .SmallScreen{
+        display: block !important;
+    }
+    .tamTela1000{
+        height: 120px !important;
+    }
 }
 .propertiesVLibras{
     z-index: 99999;
 }
 .heightVar{
-    height: 228.5px;
+    height: 229.34px;
+}
+.bemVindoHeight{
+    height: 229.34px;
+}
+.noPaddingLeft{
+    padding-left: 0px !important;
+    padding-right: 5px !important;
+}
+.withpaddingleft{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+.paddingResponsible{
+    padding: 5%;
+    justify-content: space-between;
+}
+.mt-buttons{
+    margin-top: 4%;
+}
+
+.BigScreen{
+    display: block;
+}
+.SmallScreen{
+    display: none;
+}
+
+.colunaEsq{
+    width: 50% !important;
+}
+.colunaDir{
+    width: 50% !important;
+}
+.paddingCol{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+
+@media screen and
+(min-width: 1200px) and
+(max-width: 4080px) {
+.paddingLeft5{
+    padding-left: 5px !important;
+}
+
 }

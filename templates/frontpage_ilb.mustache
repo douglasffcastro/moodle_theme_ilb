@@ -698,12 +698,12 @@
         </div>
 
         <!-- logotipo e texto -->
-        <div class="col-xs-12 col-md-4 text-center">
+        <div class="col-xs-12 col-md-4 text-center lessPaddingResponsible">
             <div style="background-color: #F7F7F7; border: 1px solid #E6E6E6; border-bottom: 0; padding: 11% 0 12% 0;">
                 <img src='{{{logo_saberes_xl}}}' width='48%' height='48%' />
             </div>
             <div >
-                <div class="col-xs-12" style="background-color: #0F5688; border: 1px solid #E6E6E6;">
+                <div class="col-xs-12 tamTela1000" style="background-color: #0F5688; border: 1px solid #E6E6E6;">
                     <p style="color: #FFFFFF; font-size: 16px; padding: 9% 0 9% 0;">
                         Cursos abertos e sem custo para a comunidade legislativa e os cidadãos
                     </p>
@@ -715,7 +715,7 @@
         </div>
         <!-- video  -->
 
-        <div class="tamanhoVideo col-xs-12 col-md-4 noCashing">
+        <div class="tamanhoVideo col-xs-12 col-md-4 noCashing lessPaddingResponsible">
             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/D6IMzbSh0KI" frameborder="0" allowfullscreen style="padding: 0;" class="heightVar"></iframe>
         </div>
 
@@ -862,9 +862,51 @@
     {{/loginChangeNotification}}
 
 
-    <div class="col-xs-12 col-md-4">
-        <div class="col-xs-12" style="background:#f7f7f7; border:1px solid #e6e6e6; padding-top: 3%;">
-            <h3 style="margin-top: auto; margin-bottom: 8%;">Bem-vindo ao Saberes!</h3>
+
+
+        <div class="col-xs-12 col-md-4 bemVindoHeight lessPaddingResponsible SmallScreen" style="background:#f7f7f7; border:1px solid #e6e6e6; ">
+            <div style="padding-top: 1.5%;">
+                <div class="row">
+                    <h3 style="margin-top: auto; margin-bottom: 5%;text-align: center; margin-left: 50px; margin-right: 50px;">Bem-vindo ao Saberes!</h3>
+                </div>
+                <div class="col-xs-6 paddingCol">
+                    <div class="col-xs-12">
+                        <p>
+                            <strong>Nome:</strong>
+                            <br />
+                            <span>{{{ firstname }}} {{{ lastname }}}</span>
+                        </p>
+                    </div>
+                    <div class="col-xs-12" style="padding-bottom: 10%;">
+                        <a href="{{{userprofileurl}}}"><img class="img-circle" alt="Foto do Perfil" src="{{{userpictureurl}}}" width="70px;" /></a>
+                    </div>
+                </div>
+                <div class="col-xs-6 paddingCol">
+                    <!-- {{{ output.user_menu }}} -->
+                    <div class="paddingResponsible" style="    padding-bottom: 1%;">
+                        <div class="noPaddingLeft mt-buttons">
+                            <a class="btn btn-success pull-left btn-block" href="{{{ moodle_url }}}/my">Meus Cursos</a>
+                        </div>
+                        <div class="noPaddingLeft mt-buttons">
+                            <a class="btn btn-primary pull-left btn-block" href="{{{ moodle_url }}}/blocks/get_certificate/index.php">Certificados</a>
+                        </div>
+                        <div class="noPaddingLeft mt-buttons">
+                            <a class="btn btn-danger pull-right btn-block" href="{{{ moodle_url }}}/login/logout.php?sesskey={{{ sessKey }}}">Sair</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    <div class="col-xs-12 col-md-4 bemVindoHeight lessPaddingResponsible BigScreen">
+        <div style="background:#f7f7f7; border:1px solid #e6e6e6; padding-top: 1.5%;">
+            <h3 style="margin-top: auto; margin-bottom: 8%;text-align: center;">Bem-vindo ao Saberes!</h3>
             <div class="col-xs-9">
                 <p>
                     <strong>Nome</strong>
@@ -876,17 +918,36 @@
                 <a href="{{{userprofileurl}}}"><img class="img-circle" alt="Foto do Perfil" src="{{{userpictureurl}}}" width="70px;" /></a>
             </div>
             <!-- {{{ output.user_menu }}} -->
-            <div class="col-xs-12 col-md-4 col-lg-4" style="padding-bottom: 5%; padding-right: 0;">
-                <a class="btn btn-primary pull-left" href="{{{ moodle_url }}}/my">Meus Cursos</a>
-            </div>
-            <div class="col-xs-12 col-md-4 col-lg-4" style="padding-bottom: 5%; padding-right: 0;">
-                <a class="btn btn-primary pull-left" href="{{{ moodle_url }}}/blocks/get_certificate/index.php">Certificados</a>
-            </div>
-            <div class="col-xs-12 col-md-4 col-lg-4" style="padding-bottom: 5%; padding-right: 0;">
-                <a class="btn btn-danger pull-right" href="{{{ moodle_url }}}/login/logout.php?sesskey={{{ sessKey }}}">Sair</a>
-            </div>
+           <div class="row paddingResponsible" style="    padding-bottom: 1%;">
+               <div class="col-xs-12 col-md-4 col-lg-4 noPaddingLeft mt-buttons paddingLeft5">
+                   <a class="btn btn-success pull-left btn-block" href="{{{ moodle_url }}}/my">Meus Cursos</a>
+               </div>
+               <div class="col-xs-12 col-md-4 col-lg-4 noPaddingLeft mt-buttons">
+                   <a class="btn btn-primary pull-left btn-block" href="{{{ moodle_url }}}/blocks/get_certificate/index.php">Certificados</a>
+               </div>
+               <div class="col-xs-12 col-md-4 col-lg-4 noPaddingLeft mt-buttons">
+                   <a class="btn btn-danger pull-right btn-block" href="{{{ moodle_url }}}/login/logout.php?sesskey={{{ sessKey }}}">Sair</a>
+               </div>
+           </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 {{/username}}
 <div class="col-xs-12 col-md-12 col-lg-12">
