@@ -1,4 +1,4 @@
-    /*########################################
+/*########################################
   Basic Style
   ########################################*/
 
@@ -24,21 +24,21 @@
     visibility: hidden;
 }
 .nodisplay {
-	  display: none;
+    display: none;
 }
 
 /**
 Table
 **/
 .table {
-  display: table;
-  width: 100%;
+    display: table;
+    width: 100%;
 }
 .tr {
-  display: table-row;
+    display: table-row;
 }
 .td {
-  display: table-cell;
+    display: table-cell;
 }
 
 
