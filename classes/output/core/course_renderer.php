@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_boost\output\core;
+namespace theme_ilb\output\core;
 defined('MOODLE_INTERNAL') || die();
 
 use moodle_url;
@@ -74,8 +74,12 @@ class course_renderer extends \core_course_renderer {
             'inputsize' => $inputsize,
             'value' => $value
         ];
+        if ($format != 'navbar') {
+            $helpicon = new \help_icon('coursesearch', 'core');
+            $data->helpicon = $helpicon->export_for_template($this);
+        }
 
-        return $this->render_from_template('theme_boost/course_search_form', $data);
+        return $this->render_from_template('theme_ilb/course_search_form', $data);
     }
 
 }

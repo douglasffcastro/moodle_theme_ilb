@@ -37,6 +37,9 @@
          "bodyattributes":""
     }
 }}
+
+
+
 <!-- Placeholders do template: não remover!!-->
 <!-- {{{ output.course_content_header }}} -->
 <!-- {{{ output.main_content }}}          -->
@@ -55,12 +58,13 @@
     <meta name="theme-color" content="#00305c" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Instituto Legislativo Brasileiro - ILB</title>
-    {{>theme_ilb/head}}
+    {{>theme_ilb/head_front}}
+
 </head>
 
 
 <body {{{ bodyattributes }}}>
-{{>theme_ilb/header}}
+{{>theme_ilb/header_front}}
 <!-- Logo e busca -->
 <div class="container">
     <section id="cabecalhoTopo">
@@ -1009,7 +1013,7 @@
 </div>
 <br />
 <!-- Rodapé completo -->
-</div>{{>theme_ilb/footer}}
+</div>{{>theme_ilb/footer_front}}
 </body>
 </html>
 {{#js}}

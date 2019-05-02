@@ -14,16 +14,13 @@
     You should have received a copy of the GNU General Public License
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
-
-
-<div class="container">
-<div class="col-lg-12">
-
 <form action="{{searchurl}}" id="{{id}}" method="get" class="form-inline">
     <fieldset class="coursesearchbox invisiblefieldset">
         <label for="{{inputid}}">{{#str}}searchcourses{{/str}}</label>
         <input id="{{inputid}}" name="search" type="text" size="{{inputsize}}" value="{{value}}" class="form-control">
         <button class="btn btn-secondary" type="submit">{{#str}}go{{/str}}</button>
+        {{#helpicon}}
+            {{>core/help_icon}}
+        {{/helpicon}}
     </fieldset>
 </form>
-
