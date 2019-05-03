@@ -163,6 +163,7 @@
                 <h4 style="color: #0F5688;">Validar Certificado</h4>
                 <p style="padding-top: 5%;">Digite o código do certificado para verificar:</p>
                 <form class="loginform" name="cert" method="post" action="blocks/verify_certificate/index.php">
+
                     <input type="text" name="certnumber" id="certnumber" size="10" value="" style="width:100%;">
                     <input type="hidden" name="list" id="list" value="8">
                     <div class="pull-right" style="padding-top: 5%;">
@@ -732,6 +733,8 @@
         {{^username}}
         <div class="col-xs-12 col-md-4">
             <form class="loginform" id="login" method="post" action="login/index.php">
+		<input type="hidden" name="logintoken" value="{{logintoken}}">
+
                 <div class="col-xs-12" style="background-color: #F7F7F7; border: 1px solid #E6E6E6; border-bottom: 0;">
                     <h4 style="color: #0F5688; border: 0;">ACESSO</h4>
                     <div class="c1 fld username">

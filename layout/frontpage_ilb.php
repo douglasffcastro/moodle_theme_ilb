@@ -99,7 +99,8 @@ if (isloggedin()) {
 	    'logo_saberes_xl' => $OUTPUT->image_url('logo_saberes_xl', 'theme'),
 	    'output' => $OUTPUT,
 	    'bodyattributes' => $bodyattributes,
-	    'moodle_url' => $CFG->wwwroot
+	    'moodle_url' => $CFG->wwwroot,
+	    'logintoken' => s(\core\session\manager::get_login_token())
 	];
 	
 }
