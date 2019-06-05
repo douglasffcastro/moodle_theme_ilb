@@ -674,7 +674,10 @@ span.editinstructions {
 }
 
 .coursebox .content .courseimage img {
-    max-width: 100px;
+/*
+Retirado por MGBF, para evitar tamanho reduzido na lista de cursos na categoria 
+max-width: 100px; 
+ */
     max-height: 100px;
 }
 

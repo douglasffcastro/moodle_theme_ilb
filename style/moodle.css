@@ -12139,7 +12139,7 @@ span.editinstructions {
   width: 40%; }
 
 .coursebox .content .courseimage img {
-  max-width: 100px;
+/*  max-width: 100px;*/
   max-height: 100px; }
 
 .coursebox .content .coursecat,
