@@ -274,7 +274,7 @@
 </style>
 {{> theme_ilb/head }}
 
-                    <!--
+<!--
                    {{{ output.main_content }}}
                    -->
 
@@ -305,11 +305,11 @@
                                 <img src="https://saberes.senado.leg.br/theme/image.php/ilb/theme/1559136669/logo_saberes_xl" id="icon" alt="User Icon" />
                             </div>
                             <form>
-                                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuário">
-                                <input type="password" id="password" class="fadeIn third" name="login" placeholder="Senha">
+                                <input type="text" id="username" class="fadeIn second" name="username" placeholder="Usuário" autocomplete="username">
+                                <input type="password" id="password" class="fadeIn third" name="password" placeholder="Senha" autocomplete="current-password">
                                 <a href="/moodle/login/forgot_password.php" style="width: 85%; display: inline-block; text-align: left;" class="fadeIn third">Esqueci minha senha</a>
                                 <div style="width: 85%;" class="alignloginbutton">
-                                    <button type="button" class="fadeIn fourth btn btn-success btn-lg btn-block" id="loginbtn">Login</button>
+                                    <button type="submit" class="fadeIn fourth btn btn-success btn-lg btn-block" id="loginbtn" style="cursor: pointer;">Login</button>
                                 </div>
                             </form>
                             <div id="formFooter">
@@ -319,7 +319,7 @@
                     </div>
                     <!--
                     {{{ output.course_content_header }}}
-                    {{{ output.course_content_footer }}}
+                        {{{ output.course_content_footer }}}
                     -->
 
                 </section>
@@ -333,5 +333,5 @@
 </body>
 </html>
 {{#js}}
-require(['theme_ilb/loader']);
+    require(['theme_ilb/loader']);
 {{/js}}
