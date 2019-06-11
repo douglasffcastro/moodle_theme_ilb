@@ -1,8 +1,29 @@
+
+@media screen and
+(min-width: 200px) and
+(max-width: 766px){
+    .course-card-view {
+        min-width: calc(100% - 0.5rem) !important;
+        max-width: calc(100% - 0.5rem) !important;
+    }
+}
+
+@media screen and
+(min-width: 767px) and
+(max-width: 991px){
+    .course-card-view {
+        min-width: calc(33% - 0.5rem) !important;
+        max-width: calc(33% - 0.5rem) !important;
+    }
+
+}
+
+
 .course-card-view {
     box-shadow: 5px 5px 9px -4px rgba($black, .1);
     padding-bottom: 4rem;
-    max-width: 16rem;
-    min-width: 12rem;
+    min-width: calc(25% - 0.5rem);
+    max-width: calc(25% - 0.5rem);
 
     .course-card-img div {
         height: 6.5rem;
