@@ -249,7 +249,7 @@ class course_renderer extends \core_course_renderer {
                 'data-toggle' => 'popover', 'data-placement' => 'right',
                 'data-content' => $chelper->get_course_formatted_summary($course,
                 array('noclean' => true, 'para' => false)), 'data-html' => 'true', 'tabindex' => '0', 'data-trigger' => 'focus'));
-            $content .= get_string('seemore', 'theme_trema');
+            $content .= 'Mais informações';
             $content .= html_writer::end_tag('div');
             $content .= html_writer::end_tag('div'); // End summary.
         }
@@ -269,7 +269,7 @@ class course_renderer extends \core_course_renderer {
             $url = file_encode_url("$CFG->wwwroot/pluginfile.php",
                 '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
                 $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
-            if ($isimage) {
+                if ($isimage) {
                 $contentimage = html_writer::start_tag('div', array('style' => "background-image:url('$url')",
                     'class' => 'card-img-top'));
                 $contentimage .= html_writer::end_tag('div');
@@ -284,6 +284,7 @@ class course_renderer extends \core_course_renderer {
             'class' => 'card-img-top'));
             $contentimage .= html_writer::end_tag('div');
         }
+
         return $contentimage;
     }
     /**
