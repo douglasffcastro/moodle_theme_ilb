@@ -295,38 +295,40 @@
         <p class="mb-0">Para poder acessar ao curso "CURSO GENÉRICO" é necessário realizar o login.</p>
     </div>
 
-    <div id="page" class="container-fluid mt-0">
-        <div id="page-content" class="row">
-            <div id="region-main-box" class="col-12">
-                <section id="region-main" class="col-12">
-                    <div class="wrapper fadeInDown" style="margin-top: 50px;">
-                        <div id="formContent">
-                            <div class="fadeIn second">
-                                <img src="https://saberes.senado.leg.br/theme/image.php/ilb/theme/1559136669/logo_saberes_xl" id="icon" alt="User Icon" />
-                            </div>
-                            <form>
-                                <input type="text" id="username" class="fadeIn second" name="username" placeholder="Usuário" autocomplete="username">
-                                <input type="password" id="password" class="fadeIn third" name="password" placeholder="Senha" autocomplete="current-password">
-                                <a href="/moodle/login/forgot_password.php" style="width: 85%; display: inline-block; text-align: left;" class="fadeIn third">Esqueci minha senha</a>
-                                <div style="width: 85%;" class="alignloginbutton">
-                                    <button type="submit" class="fadeIn fourth btn btn-success btn-lg btn-block" id="loginbtn" style="cursor: pointer;">Login</button>
+    <form class="loginform" id="login" method="post" action="index.php">
+        <input type="hidden" name="logintoken" value="{{logintoken}}">
+        <div id="page" class="container-fluid mt-0">
+            <div id="page-content" class="row">
+                <div id="region-main-box" class="col-12">
+                    <section id="region-main" class="col-12">
+                        <div class="wrapper fadeInDown" style="margin-top: 50px;">
+                            <div id="formContent">
+                                <div class="fadeIn second">
+                                    <img src="https://saberes.senado.leg.br/theme/image.php/ilb/theme/1559136669/logo_saberes_xl" id="icon" alt="User Icon" />
                                 </div>
-                            </form>
-                            <div id="formFooter">
-                                <a href="/moodle/login/signup.php" class="underlineHover" href="#">Cadastrar</a>
+                                <form>
+                                    <input type="text" id="login_username" class="fadeIn second" value="" name="username" placeholder="Usuário" autocomplete="username">
+                                    <input type="password" id="login_password" class="fadeIn third" value="" name="password" placeholder="Senha" autocomplete="current-password">
+                                    <a href="/moodle/login/forgot_password.php" style="width: 85%; display: inline-block; text-align: left;" class="fadeIn third">Esqueci minha senha</a>
+                                    <div style="width: 85%;" class="alignloginbutton">
+                                        <button type="submit" class="fadeIn fourth btn btn-success btn-lg btn-block" id="loginbtn" style="cursor: pointer;">Login</button>
+                                    </div>
+                                </form>
+                                <div id="formFooter">
+                                    <a href="/moodle/login/signup.php" class="underlineHover" href="#">Cadastrar</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--
-                    {{{ output.course_content_header }}}
-                        {{{ output.course_content_footer }}}
-                    -->
+                        <!--
+                        {{{ output.course_content_header }}}
+                            {{{ output.course_content_footer }}}
+                        -->
 
-                </section>
+                    </section>
+                </div>
             </div>
         </div>
-    </div>
-
+    </form>
     {{> theme_ilb/footer }}
 </div>
 
