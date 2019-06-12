@@ -1,7 +1,7 @@
 
 @media screen and
 (min-width: 200px) and
-(max-width: 766px){
+(max-width: 765px){
     .course-card-view {
         min-width: calc(100% - 0.5rem) !important;
         max-width: calc(100% - 0.5rem) !important;
@@ -9,8 +9,19 @@
 }
 
 @media screen and
-(min-width: 767px) and
-(max-width: 991px){
+(min-width: 766px) and
+(max-width: 986px){
+    .course-card-view {
+        min-width: calc(50% - 0.5rem) !important;
+        max-width: calc(50% - 0.5rem) !important;
+    }
+
+}
+
+
+@media screen and
+(min-width: 987px) and
+(max-width: 1250px){
     .course-card-view {
         min-width: calc(33% - 0.5rem) !important;
         max-width: calc(33% - 0.5rem) !important;
