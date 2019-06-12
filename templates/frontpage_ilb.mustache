@@ -59,10 +59,10 @@
 </head>
 
 <!-- set up the modal to start hidden and fade in and out -->
+<!--
 <div id="myModal" class="modal fade" style="z-index: 99999999;">
     <div class="modal-dialog" style="margin-top:10%; margin-bottom: 25%;margin-left: auto; margin-right: auto;">
         <div class="modal-content">
-            <!-- dialog body -->
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" style="float: right">&times;</button>
                 <img src="https://i.imgur.com/RvdbIoK.png" class="responsiveModal">
@@ -70,9 +70,10 @@
         </div>
     </div>
 </div>
+-->
 
 <!-- sometime later, probably inside your on load event callback -->
-<script>
+<script> /*
     $("#myModal").on("show", function() {    // wire up the OK button to dismiss the modal when shown
         $("#myModal a.btn").on("click", function(e) {
             console.log("button pressed");   // just as an example...
@@ -92,7 +93,7 @@
         "backdrop"  : "static",
         "keyboard"  : true,
         "show"      : true                     // ensure the modal is shown immediately
-    });
+    }); */
 </script>
 
 <body {{{ bodyattributes }}}>
@@ -153,16 +154,14 @@
     </section>
     <div class="alert alert-danger alert-dismissable" style="padding: 2%;">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true" style="float: right;">×</button>
-        <strong> Aviso Manutenção Saberes na Páscoa</strong><br>
+        <strong> Aviso Manutenção Saberes</strong><br>
         <br>
         Prezados estudantes,<br>
         <br>
-        A plataforma Saberes estará fora do ar, a partir das 12 h da quinta-feira, dia 18.04 até às 22 hs de domingo, 21.04. para manutenção do sistema elétrico do Data Center do Senado Federal.
-        Os dias em manutenção serão compensados automaticamente para que todos concluam seus estudos na plataforma.<br>
+        A plataforma Saberes estará fora do ar, a partir das 18 h da terça-feira, dia 18.06 até às 12 hs de quarta-feira, 19.06, para atualização.
+        As horas de indisponibilidade serão compensadas automaticamente para que todos concluam seus estudos na plataforma.<br>
         <br>
         Agradecemos a sua compreensão.<br>
-        <br>
-        Aproveitamos para desejar a todos uma Feliz Páscoa.<br>
         <br>
         Atenciosamente,<br>
         <br>
