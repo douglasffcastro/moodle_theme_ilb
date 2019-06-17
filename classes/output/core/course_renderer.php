@@ -136,7 +136,7 @@ class course_renderer extends \core_course_renderer {
             $content .= $morelink;
         }
         $content .= html_writer::end_tag('div'); // End courses.
-        
+
         return $content;
     }
     /**
@@ -255,7 +255,7 @@ class course_renderer extends \core_course_renderer {
         }
         return $content;
     }
-    /**
+    /** <img src=""
      * Returns the first course's summary issue
      *
      * @param stdClass $course the course object
@@ -270,9 +270,9 @@ class course_renderer extends \core_course_renderer {
                 '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
                 $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
                 if ($isimage) {
-                $contentimage = html_writer::start_tag('div', array('style' => "background-image:url('$url')",
-                    'class' => 'card-img-top'));
-                $contentimage .= html_writer::end_tag('div');
+                $contentimage = html_writer::start_tag('img', array('src' => "$url",
+                    'class' => 'card-img-top minheight'));
+                $contentimage .= html_writer::end_tag('img');
                 break;
             }
         }
@@ -281,7 +281,7 @@ class course_renderer extends \core_course_renderer {
             $pattern->setColor($this->coursecolor($course->id));
             $pattern->patternbyid($course->id);
             $contentimage = html_writer::start_tag('div', array('style' => "background-image:url('{$pattern->datauri()}')",
-            'class' => 'card-img-top'));
+            'class' => 'card-img-top minheight'));
             $contentimage .= html_writer::end_tag('div');
         }
 

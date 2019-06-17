@@ -29,7 +29,12 @@
 
 }
 
+@media screen and
+(min-width: 1251px) and
+(max-width: 4080px){
 
+
+}
 .course-card-view {
     box-shadow: 5px 5px 9px -4px rgba($black, .1);
     padding-bottom: 4rem;
@@ -60,3 +65,7 @@ body#page-enrol-index {
     }
 }
 
+
+.minheight{
+    background-position: top center !important;
+}
