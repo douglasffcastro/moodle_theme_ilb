@@ -205,7 +205,9 @@ class course_renderer extends \core_course_renderer {
         $content .= $this->get_course_summary_image($course);
         $content .= html_writer::end_tag('a');
         $content .= html_writer::start_tag('div', array('class' => 'card-body'));
-        $content .= "<h5 class='card-title text-center m-1'>". $coursenamelink ."</h5>";
+
+
+        $content .= "<div class='elegantshd textCardEdited'>". $coursenamelink ."</div>";
         $content .= html_writer::end_tag('div');
         $content .= html_writer::start_tag('div', array('class' => 'card-block text-center'));
         // Print enrolmenticons.
