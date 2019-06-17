@@ -243,8 +243,8 @@ class course_renderer extends \core_course_renderer {
         }
         // Display course summary.
         if ($course->has_summary()) {
-            $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center'));
-            $content .= html_writer::start_tag('div', array('class' => 'btn btn-secondary m-2',
+            $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center teste'));
+            $content .= html_writer::start_tag('div', array('class' => 'btn btn-mais-info m-2',
                 'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-region' => 'popover-region-toggle',
                 'data-toggle' => 'popover', 'data-placement' => 'right',
                 'data-content' => $chelper->get_course_formatted_summary($course,
