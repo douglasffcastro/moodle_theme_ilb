@@ -125,7 +125,7 @@ class course_renderer extends \core_course_renderer {
         $coursecount = 1;
         $content .= html_writer::start_tag('div', array('class' => ' row card-deck my-4'));
         foreach ($courses as $course) {
-            $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view boxCursos');
+            $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view boxCursos tamanhoBoxCursos');
             $coursecount ++;
         }
         $content .= html_writer::end_tag('div');
