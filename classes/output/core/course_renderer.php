@@ -205,21 +205,8 @@ class course_renderer extends \core_course_renderer {
         $content .= $this->get_course_summary_image($course);
         $content .= html_writer::end_tag('a');
         $content .= html_writer::start_tag('div', array('class' => 'card-body'));
-
-
         $content .= "<div class='elegantshd textCardEdited'>". $coursenamelink ."</div>";
         $content .= html_writer::end_tag('div');
-        $content .= html_writer::start_tag('div', array('class' => 'card-block text-center'));
-        // Print enrolmenticons.
-        if ($icons = enrol_get_course_info_icons($course)) {
-            foreach ($icons as $pixicon) {
-                $content .= $this->render($pixicon);
-            }
-        }
-        $content .= html_writer::start_tag('div', array('class' => 'pull-right'));
-        $content .= html_writer::end_tag('div'); // End pull-right.
-        $content .= html_writer::end_tag('div'); // End card-block.
-        // Display course contacts. See core_course_list_element::get_course_contacts().
         if ($course->has_course_contacts()) {
             $content .= html_writer::start_tag('div', array('class' => 'card-footer teachers'));
             $content .= html_writer::start_tag('ul');
