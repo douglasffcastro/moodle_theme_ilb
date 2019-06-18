@@ -207,19 +207,19 @@ class course_renderer extends \core_course_renderer {
         $content .= html_writer::start_tag('div', array('class' => 'card-body'));
         $content .= "<div class='elegantshd textCardEdited'>". $coursenamelink ."</div>";
         $content .= html_writer::end_tag('div');
-        if ($course->has_course_contacts()) {
-            $content .= html_writer::start_tag('div', array('class' => 'card-footer teachers'));
-            $content .= html_writer::start_tag('ul');
-            foreach ($course->get_course_contacts() as $userid => $coursecontact) {
-                $name = $coursecontact['rolename'].': '.
-                    html_writer::link(new moodle_url('/user/view.php',
-                        array('id' => $userid, 'course' => SITEID)),
-                        $coursecontact['username']);
-                    $content .= html_writer::tag('li', $name);
-            }
-            $content .= html_writer::end_tag('ul'); // End teachers.
-            $content .= html_writer::end_tag('div'); // End teachers.
-        }
+        // if ($course->has_course_contacts()) {
+        //     $content .= html_writer::start_tag('div', array('class' => 'card-footer teachers'));
+        //     $content .= html_writer::start_tag('ul');
+        //     foreach ($course->get_course_contacts() as $userid => $coursecontact) {
+        //         $name = $coursecontact['rolename'].': '.
+        //             html_writer::link(new moodle_url('/user/view.php',
+        //                 array('id' => $userid, 'course' => SITEID)),
+        //                 $coursecontact['username']);
+        //             $content .= html_writer::tag('li', $name);
+        //     }
+        //     $content .= html_writer::end_tag('ul'); // End teachers.
+        //     $content .= html_writer::end_tag('div'); // End teachers.
+        // }
         // Display course category if necessary (for example in search results).
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
             if ($cat = core_course_category::get($course->category, IGNORE_MISSING)) {
