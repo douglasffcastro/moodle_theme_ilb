@@ -125,7 +125,7 @@ class course_renderer extends \core_course_renderer {
         $coursecount = 1;
         $content .= html_writer::start_tag('div', array('class' => ' row card-deck my-4'));
         foreach ($courses as $course) {
-            $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view boxCursos');
+            $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view boxCursos tamanhoBoxCursos');
             $coursecount ++;
         }
         $content .= html_writer::end_tag('div');
@@ -200,24 +200,13 @@ class course_renderer extends \core_course_renderer {
         $coursename = $chelper->get_course_formatted_name($course);
         $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
         $coursenamelink = html_writer::link($courseurl,
-            $coursename, array('class' => $course->visible ? '' : 'dimmed'));
+            $coursename, array('class' => $course->visible ? 'propertiesTextColor' : 'dimmed propertiesTextColor'));
         $content = html_writer::start_tag('a', array ('href' => $courseurl, 'class' => 'course-card-img'));
         $content .= $this->get_course_summary_image($course);
         $content .= html_writer::end_tag('a');
         $content .= html_writer::start_tag('div', array('class' => 'card-body'));
-        $content .= "<h5 class='card-title text-center m-1'>". $coursenamelink ."</h5>";
+        $content .= "<div class='elegantshd textCardEdited'>". $coursenamelink ."</div>";
         $content .= html_writer::end_tag('div');
-        $content .= html_writer::start_tag('div', array('class' => 'card-block text-center'));
-        // Print enrolmenticons.
-        if ($icons = enrol_get_course_info_icons($course)) {
-            foreach ($icons as $pixicon) {
-                $content .= $this->render($pixicon);
-            }
-        }
-        $content .= html_writer::start_tag('div', array('class' => 'pull-right'));
-        $content .= html_writer::end_tag('div'); // End pull-right.
-        $content .= html_writer::end_tag('div'); // End card-block.
-        // Display course contacts. See core_course_list_element::get_course_contacts().
         if ($course->has_course_contacts()) {
             $content .= html_writer::start_tag('div', array('class' => 'card-footer teachers'));
             $content .= html_writer::start_tag('ul');
@@ -243,14 +232,19 @@ class course_renderer extends \core_course_renderer {
         }
         // Display course summary.
         if ($course->has_summary()) {
-            $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center'));
-            $content .= html_writer::start_tag('div', array('class' => 'btn btn-secondary m-2',
+
+            $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center teste'));
+            $content .= html_writer::start_tag('div', array('class' => 'btn btn-inscrever'));
+            $content .= 'Inscrever';
+            $content .= html_writer::end_tag('div');
+            $content .= html_writer::start_tag('div', array('class' => 'btn btn-mais-info m-2',
                 'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-region' => 'popover-region-toggle',
                 'data-toggle' => 'popover', 'data-placement' => 'right',
                 'data-content' => $chelper->get_course_formatted_summary($course,
                 array('noclean' => true, 'para' => false)), 'data-html' => 'true', 'tabindex' => '0', 'data-trigger' => 'focus'));
             $content .= 'Mais informações';
             $content .= html_writer::end_tag('div');
+
             $content .= html_writer::end_tag('div'); // End summary.
         }
         return $content;
