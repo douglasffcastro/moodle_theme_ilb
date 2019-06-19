@@ -230,23 +230,29 @@ class course_renderer extends \core_course_renderer {
                     $content .= html_writer::end_tag('div'); // End coursecat.
             }
         }
+
         // Display course summary.
-        if ($course->has_summary()) {
 
             $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center teste'));
-            $content .= html_writer::start_tag('div', array('class' => 'btn btn-inscrever'));
-            $content .= 'Inscrever';
-            $content .= html_writer::end_tag('div');
-            $content .= html_writer::start_tag('div', array('class' => 'btn btn-mais-info m-2',
-                'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-region' => 'popover-region-toggle',
-                'data-toggle' => 'popover', 'data-placement' => 'right',
-                'data-content' => $chelper->get_course_formatted_summary($course,
-                array('noclean' => true, 'para' => false)), 'data-html' => 'true', 'tabindex' => '0', 'data-trigger' => 'focus'));
-            $content .= 'Mais informações';
-            $content .= html_writer::end_tag('div');
-
+            if ($icons = enrol_get_course_info_icons($course)) {
+                $content .= html_writer::start_tag('div', 
+                    array('class' => 'btn btn-inscrever',
+                          'onclick'=>"window.location.href='" . $courseurl . "';")
+                );
+                $content .= 'Inscrever';
+                $content .= html_writer::end_tag('div');
+            }
+            //if ($course->has_summary() && false) {
+                $content .= html_writer::start_tag('div', array('class' => 'btn btn-mais-info m-2',
+                    'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-region' => 'popover-region-toggle',
+                    'data-toggle' => 'popover', 'data-placement' => 'right',
+                    'data-content' => $chelper->get_course_formatted_summary($course,
+                    array('noclean' => true, 'para' => false)), 'data-html' => 'true', 'tabindex' => '0', 'data-trigger' => 'focus'));
+                $content .= 'Mais informações';
+                $content .= html_writer::end_tag('div');
+            //}
             $content .= html_writer::end_tag('div'); // End summary.
-        }
+        
         return $content;
     }
     /** <img src=""
