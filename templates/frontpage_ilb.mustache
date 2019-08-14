@@ -705,7 +705,16 @@
         </div>
 
         <!-- logotipo e texto -->
+        {{#habilitar_destaque}}
         <div class="col-xs-12 col-md-4 text-center lessPaddingResponsible">
+            <a href='{{{moodle_url}}}/course/view.php?id={{{curso_destaque}}}'>
+            <img src='{{{imagem_destaque}}}' style="padding: 0 !important" class="col-xs-12 text-center lessPaddingResponsible"/>
+            </a>
+        </div>
+        {{/habilitar_destaque}}
+        {{^habilitar_destaque}}
+        <div class="col-xs-12 col-md-4 text-center lessPaddingResponsible">
+           
             <div style="background-color: #F7F7F7; border: 1px solid #E6E6E6; border-bottom: 0; padding: 11% 0 12% 0;">
                 <img src='{{{logo_saberes_xl}}}' width='48%' height='48%' />
             </div>
@@ -717,6 +726,9 @@
                 </div>
             </div>
         </div>
+        {{/habilitar_destaque}}
+
+
         <div class="col-xs-12 hidden-md hidden-lg">
             <br />
         </div>

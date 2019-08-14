@@ -24,6 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2019050200;
+$plugin->version   = 2019081401;
 $plugin->requires  = 2018112800;
 $plugin->component = 'theme_ilb';

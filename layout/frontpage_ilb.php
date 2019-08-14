@@ -28,6 +28,12 @@ require_once($CFG->libdir . '/../config.php');
 
 $bodyattributes = $OUTPUT->body_attributes([]);
 
+
+$habilitar_destaque = $this->page->theme->settings->habilitar_destaque;
+$curso_destaque = $this->page->theme->settings->curso_destaque;
+$imagem_destaque = $this->page->theme->settings->imagem_destaque;
+
+
 if (isloggedin()) {
 	user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 	require_once($CFG->libdir . '/behat/lib.php');
@@ -78,6 +84,9 @@ if (isloggedin()) {
 		'moodle_url' => $CFG->wwwroot,
 		'userpictureurl' => $user_picture_url,
 		'userprofileurl' => $user_profile_url,
+		'habilitar_destaque' => $habilitar_destaque,
+		'imagem_destaque' => $imagem_destaque,
+		'curso_destaque' => $curso_destaque
 	];
 
 
@@ -100,7 +109,10 @@ if (isloggedin()) {
 	    'output' => $OUTPUT,
 	    'bodyattributes' => $bodyattributes,
 	    'moodle_url' => $CFG->wwwroot,
-	    'logintoken' => s(\core\session\manager::get_login_token())
+	    'logintoken' => s(\core\session\manager::get_login_token()),
+		'habilitar_destaque' => $habilitar_destaque,
+		'imagem_destaque' => $imagem_destaque,
+		'curso_destaque' => $curso_destaque
 	];
 	
 }
