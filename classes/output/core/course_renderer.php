@@ -51,6 +51,33 @@ require_once($CFG->dirroot . '/course/renderer.php');
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class course_renderer extends \core_course_renderer {
+
+    // Renderiza caixa de informações de curso
+    // @param $displayCourseInfo indica se deve exibir informações do curso à direita (true)
+    //        ou em botão "Mais Informações" (false)
+    public function course_info_box(stdClass $course, $displayCourseInfo = false) {
+        $content = '<div class="row">';
+        
+        $content .= '<div class="box generalbox info">';
+        $chelper = new coursecat_helper();
+        $chelper->set_show_courses(self::COURSECAT_SHOW_COURSES_EXPANDED);
+        
+        $content .= $this->coursecat_coursebox($chelper, $course, '', $displayCourseInfo);
+        $content .= '</div>';
+        
+        if($displayCourseInfo) {
+            if ($course instanceof stdClass) {
+                $course = new core_course_list_element($course);
+            }
+            $content .= '<div class="col-sm-9">';
+            $content .= $chelper->get_course_formatted_summary($course, array('noclean' => true, 'para' => false));
+            $content .= '</div>';
+        }
+
+        $content .= '</div>';
+        return $content;
+    }
+
     /**
      * Renders the list of courses for frontpage and /course
      *
@@ -151,7 +178,8 @@ class course_renderer extends \core_course_renderer {
      *    depend on the course position in list - first/last/even/odd)
      * @return string
      */
-    protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
+
+    protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '', $displayCourseInfo = false) {
         global $CFG;
         if (!isset($this->strings->summary)) {
             $this->strings->summary = get_string('summary');
@@ -176,10 +204,12 @@ class course_renderer extends \core_course_renderer {
             'data-courseid' => $course->id,
             'data-type' => self::COURSECAT_TYPE_COURSE,
         ));
-        $content .= $this->coursecat_coursebox_content($chelper, $course);
+        $content .= $this->coursecat_coursebox_content($chelper, $course, $displayCourseInfo);
         $content .= html_writer::end_tag('div');
+
         // End coursebox.
         $content .= html_writer::end_tag('div');
+
         // End col-md-4.
         return $content;
     }
@@ -192,7 +222,7 @@ class course_renderer extends \core_course_renderer {
      * @param stdClass|core_course_list_element $course
      * @return string
      */
-    protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
+    protected function coursecat_coursebox_content(coursecat_helper $chelper, $course, $displayCourseInfo = false) {
         if ($course instanceof stdClass) {
             $course = new core_course_list_element($course);
         }
@@ -242,7 +272,7 @@ class course_renderer extends \core_course_renderer {
                 $content .= 'Inscrever';
                 $content .= html_writer::end_tag('div');
             }
-            //if ($course->has_summary() && false) {
+            if (!$displayCourseInfo) {
                 $content .= html_writer::start_tag('div', array('class' => 'btn btn-mais-info m-2',
                     'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-region' => 'popover-region-toggle',
                     'data-toggle' => 'popover', 'data-placement' => 'right',
@@ -250,7 +280,7 @@ class course_renderer extends \core_course_renderer {
                     array('noclean' => true, 'para' => false)), 'data-html' => 'true', 'tabindex' => '0', 'data-trigger' => 'focus'));
                 $content .= 'Mais informações';
                 $content .= html_writer::end_tag('div');
-            //}
+            }
             $content .= html_writer::end_tag('div'); // End summary.
         
         return $content;
