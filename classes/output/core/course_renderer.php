@@ -213,8 +213,6 @@ class course_renderer extends \core_course_renderer {
             $content = html_writer::start_tag('div', array('class' => $additionalclasses));
          }
          
-       
-
         $classes = '';
         if ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_EXPANDED) {
             $nametag = 'h5';
@@ -287,7 +285,8 @@ class course_renderer extends \core_course_renderer {
 
         // Display course summary.
             if($displayCourseInfo){
-                $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center', 'style' => 'padding: 5% !important;'));
+                $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center', 'style' => 'padding-bottom: 3px !important;'));
+                //$content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center'));
             }else{
                 $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center'));
             }        
