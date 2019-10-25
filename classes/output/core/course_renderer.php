@@ -69,30 +69,30 @@ class course_renderer extends \core_course_renderer {
 
         }else{
             $content = '<div class="row">';
-            
+
 
             $content .= '<div class="box generalbox info col-sm-3">';
-            
+
             $chelper = new coursecat_helper();
             $chelper->set_show_courses(self::COURSECAT_SHOW_COURSES_EXPANDED);
-            
+
 
             $content .= $this->coursecat_coursebox($chelper, $course, '', $displayCourseInfo);
             $content .= '</div>';
-            
-            
+
+
             if ($course instanceof stdClass) {
                 $course = new core_course_list_element($course);
             }
             $content .= '<div class="col-sm-9">';
-        
+
             $content .= $chelper->get_course_formatted_summary($course, array('noclean' => true, 'para' => false));
             $content .= '</div>';
-            
+
             $content .= '</div>';
             return $content;
         }
-        
+
     }
 
     /**
@@ -169,7 +169,7 @@ class course_renderer extends \core_course_renderer {
         $coursecount = 1;
         $content .= html_writer::start_tag('div', array('class' => ' row card-deck my-4'));
         foreach ($courses as $course) {
-            $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view boxCursos tamanhoBoxCursos');
+            $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view boxCursos tamanhoBoxCursos customPaddingBottom');
             $coursecount ++;
         }
         $content .= html_writer::end_tag('div');
@@ -212,7 +212,7 @@ class course_renderer extends \core_course_renderer {
          }else {
             $content = html_writer::start_tag('div', array('class' => $additionalclasses));
          }
-         
+
         $classes = '';
         if ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_EXPANDED) {
             $nametag = 'h5';
@@ -288,27 +288,50 @@ class course_renderer extends \core_course_renderer {
                 $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center', 'style' => 'padding-bottom: 3px !important;'));
                 //$content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center'));
             }else{
-                $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center'));
-            }        
+
+            }
             if ($icons = enrol_get_course_info_icons($course)) {
-                $content .= html_writer::start_tag('div', 
-                    array('class' => 'btn btn-inscrever',
+                $content .= html_writer::start_tag('div',
+                    array('class' => 'btn btn-inscrever sizeBlock bottomAlign',
                           'onclick'=>"window.location.href='" . $courseurl . "';")
+                );
+                $content .= 'Inscrever';
+                $content .= html_writer::end_tag('div');
+            }else{
+                $content .= html_writer::start_tag('div',
+                    array('class' => 'btn btn-inscrever sizeBlock disabledBotao bottomAlign')
                 );
                 $content .= 'Inscrever';
                 $content .= html_writer::end_tag('div');
             }
             if (!$displayCourseInfo) {
-                $content .= html_writer::start_tag('div', array('class' => 'btn btn-mais-info m-2',
-                    'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-region' => 'popover-region-toggle',
-                    'data-toggle' => 'popover', 'data-placement' => 'right',
-                    'data-content' => $chelper->get_course_formatted_summary($course,
-                    array('noclean' => true, 'para' => false)), 'data-html' => 'true', 'tabindex' => '0', 'data-trigger' => 'focus'));
+                $content .= html_writer::start_tag('button', array('class' => 'btn btn-mais-info sizeBlock bottomAlign', 'data-toggle' => 'modal', 'data-target' => "#course-popover-{$course->id}", 'data-backdrop' => 'static'));
                 $content .= 'Mais informações';
+                $content .= html_writer::end_tag('button');
+                $content .= html_writer::start_tag('div', array('class' => 'modal fade', 'tab-index' => '-1', 'role' => 'dialog',  'id' => "course-popover-{$course->id}", 'aria-hidden' => 'true'));
+                $content .= html_writer::start_tag('div', array('class' => 'modal-dialog modal-dialog-centered maxWidthModal', 'role' => 'document'));
+                $content .= html_writer::start_tag('div', array('class' => 'modal-content'));
+                $content .= html_writer::start_tag('div', array('class' => 'modal-header'));
+                $content .= html_writer::start_tag('h5', array('class' => 'modal-title'));
+                $content .= "<div>". $coursenamelink ."</div>";
+                $content .= html_writer::end_tag('h5');
+                $content .= html_writer::end_tag('div');
+                $content .= html_writer::start_tag('div', array('class' => 'modal-body'));
+                $content .= html_writer::start_tag('div');
+                $content .= $chelper->get_course_formatted_summary($course,
+                             array());
+                $content .= html_writer::end_tag('div');
+                $content .= html_writer::end_tag('div');
+                $content .= html_writer::start_tag('div', array('class' => 'modal-footer'));
+                $content .= html_writer::start_tag('button', array('class' => 'btn btnFechar', 'data-dismiss' => 'modal'));
+                $content .= 'Fechar';
+                $content .= html_writer::end_tag('button');
+                $content .= html_writer::end_tag('div');
+                $content .= html_writer::end_tag('div');
                 $content .= html_writer::end_tag('div');
             }
             $content .= html_writer::end_tag('div'); // End summary.
-        
+
         return $content;
     }
     /** <img src=""
@@ -407,3 +430,41 @@ class course_renderer extends \core_course_renderer {
 //     }
 
 // }
+//
+
+
+
+
+//$content .= html_writer::start_tag('div', array('class' => 'btn btn-mais-info m-2',
+//    'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-trigger' => 'click',
+//    'data-toggle' => 'popover', 'data-placement' => 'top',
+//    'data-content' => $chelper->get_course_formatted_summary($course,
+//        array('noclean' => true, 'para' => false)), 'data-html' => 'true', 'tabindex' => '0'));
+
+
+
+
+
+//$content .= 'Mais informações';
+//$content .= html_writer::end_tag('div');
+
+
+
+
+//
+//$content .= html_writer::start_tag('button', array('class' => 'btn btn-primary', 'data-toggle' => 'modal', 'data-target' => '#{$course->id'));
+//$content .= 'Mais informações';
+//$content .= html_writer::end_tag('button');
+//
+//$content .= html_writer::start_tag('div', array('class' => 'modal fade', 'tab-index' => '-1', 'role' => 'dialog',  'data-target' => '#{$course->id', 'aria-hidden' => 'true'));
+//$content .= html_writer::start_tag('div', array('class' => 'modal-dialog modal-dialog-centered', 'role' => 'document'));
+//$content .= html_writer::start_tag('div', array('class' => 'modal-content'));
+//$content .= html_writer::start_tag('div', array('class' => 'modal-body'));
+//$content .= html_writer::end_tag('div');
+//$content .= html_writer::start_tag('div', array('class' => 'modal-footer'));
+//$content .= html_writer::start_tag('button', array('class' => 'btn btn-secondary', 'data-dismiss' => 'modal'));
+//$content .= 'fechar';
+//$content .= html_writer::end_tag('button');
+//$content .= html_writer::end_tag('div');
+//$content .= html_writer::end_tag('div');
+//$content .= html_writer::end_tag('div');
