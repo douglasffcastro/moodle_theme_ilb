@@ -295,13 +295,13 @@ class course_renderer extends \core_course_renderer {
                     array('class' => 'btn btn-inscrever sizeBlock bottomAlign',
                           'onclick'=>"window.location.href='" . $courseurl . "';")
                 );
-                $content .= 'Inscrever';
+                $content .= 'Inscreva-se';
                 $content .= html_writer::end_tag('div');
             }else{
                 $content .= html_writer::start_tag('div',
                     array('class' => 'btn btn-inscrever sizeBlock disabledBotao bottomAlign')
                 );
-                $content .= 'Inscrever';
+                $content .= 'Inscreva-se';
                 $content .= html_writer::end_tag('div');
             }
             if (!$displayCourseInfo) {
