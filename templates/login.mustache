@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_boost/login
+    @template theme_ilb/login
 
     Login page template
 
@@ -29,7 +29,7 @@
         }
     }
 }}
-{{> theme_boost/head }}
+{{> theme_ilb/head }}
 
 <body {{{ bodyattributes }}}>
 {{> core/local/toast/wrapper}}
@@ -68,8 +68,8 @@
 </body>
 </html>
 {{#js}}
-M.util.js_pending('theme_boost/loader');
-require(['theme_boost/loader'], function() {
-  M.util.js_complete('theme_boost/loader');
+M.util.js_pending('theme_ilb/loader');
+require(['theme_ilb/loader'], function() {
+  M.util.js_complete('theme_ilb/loader');
 });
 {{/js}}

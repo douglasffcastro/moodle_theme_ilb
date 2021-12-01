@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A maintenance layout for the boost theme.
+ * A maintenance layout for the ilb theme.
  *
- * @package   theme_boost
+ * @package   theme_ilb
  * @copyright 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -31,4 +31,4 @@ $templatecontext = [
     'output' => $OUTPUT
 ];
 
-echo $OUTPUT->render_from_template('theme_boost/maintenance', $templatecontext);
+echo $OUTPUT->render_from_template('theme_ilb/maintenance', $templatecontext);

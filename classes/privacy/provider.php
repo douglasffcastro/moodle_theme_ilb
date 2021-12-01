@@ -15,21 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy Subsystem implementation for theme_boost.
+ * Privacy Subsystem implementation for theme_ilb.
  *
- * @package    theme_boost
+ * @package    theme_ilb
  * @copyright  2018 Andrew Nicols <andrew@nicols.co.uk>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_boost\privacy;
+namespace theme_ilb\privacy;
 
 use \core_privacy\local\metadata\collection;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * The boost theme stores a user preference data.
+ * The ilb theme stores a user preference data.
  *
  * @copyright  2018 Andrew Nicols <andrew@nicols.co.uk>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -63,12 +63,12 @@ class provider implements
         $draweropennavpref = get_user_preferences(self::DRAWER_OPEN_NAV, null, $userid);
 
         if (isset($draweropennavpref)) {
-            $preferencestring = get_string('privacy:drawernavclosed', 'theme_boost');
+            $preferencestring = get_string('privacy:drawernavclosed', 'theme_ilb');
             if ($draweropennavpref == 'true') {
-                $preferencestring = get_string('privacy:drawernavopen', 'theme_boost');
+                $preferencestring = get_string('privacy:drawernavopen', 'theme_ilb');
             }
             \core_privacy\local\request\writer::export_user_preference(
-                'theme_boost',
+                'theme_ilb',
                 self::DRAWER_OPEN_NAV,
                 $draweropennavpref,
                 $preferencestring

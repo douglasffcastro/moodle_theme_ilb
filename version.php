@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Boost.
+ * Ilb.
  *
- * @package    theme_boost
+ * @package    theme_ilb
  * @copyright  2016 Frédéric Massart
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,4 +26,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->version   = 2021051700;
 $plugin->requires  = 2021051100;
-$plugin->component = 'theme_boost';
+$plugin->component = 'theme_ilb';
