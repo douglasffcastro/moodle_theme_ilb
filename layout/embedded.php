@@ -15,18 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * An embedded layout for the ilb theme.
+ * An embedded layout for the boost theme.
  *
- * @package   theme_ilb
+ * @package   theme_boost
  * @copyright 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
+$fakeblockshtml = $OUTPUT->blocks('side-pre', array(), 'aside', true);
+$hasfakeblocks = strpos($fakeblockshtml, 'data-block="_fake"') !== false;
+
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-    'output' => $OUTPUT
+    'output' => $OUTPUT,
+    'hasfakeblocks' => $hasfakeblocks,
+    'fakeblocks' => $fakeblockshtml,
 ];
 
-echo $OUTPUT->render_from_template('theme_ilb/embedded', $templatecontext);
+echo $OUTPUT->render_from_template('theme_boost/embedded', $templatecontext);

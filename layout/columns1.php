@@ -15,25 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A one column layout for the ilb theme.
+ * A one column layout for the boost theme.
  *
- * @package   theme_ilb
+ * @package   theme_boost
  * @copyright 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->libdir . '/../config.php');
-
 $bodyattributes = $OUTPUT->body_attributes([]);
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
-    'bodyattributes' => $bodyattributes,
-    'moodle_url' => $CFG->wwwroot
+    'bodyattributes' => $bodyattributes
 ];
 
-echo $OUTPUT->render_from_template('theme_ilb/columns1', $templatecontext);
+echo $OUTPUT->render_from_template('theme_boost/columns1', $templatecontext);
 

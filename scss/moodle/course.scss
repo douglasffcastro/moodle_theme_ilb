@@ -1,10 +1,5 @@
 /* course.less */
 /* COURSE CONTENT */
-.section-modchooser-link img {
-    margin-right: 0.5rem;
-    width: 16px;
-    height: 16px;
-}
 
 .section_add_menus {
     text-align: right;
@@ -42,10 +37,18 @@
     margin: 0;
 }
 
-.course-content ul.section {
-    margin: $spacer;
+body:not(.editing)  .sitetopic ul.section {
+    padding-left: 0;
+    .label .mod-indent-outer {
+        padding-left: 0;
+    }
 }
 
+@include media-breakpoint-up(sm) {
+    .course-content ul.section {
+        margin: $spacer;
+    }
+}
 .section {
     .side {
         &.left {
@@ -75,6 +78,7 @@
             position: absolute;
             right: 0;
             top: 0;
+            display: flex;
         }
 
         .contentwithoutlink,
@@ -85,7 +89,7 @@
             min-height: 2em;
 
             > a {
-                display: block;
+                display: inline-block;
                 text-indent: -31px;
                 padding-left: 31px;
             }
@@ -98,7 +102,7 @@
         }
 
         .stealth {
-            @extend .text-muted;
+            color: $text-muted;
         }
         a.stealth,
         a.stealth:hover {
@@ -113,10 +117,11 @@
             display: block;
             height: inherit;
         }
-
-        .mod-indent-outer {
-            padding-left: 24px;
-            display: block;
+        @include media-breakpoint-up(sm) {
+            .mod-indent-outer {
+                padding-left: 24px;
+                display: block;
+            }
         }
     }
 
@@ -196,12 +201,35 @@
 
 .section .activity.modtype_label.label {
     font-weight: normal;
-    padding: .2em;
+
+    // Remove min-height for labels so top and bottom paddings can be displayed more consistently.
+    .contentwithoutlink {
+        min-height: 0;
+    }
+
+    // When activity information is shown remove the bottom margin for the last p/i elements.
+    &.hasinfo {
+        p:last-child,
+        i:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .section li.activity {
     padding: .2em;
     clear: both;
+
+    &.hasinfo {
+        border-bottom: $border-width solid $table-border-color;
+        padding-top: map-get($spacers, 3);
+        padding-bottom: map-get($spacers, 3);
+
+        &:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
 }
 
 .section .activity .activityinstance .groupinglabel {
@@ -220,7 +248,7 @@
 
 .editing .section .activity:hover,
 .editing .section .activity.action-menu-shown {
-    background-color: $table-bg-accent;
+    background-color: $table-accent-bg;
 }
 
 .course-content .current {
@@ -229,9 +257,9 @@
 
 .course-content .current::before {
     content: "";
-    border-left: $brand-primary 2px solid;
+    border-left: $primary 2px solid;
     position: absolute;
-    left: -15px;
+    left: -$card-spacer-x;
     top: 0;
     bottom: 0;
 }
@@ -251,7 +279,7 @@
 }
 
 .course-content .section-summary .section-summary-activities .activity-count {
-    @extend .text-muted;
+    color: $text-muted;
     font-size: $font-size-sm;
     margin: 3px;
     white-space: nowrap;
@@ -315,31 +343,50 @@
     .sectionname > span,
     .content > div.summary,
     .activity .activityinstance {
-        @extend .text-muted;
+        color: $text-muted;
     }
 }
 
 .course-content ul.topics,
 .course-content ul.weeks {
     padding: 0;
+    margin: 0;
+    list-style: none;
 
     li.section {
-        padding-top: $spacer;
+        margin-top: $spacer;
         padding-bottom: $spacer;
-
         .content {
             margin: 0;
             padding: 0;
         }
 
-        .summary,
-        .content > .availabilityinfo {
-            margin-left: 25px;
+        @include media-breakpoint-up(sm) {
+            .summary,
+            .content > .availabilityinfo {
+                margin-left: 25px;
+            }
         }
 
-        .left {
-            padding-top: 0;
+        .left,
+        .right {
+            padding: 0 6px 0;
             text-align: right;
+            width: auto;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    body:not(.editing) {
+        .course-content ul.topics,
+        .course-content ul.weeks {
+            li.section {
+                .left,
+                .right {
+                    display: none;
+                }
+            }
         }
     }
 }
@@ -354,6 +401,11 @@
 
 .course-content li {
     &.section {
+        @include media-breakpoint-down(sm) {
+            ul {
+                padding-left: 0;
+            }
+        }
         ul {
             list-style: disc;
 
@@ -393,6 +445,10 @@
 
 .path-course-view.editing #region-main > .card-block {
     padding-bottom: 13rem;
+}
+
+.jumpmenu .form-inline {
+    display: block;
 }
 
 .path-course-view .completionprogress {
@@ -488,11 +544,6 @@ li.section.hidden span.commands a.editing_show {
     clear: both;
 }
 
-.section img.movetarget {
-    height: 16px;
-    width: 80px;
-}
-
 input.titleeditor {
     width: 330px;
     vertical-align: text-bottom;
@@ -509,13 +560,15 @@ span.editinstructions {
     margin-left: 30px;
     font-size: $font-size-sm;
     padding: .1em .4em;
-    background-color: $state-info-bg;
-    color: $state-info-text;
     text-decoration: none;
     z-index: 9999;
+    border: $alert-border-width solid transparent;
 
-    @include box-shadow(2px 2px 5px 1px #ccc);
-    border: 1px solid $state-info-border;
+    @include alert-variant(
+        theme-color-level('info', $alert-bg-level),
+        theme-color-level('info', $alert-border-level),
+        theme-color-level('info', $alert-color-level)
+    );
 }
 
 /* Course drag and drop upload styles */
@@ -525,14 +578,15 @@ span.editinstructions {
     width: 40%;
     margin: 0 30%;
     padding: 6px;
-    border: 1px solid $state-info-border;
     text-align: center;
-    background: $state-info-bg;
-    color: $state-info-text;
     z-index: 1; // Required in order to have this above relatively positioned course content@mixin
+    border: $alert-border-width solid transparent;
 
-    @include box-shadow(2px 2px 5px 1px #ccc);
-    @include border-radius(8px);
+    @include alert-variant(
+        theme-color-level('info', $alert-bg-level),
+        theme-color-level('info', $alert-border-level),
+        theme-color-level('info', $alert-color-level)
+    );
 }
 
 .dndupload-preview {
@@ -541,23 +595,6 @@ span.editinstructions {
     list-style: none;
     margin-top: .2em;
     padding: .3em;
-}
-
-.dndupload-progress-outer {
-    background-color: $progress-bg;
-    @include border-radius($progress-border-radius);
-    @include box-shadow($progress-box-shadow);
-    display: block;
-    width: 100%;
-    height: $spacer-y;
-    margin-bottom: $spacer-y;
-}
-
-.dndupload-progress-inner {
-    background-color: $progress-bar-color;
-    @include border-left-radius($progress-border-radius);
-    display: inline-block;
-    height: $spacer-y;
 }
 
 .dndupload-hidden {
@@ -579,7 +616,7 @@ span.editinstructions {
 
 #coursesearch {
     margin-top: 1em;
-    text-align: center;
+    text-align: left;
 }
 
 #page-course-pending .pendingcourserequests {
@@ -613,14 +650,16 @@ span.editinstructions {
 .coursebox > .info > .coursename,
 .coursebox .content .teachers,
 .coursebox .content .courseimage,
-.coursebox .content .coursefile {
+.coursebox .content .coursefile,
+.coursebox .content .customfields-container {
     float: left;
     clear: left;
 }
 
 .coursebox .content .teachers,
 .coursebox .content .courseimage,
-.coursebox .content .coursefile {
+.coursebox .content .coursefile,
+.coursebox .content .customfields-container {
     width: 40%;
 }
 
@@ -639,7 +678,8 @@ span.editinstructions {
     margin: 0;
 }
 
-.coursebox .moreinfo {
+.coursebox .moreinfo,
+.coursebox .enrolmenticons {
     padding: 3px 0;
     float: right;
 }
@@ -678,7 +718,8 @@ span.editinstructions {
 .coursebox .content .courseimage,
 .coursebox .content .coursefile,
 .coursebox .content .teachers,
-.coursebox.remotecoursebox .remotecourseinfo {
+.coursebox.remotecoursebox .remotecourseinfo,
+.coursebox .content .customfields-container {
     margin: 15px 5px 5px;
     padding: 0;
 }
@@ -697,16 +738,12 @@ span.editinstructions {
 
 .courses .coursebox {
     &.collapsed {
-        padding-top: $spacer-y / 2;
-        padding-bottom: $spacer-y / 2;
+        padding-top: $spacer / 2;
+        padding-bottom: $spacer / 2;
     }
 
     &.even {
-        background-color: $table-bg-accent;
-    }
-
-    &:hover {
-        background-color: $table-bg-hover;
+        background-color: $table-accent-bg;
     }
 }
 
@@ -841,7 +878,6 @@ span.editinstructions {
 
     .listing-actions {
         text-align: center;
-        padding: 0.4rem 0.3rem 0.3rem;
 
         > .moodle-actionmenu {
             display: inline-block;
@@ -859,20 +895,9 @@ span.editinstructions {
 
     .listitem {
 
-        > div {
-            &:hover {
-                background-color: $table-bg-hover;
-            }
-        }
-
         &[data-selected='1'] {
-            > div {
-                background-color: $table-bg-accent;
-            }
-
-            > div:hover {
-                background-color: $table-bg-hover;
-            }
+            border-left: calc(#{$list-group-border-width} + 5px) solid map-get($theme-colors, 'primary');
+            padding-left: calc(#{$list-group-item-padding-x} - 5px);
         }
     }
 
@@ -919,17 +944,16 @@ span.editinstructions {
             }
 
             .idnumber {
-                color: #a1a1a8;
                 margin-right: 2em;
             }
         }
         // The category or course is hidden.
         &[data-visible="0"] {
-            @extend .text-muted;
+            color: $text-muted;
 
             > div {
                 > a {
-                    @extend .text-muted;
+                    color: $text-muted;
                 }
 
                 .item-actions {
@@ -950,7 +974,7 @@ span.editinstructions {
             > div,
             > div:hover,
             &[data-selected='1'] > div {
-                background-color: $table-bg-hover;
+                background-color: $table-hover-bg;
             }
         }
     }
@@ -965,10 +989,6 @@ span.editinstructions {
 
             .coursename {
                 display: inline-block;
-            }
-
-            > div {
-                padding-left: 1rem;
             }
         }
 
@@ -988,25 +1008,6 @@ span.editinstructions {
         }
 
         .listitem {
-            > div {
-                > .ba-checkbox {
-                    width: 2.2em;
-                    text-align: center;
-                    margin: -1px 0.5em 0 0;
-                    padding-top: 2px;
-                }
-            }
-
-            &.highlight > div > .ba-checkbox {
-                background-color: $table-bg-hover;
-            }
-
-            &[data-selected='1'] > div > .ba-checkbox {
-                margin: 0 0.5em 0 0;
-                padding: 0;
-                background-color: inherit;
-            }
-
             &:first-child > div .item-actions .action-moveup,
             &:last-child > div .item-actions .action-movedown {
                 display: none;
@@ -1035,8 +1036,6 @@ span.editinstructions {
     }
 
     .detail-pair {
-        border-bottom: 1px solid $table-border-color;
-        margin: 0 1rem;
 
         > * {
             display: inline-block;
@@ -1068,13 +1067,13 @@ span.editinstructions {
         text-align: center;
 
         .yui3-button {
-            background-color: $btn-info-bg;
+            @include button-variant($info, $info);
             border: 0;
             margin: 0.4rem 0.2rem 0.45rem;
             font-size: 10.4px;
 
             &.active-page {
-                background-color: $btn-primary-color;
+                @include button-variant($primary, $primary);
             }
         }
     }
@@ -1083,7 +1082,7 @@ span.editinstructions {
         text-align: center;
 
         &.dimmed {
-            @extend .text-muted;
+            color: $text-muted;
             margin: 0.4rem 1rem 0.45rem;
         }
     }
@@ -1206,3 +1205,18 @@ span.editinstructions {
     font-size: 32px;
 }
 
+.activity-navigation {
+    .row {
+        align-items: center;
+    }
+    #prev-activity-link,
+    #next-activity-link {
+        white-space: pre-wrap;
+    }
+}
+
+.automatic-completion-conditions {
+    .badge {
+        font-size: 100%;
+    }
+}
