@@ -1,0 +1,207 @@
+/*########################################
+  Content
+  ########################################*/
+#content {
+/*   clear: both; */
+/*   font-size: 80%; */
+/*   line-height: 1.5em; */
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+  background-color: #f4f4f4;
+}
+
+/* mobile.css */
+@media handheld, screen and (max-device-width: 480px) {
+
+    input, textarea {
+        font-size: 15px !important;
+    }
+
+}
+
+/*########################################
+  Links
+  ########################################*/
+/* #content a:link, dl.portlet a:link { */
+/*     border-bottom: 0; */
+/*     color: #205C90; */
+/* } */
+#content a:hover, dl.portlet a:hover {
+    color: #6e91a1 !important;
+}
+
+/*########################################
+  Colunas do Plone
+  ########################################*/
+/* Conflito com bootstrap */
+div.row {
+  float: none;
+  width: auto;
+  position: static;
+  /* display: inline; */
+}
+
+/* Se possuir apenas a coluna central */
+
+#portal-column-content.width-full{
+    width: 100%;
+}
+
+div.position-0 {
+   margin-left: -100%;
+}
+
+/* Se possuir as duas colunas */
+
+div.width-1\:4.position-0 {
+    width: 16.75%;
+    margin-left:-100%;
+}
+div.position-3\:4 {
+    margin-left: -25.875% ;
+    width:25.75%;
+}
+
+div.position-1\:4 {
+    margin-left: -81.875% ;
+}
+
+div.width-1\:2 {
+    width: 54.75% ;
+}
+
+/* Apenas coluna central e lateral esquerda */
+
+div.width-3\:4 {
+    width: 73.75% ;
+}
+#portal-column-content.width-3\:4.position-1\:4 {
+    width: 81.75%;
+}
+
+/*########################################
+  Personal Tools
+  ########################################*/
+#portal-personaltools {
+    background-color: transparent;
+    padding: 0 0 0 16px;
+}
+#portal-personaltools dd {
+    background-color: #224F79;
+    padding-bottom: 0.5em;
+}
+#portal-personaltools-wrapper a:link,
+#portal-personaltools-wrapper a:visited {
+    color: #00305C;
+}
+#portal-personaltools .actionMenuContent a {
+    color: #ffffff;
+}
+
+/*########################################
+  Busca
+  ########################################*/
+.portletSearch fieldset {
+    background: white;
+    border: 1px solid #444444;
+    padding: 0px 10px;
+}
+#livesearchLegend {
+    background-color: #01305C;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+dl.portletSearch li {
+  margin-bottom: -8px;
+}
+
+input.searchPage {
+  color: #00305c;
+  font-size: 18px !important;
+  font-weight: bold;
+  margin-left: 15px;
+  padding: 8px;
+}
+#content .discreet {
+  color: #777;
+  font-size: 70%;
+  font-weight: normal;
+}
+
+/*########################################
+  Edit Bar
+  ########################################*/
+#edit-bar, #content-views, #contentActionMenus,
+#contentActionMenus dl.actionMenu a, #contentActionMenus dl.actionMenu.activated dd  {
+    background-color: #86ABD9;
+}
+#edit-bar {
+    border: 0.25em solid #86ABD9;
+    margin-top: 4px;
+    min-height: 4.3em;
+}
+#contentActionMenus {
+    height: 30px;
+}
+#contentActionMenus dl.actionMenu.activated dd {
+    border-bottom: 0.5em solid #86ABD9;
+}
+
+/*########################################
+  Portlets
+  ########################################*/
+dl.portlet dt, div.portletAssignments div.portletHeader {
+    background-color: #496388;
+    color: white;
+}
+.blockedPortlet{
+    background-color:#D8D8D8;
+}
+dl.portlet dt a:link, dl.portlet dt a:visited, dl.portlet dt a:hover {
+    color: white;
+}
+dl.portlet dt a:hover {
+    color: white !important;
+}
+.portletHeader a:link {
+    color: white;
+}
+
+/*########################################
+  Overlay
+  ########################################*/
+div.overlay.overlay-ajax {
+  margin-left: 16%;
+  width: 70%;
+}
+div.overlay.overlay-ajax li {
+  display: list-item;
+}
+
+/*########################################
+  Form
+  ########################################*/
+/* Calendar */
+form .field a.caltrigger {
+    width: 24px !important;
+    height: 24px !important;
+    background-size: cover !important;
+}
+form select.datetime-widget {
+  height: 27px;
+}
+#calroot {
+  background-color: #fefefe;
+  box-shadow: 0 0 15px #555;
+  width: 203px;
+}
+
+/* Checkbox */
+form .field span.option label span.label {
+    color: inherit;
+}
+
