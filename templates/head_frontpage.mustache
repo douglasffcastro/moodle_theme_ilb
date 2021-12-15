@@ -1,36 +1,47 @@
 {{!
-    This file is part of Moodle - http://moodle.org/
+This file is part of Moodle - http://moodle.org/
 
-    Moodle is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+Moodle is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-    Moodle is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+Moodle is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License
+along with Moodle. If not, see
+<http: //www.gnu.org/licenses />.
 }}
 {{!
-    Page header.
+Page header.
 }}
 {{{ output.doctype }}}
 <html {{{ output.htmlattributes }}}>
+
 <head>
-    <title>{{{ output.page_title }}}</title>
-    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
-    {{{ output.standard_head_html }}}
-    <!-- Latest compiled and minified CSS -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="DC.creator" content="master">
+    <meta name="DC.format" content="text/plain">
+    <meta name="DC.language" content="pt-br">
+    <meta name="DC.type" content="Folder">
+    <meta name="DC.distribution" content="Global">
+    <meta name="robots" content="ALL">
+    <meta name="distribution" content="Global">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Plone - http://plone.org">
+    <meta property="og:url" content="{{{moodle_url}}}">
+    <meta property="og:title" content="Instituto Legislativo Brasileiro - ILB">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="{{{moodle_url}}}/theme/ilb/portal_senado/image/logo_600x600.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="450">
+    <meta property="og:site_name" content="Portal Institucional do Senado Federal">
+    <base href="{{{moodle_url}}}/">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Adaptação tema ILB-->
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    {{> theme_ilb/head_institucional}} 
 </head>

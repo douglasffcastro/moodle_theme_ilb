@@ -1,0 +1,167 @@
+{{!
+This file is part of Moodle - http://moodle.org/
+
+Moodle is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Moodle is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Moodle. If not, see
+<http: //www.gnu.org/licenses />.
+}}
+{{!
+Frontpage: Menu Local.
+}}
+{{{ output.doctype }}}
+<div class="sf-wrapper">
+    <div class="menu-local">
+        <div class="pt-2">
+            <div class="nav_control-title">
+                <h1><a id="portal-home-link" href="https://www12.senado.leg.br/institucional"
+                        accesskey="0">Institucional</a><span class="next-title"><a href="{{{moodle_url}}}">Instituto
+                            Legislativo Brasileiro</a></span></h1>
+            </div>
+        </div>
+        <button class="btn_control-res btn btn-tertiary btn-lg" type="button" data-toggle="collapse.se"
+            data-target="#menu-local__form" aria-controls="menu-local__form" aria-expanded="false"
+            aria-label="Exibe busca"><i class="fas fa-search"></i></button>
+        <div class="menu-local__social"><a class="link link-deep--facebook"
+                href="https://www.facebook.com/SenadoFederal" title="Facebook" target="_blank"><i
+                    class="fab fa-facebook"></i></a><a class="link link-deep--twitter"
+                href="https://twitter.com/senadofederal" title="Twitter" target="_blank"><i
+                    class="fab fa-twitter"></i></a><a class="link link-deep--instagram"
+                href="https://www.instagram.com/senadofederal" title="Instagram" target="_blank"><i
+                    class="fab fa-instagram"></i></a><a class="link link-deep--youtube"
+                href="https://www.youtube.com/user/TVSenadoOficial" title="Youtube" target="_blank"><i
+                    class="fab fa-youtube"></i></a><a class="link link-deep--whatsapp"
+                href="https://www.youtube.com/user/TVSenadoOficial" title="WhatsApp" target="_blank"><i
+                    class="fab fa-whatsapp"></i></a><a class="link link-deep--flickr"
+                href="https://www.youtube.com/user/TVSenadoOficial" title="Flickr" target="_blank"><i
+                    class="fab fa-flickr"></i></a><a class="link link-deep--telegram"
+                href="https://www.youtube.com/user/TVSenadoOficial" title="Telegram" target="_blank"><i
+                    class="fab fa-telegram-plane"></i></a><a class="link link-deep--linkedin"
+                href="https://www.youtube.com/user/TVSenadoOficial" title="Linked In" target="_blank"><i
+                    class="fab fa-linkedin-in"></i></a></div>
+        <form class="menu-local__form collapse" id="menu-local__form" data-colecao="Institucional" method="get"
+            action="//www6g.senado.gov.br/busca/">
+            <div class="search-wrapper">
+                <input type="hidden" name="portal" value="Institucional">
+                <input class="form-control search-out" type="search" placeholder="Buscar" name="q" accesskey="3">
+                <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+    <nav class="navbar navbar_control navbar-expand-lg navbar--sf">
+        <div class="navbar-toggler navbar-toggler--sf" role="button" data-toggle="collapse.se"
+            data-target="#js-navbar-dropdown" aria-controls="js-navbar-dropdown" aria-expanded="false"
+            aria-label="Exibe navegação">
+            <button class="btn btn-secondary"><i class="fas fa-bars"></i></button>
+            <div class="ml-2">MENU DESTA SEÇÃO</div>
+        </div>
+        <div class="collapse navbar-collapse-se" id="js-navbar-dropdown">
+            <ul class="navbar-nav navbar-nav--sf">
+                <!-- Menu Principal -->
+
+                
+                <li class="nav-item"><a class="link link--nav" href="{{{moodle_url}}}">Eventos</a></li>
+
+
+                <li class="nav-item"><a class="link link--nav" href="{{{moodle_url}}}">Educação a Distância</a></li>
+
+
+                <li class="nav-item"><a class="link link--nav" href="{{{moodle_url}}}">Capacitação Corporativa</a></li>
+
+
+                <li class="nav-item"><a class="link link--nav" href="{{{moodle_url}}}">Pós-graduação</a></li>
+
+
+                <!--
+                <li class="nav-item"><a class="link link--nav"
+                        href="{{{moodle_url}}}/sobre">Sobre</a></li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="link link--nav dropdown-toggle" id="js-menu-1" data-toggle="dropdown.se"
+                        aria-haspopup="true" aria-expanded="false" href="#">Educação Superior</a>
+                    <div class="dropdown-menu dropdown-menu--sf" aria-labelledby="js-menu-1">
+
+
+                        <a class="dropdown-item"
+                            href="{{{moodle_url}}}/ed-superior-1/paginaposgraduacao">Cursos
+                            de Pós-graduação</a>
+
+
+                        <a class="dropdown-item"
+                            href="{{{moodle_url}}}/ed-superior-1/pesquisa-e-extensao">Pesquisa
+                            e Extensão</a>
+
+
+                        <a class="dropdown-item"
+                            href="{{{moodle_url}}}/ed-superior-1/base-de-dados-nacionais-e-internacionais">Base
+                            de Dados Nacionais e Internacionais</a>
+
+
+                        <a class="dropdown-item"
+                            href="{{{moodle_url}}}/ed-superior-1/indicadores-e-relatorios">Indicadores
+                            e Relatórios</a>
+
+
+                        <a class="dropdown-item"
+                            href="{{{moodle_url}}}/comissoes/comissao-permanente-de-avaliacao-cpa">Comissão
+                            Permanente de Avaliação</a>
+
+                    </div>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="link link--nav dropdown-toggle" id="js-menu-2" data-toggle="dropdown.se"
+                        aria-haspopup="true" aria-expanded="false" href="#">Cursos a Distância</a>
+                    <div class="dropdown-menu dropdown-menu--sf" aria-labelledby="js-menu-2">
+
+
+                        <a class="dropdown-item"
+                            href="{{{moodle_url}}}/cursos-a-distancia/cursos-on-line-sem-tutoria">Cursos
+                            on-line sem Tutoria</a>
+
+
+                        <a class="dropdown-item"
+                            href="{{{moodle_url}}}/cursos-a-distancia/cursos-on-line-com-tutoria">Cursos
+                            on-line com Tutoria</a>
+
+
+                        <a class="dropdown-item"
+                            href="{{{moodle_url}}}/cursos-a-distancia/videoaulas">Videoaulas</a>
+
+
+                    </div>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="link link--nav dropdown-toggle" id="js-menu-3" data-toggle="dropdown.se"
+                        aria-haspopup="true" aria-expanded="false" href="#">Comunicação</a>
+                    <div class="dropdown-menu dropdown-menu--sf" aria-labelledby="js-menu-3">
+
+
+                        <a class="dropdown-item"
+                            href="{{{moodle_url}}}/todas-noticias-edg">Notícias</a>
+
+
+                    </div>
+                </li>
+
+
+                <li class="nav-spacer"></li>
+
+                -->
+            </ul>
+        </div>
+    </nav>
+</div>
