@@ -13,60 +13,35 @@ along with Moodle. If not, see
 <http: //www.gnu.org/licenses />.
 }}
 {{!
-Page logged out navbar.
+    Page logged out navbar.
 }}
-<nav class="fixed-top navbar navbar-light bg-white navbar-expand moodle-has-zindex colorNarbarSenadoOriginal"
-    aria-label="{{#str}}sitemenubar, admin{{/str}}">
+<nav class="fixed-top navbar navbar-light bg-white navbar-expand moodle-has-zindex" aria-label="{{#str}}sitemenubar, admin{{/str}}">
 
-    <a href="{{{ config.wwwroot }}}" class="corTextoNav navbar-brand {{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }}
-            {{^ output.should_display_navbar_logo }}
-                d-none d-sm-inline
-            {{/ output.should_display_navbar_logo }}
-                ">
+    <a href="{{{ config.wwwroot }}}" class="navbar-brand aabtn {{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }}
+        {{^ output.should_display_navbar_logo }}
+            d-none d-sm-inline
+        {{/ output.should_display_navbar_logo }}
+            ">
         {{# output.should_display_navbar_logo }}
-        <span class="logo d-none d-sm-inline corTextoNav">
-            <img src="{{output.get_compact_logo_url}}" alt="{{sitename}}">
-        </span>
+            <span class="logo d-none d-sm-inline">
+                <img src="{{output.get_compact_logo_url}}" alt="{{sitename}}">
+            </span>
         {{/ output.should_display_navbar_logo }}
         <span class="site-name d-none d-md-inline">{{{ sitename }}}</span>
     </a>
 
-    <ul class="nav navbar-nav ml-auto corTextoNav">
-        <div class="d-none d-lg-block corTextoNav">
-            {{{ output.search_box }}}
-        </div>
+    <div class="ml-auto">
+        {{{ output.search_box }}}
+    </div>
+    <ul class="nav navbar-nav usernav">
         <!-- navbar_plugin_output -->
-        <li class="nav-item corTextoNav">
+        <li class="nav-item">
             {{{ output.navbar_plugin_output }}}
         </li>
         <!-- user_menu -->
-        <li class="nav-item d-flex align-items-center corTextoNav">
+        <li class="nav-item align-items-center pl-2">
             {{{ output.user_menu }}}
         </li>
     </ul>
     <!-- search_box -->
 </nav>
-
-<style>
-    .colorNarbarSenadoOriginal {
-        background-color: #00305c !important;
-        border-bottom: 4px solid #00824a;
-        box-shadow: 0 4px 0 #fae042;
-    }
-
-    .corTextoNav {
-        color: white !important;
-    }
-
-    .navbar-light .navbar-nav .nav-link {
-        color: white;
-    }
-
-    #dropdown-1 {
-        color: ;
-    }
-
-    .site-name {
-        font-weight: bold;
-    }
-</style>

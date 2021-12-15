@@ -59,5 +59,5 @@ $templatecontext = [
 $nav = $PAGE->flatnav;
 $templatecontext['flatnavigation'] = $nav;
 $templatecontext['firstcollectionlabel'] = $nav->get_collectionlabel();
-echo $OUTPUT->render_from_template('theme_ilb/frontpage', $templatecontext);
+echo $OUTPUT->render_from_template('theme_ilb/frontpage/frontpage_ilb', $templatecontext);
 
