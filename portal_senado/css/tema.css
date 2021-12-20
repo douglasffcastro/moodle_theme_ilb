@@ -45,7 +45,7 @@ a#portal-home-link {
     text-decoration:none;
 }
 #portal-breadcrumbs > ol > li + li::before {
-    content: "â€º\00a0";
+    content: "›";
     padding: 0 5px;
     color: #999;
 }
