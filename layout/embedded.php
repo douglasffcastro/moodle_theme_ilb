@@ -31,6 +31,7 @@ $templatecontext = [
     'output' => $OUTPUT,
     'hasfakeblocks' => $hasfakeblocks,
     'fakeblocks' => $fakeblockshtml,
+    'moodle_url' => $CFG->wwwroot
 ];
 
 echo $OUTPUT->render_from_template('theme_ilb/embedded', $templatecontext);
