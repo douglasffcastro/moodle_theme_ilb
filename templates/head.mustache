@@ -21,8 +21,12 @@
 <html {{{ output.htmlattributes }}}>
 <head>
     <title>{{{ output.page_title }}}</title>
-    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
+    <link rel="shortcut icon" href="{{{moodle_url}}}/theme/ilb/pix/favicon.ico" />
     {{{ output.standard_head_html }}}
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Estilos ILB -->
+    <link rel="stylesheet" href="{{{moodle_url}}}/theme/ilb/style/ilb/login.css">
+    <link rel="stylesheet" href="{{{moodle_url}}}/theme/ilb/style/ilb/navbar.css">
 </head>
