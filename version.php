@@ -27,3 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->version   = 2021051700;
 $plugin->requires  = 2021051100;
 $plugin->component = 'theme_ilb';
+$plugin->dependencies = [                                                                                                           
+  'theme_boost' => '2021051700'                                                                                                   
+];
