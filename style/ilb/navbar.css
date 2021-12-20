@@ -1,0 +1,24 @@
+.nav-ilb {
+  background-color: #00305c !important;
+  color: #fff;
+  border-bottom: 4px solid #00824a;
+  box-shadow: 0 4px 0 #fae042;
+}
+
+.site-name, .usernav {
+  color: #fff;
+}
+
+.d-inline-block .btn {
+  background-color: #fff !important;
+  border-radius: 5px !important;
+  padding: 5px 10px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
+.usertext {
+  color: #fff !important;
+}

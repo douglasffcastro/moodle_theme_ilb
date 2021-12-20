@@ -1,0 +1,148 @@
+.page-content {
+  margin: 0 70px;
+  padding: 0 15px;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Noto Sans,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+
+.content-header {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.content-header .container {
+  padding: 0;
+  margin: 0;
+}
+
+.portal-breadcrumbs ol{
+  margin-top: 5px;
+  padding-left: 0;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title h1 { 
+  margin: 0;
+  font-weight: 400;
+  font-size: 3.8rem;
+  letter-spacing: .5px;
+  color: #3E6892;
+}
+
+.painel-estudante, .ver-mais {
+  background-color: #424b80;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  color: #f1f1f1;
+  font-weight: bold;
+  text-align: center;
+  transition: all .6s ease;
+}
+
+.painel-estudante:hover, .ver-mais:hover {
+  background: rgb(1,91,158, .9);
+  box-shadow: 0 0 .2em #333;
+  top:-2px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.carousel, .carousel-inner, .carousel-control-prev, .carousel-control-next, .carousel-item {
+  height: 325px;
+}
+
+.d-block, .w-100 {
+  position: relative;
+  bottom: 50%;
+}
+
+.carousel-caption {
+  left: 0;
+  bottom: 0;
+  color: #333333;
+  text-shadow: none;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.carousel-caption::before {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #333333;
+  text-shadow: none;
+}
+
+.carousel-caption p{
+  margin: 10px 0;
+  color: #fff;
+  text-shadow: none;
+  font-size: 2.5rem;
+  padding: 0;
+  text-align: start;
+}
+
+.cursos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cursos .container-destaque {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.cursos .container-destaque .divider {
+  width: 1px;
+  background: #00305C;
+  margin: 0 20px;
+}
+
+.cursos-container {
+  width: 80%;
+}
+
+.cursos-container h2, .validacao-certificados h2 {
+  color: #00305C;
+  font-size: 2rem;
+}
+
+.cursos-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.validacao-certificados {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.curso-item:hover {
+  box-shadow: 0 0 .3em #333;
+}
+
+.curso-image {
+  max-height: 100px;
+}
+
+.qrcode-icon {
+  max-height: 70px;
+}
+
+.ver-mais {
+  margin-top: 20px;
+  margin-right: 220px;
+  width: 150px;
+  padding: 10px 0;
+  color: #fff;
+}
