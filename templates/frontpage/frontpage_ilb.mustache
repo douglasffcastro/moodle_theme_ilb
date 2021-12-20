@@ -1,36 +1,36 @@
 {{!
-    This file is part of Moodle - http://moodle.org/
+This file is part of Moodle - http://moodle.org/
 
-    Moodle is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+Moodle is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-    Moodle is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+Moodle is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with Moodle. If not, see
-    <http: //www.gnu.org/licenses />.
+You should have received a copy of the GNU General Public License
+along with Moodle. If not, see
+<http: //www.gnu.org/licenses />.
 }}
 {{!
-    @template theme_ilb/columns2
+@template theme_ilb/columns2
 
-    Admin time setting template.
+Admin time setting template.
 
-    Ilb 2 column layout template.
+Ilb 2 column layout template.
 
-    Context variables required for this template:
-    * sitename - The name of the site
-    * output - The core renderer for the page
-    * bodyattributes - attributes for the body tag as a string of html attributes
-    * sidepreblocks - HTML for the blocks
-    * hasblocks - true if there are blocks on this page
-    * navdraweropen - true if the nav drawer should be open on page load
-    * regionmainsettingsmenu - HTML for the region main settings menu
-    * hasregionmainsettingsmenu - There is a region main settings menu on this page.
+Context variables required for this template:
+* sitename - The name of the site
+* output - The core renderer for the page
+* bodyattributes - attributes for the body tag as a string of html attributes
+* sidepreblocks - HTML for the blocks
+* hasblocks - true if there are blocks on this page
+* navdraweropen - true if the nav drawer should be open on page load
+* regionmainsettingsmenu - HTML for the region main settings menu
+* hasregionmainsettingsmenu - There is a region main settings menu on this page.
 }}
 
 {{> theme_ilb/frontpage/head_frontpage}}
@@ -40,6 +40,111 @@
 
     {{> theme_ilb/frontpage/menu_local}}
 
+    <div class="page-content">
+        <div class="content-header">
+            <div class="header-title">
+                <h1>Instituto Legislativo Brasileiro (ILB)</h1>
+                <a class="painel-estudante" href="{{{moodle_url}}}/my">Painel do estudante</a>
+            </div>
+            <div class="container">
+                <div id="toolbar">
+                    <div id="portal-breadcrumbs" class="portal-breadcrumbs">
+                        <ol class="Breadcrumbs">
+                            <li id="breadcrumbs-you-are-here">
+                                Você está aqui:
+                            </li>
+                            <li id="breadcrumbs-home">
+
+                                <a href="https://www12.senado.leg.br/institucional">Página Inicial</a>
+
+                            </li>
+                            <li id="breadcrumbs-1">
+
+                                <span id="breadcrumbs-current">Instituto Legislativo Brasileiro</span>
+
+                            </li>
+                        </ol>
+                    </div>
+                    <div id="portal-login" class="portal-login"><ins></ins><a href="logout">Sair</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="{{{link_carrossel1}}}">
+                        <img src="{{{ imagem_carrossel1 }}}" class="d-block w-100" alt="">
+                    </a>
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>{{{legenda_carrossel1}}} <br /></p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <a href="{{{link_carrossel2}}}">
+                        <img src="{{{ imagem_carrossel2 }}}" class="d-block w-100" alt="">
+                    </a>
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>{{{legenda_carrossel2}}} <br /></p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <a href="{{{link_carrossel3}}}">
+                        <img src="{{{ imagem_carrossel3 }}}" class="d-block w-100" alt="">
+                    </a>
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>{{{legenda_carrossel3}}} <br /></p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="cursos">
+            <div class="container-destaque">
+                <div class="cursos-container">
+                    <h2>Cursos em destaque</h2>
+                    <div class="cursos-content">
+                        <a href="{{{moodle_url}}}/course/view.php?id={{{curso_destaque1}}}" class="curso-item">
+                            <img class="curso-image" src="{{{imagem_destaque1}}}" alt="">
+                        </a>
+
+                        <a href="{{{moodle_url}}}/course/view.php?id={{{curso_destaque2}}}" class="curso-item">
+                            <img class="curso-image" src="{{{imagem_destaque2}}}" alt="">
+                        </a>
+
+                        <a href="{{{moodle_url}}}/course/view.php?id={{{curso_destaque3}}}" class="curso-item">
+                            <img class="curso-image" src="{{{imagem_destaque3}}}" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="validacao-certificados">
+                    <h2>Validação<br />de certificados</h2>
+                    <a href="{{{moodle_url}}}" class="qrcode-link">
+                        <img src="{{{moodle_url}}}/theme/ilb/image/qrcode-icon.png" alt="" class="qrcode-icon">
+                    </a>
+                </div>
+            </div>
+            <a href="{{{moodle_url}}}/course/index.php?categoryid=3" class="ver-mais">Ver mais</a>
+        </div>
+    </div>
 
     <!--{{{ output.main_content }}}-->
     {{> theme_ilb/frontpage/footer_frontpage }}
@@ -48,18 +153,22 @@
     <script src="{{{moodle_url}}}/theme/ilb/portal_senado/js/essencial.js"></script>
     <script src="{{{moodle_url}}}/theme/ilb/portal_senado/js/tema.js"></script>
 
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
 {{#js}}
 M.util.js_pending('theme_ilb/loader');
 require(['theme_ilb/loader'], function() {
-    M.util.js_complete('theme_ilb/loader');
+M.util.js_complete('theme_ilb/loader');
 });
 
 M.util.js_pending('theme_ilb/drawer');
 require(['theme_ilb/drawer'], function(drawer) {
-    drawer.init();
-    M.util.js_complete('theme_ilb/drawer');
+drawer.init();
+M.util.js_complete('theme_ilb/drawer');
 });
 {{/js}}

@@ -33,6 +33,34 @@ if (isloggedin()) {
     $navdraweropen = false;
 }
 
+// Carrossel
+$habilitar_carrossel1 = $this->page->theme->settings->habilitar_carrossel1;
+$imagem_carrossel1 = $this->page->theme->settings->imagem_carrossel1;
+$link_carrossel1 = $this->page->theme->settings->link_carrossel1;
+$legenda_carrossel1 = $this->page->theme->settings->legenda_carrossel1;
+
+$habilitar_carrossel2 = $this->page->theme->settings->habilitar_carrossel2;
+$imagem_carrossel2 = $this->page->theme->settings->imagem_carrossel2;
+$link_carrossel2 = $this->page->theme->settings->link_carrossel2;
+$legenda_carrossel2 = $this->page->theme->settings->legenda_carrossel2;
+
+$habilitar_carrossel3 = $this->page->theme->settings->habilitar_carrossel3;
+$imagem_carrossel3 = $this->page->theme->settings->imagem_carrossel3;
+$link_carrossel3 = $this->page->theme->settings->link_carrossel3;
+$legenda_carrossel3 = $this->page->theme->settings->legenda_carrossel3;
+
+// Cursos em destaque
+$habilitar_destaque1 = $this->page->theme->settings->habilitar_destaque1;
+$imagem_destaque1 = $this->page->theme->settings->imagem_destaque1;
+$curso_destaque1 = $this->page->theme->settings->curso_destaque1;
+
+$habilitar_destaque2 = $this->page->theme->settings->habilitar_destaque2;
+$imagem_destaque2 = $this->page->theme->settings->imagem_destaque2;
+$curso_destaque2 = $this->page->theme->settings->curso_destaque2;
+
+$habilitar_destaque3 = $this->page->theme->settings->habilitar_destaque3;
+$imagem_destaque3 = $this->page->theme->settings->imagem_destaque3;
+$curso_destaque3 = $this->page->theme->settings->curso_destaque3;
 
 $extraclasses = [];
 if ($navdraweropen) {
@@ -53,7 +81,36 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'moodle_url' => $CFG->wwwroot
+    'moodle_url' => $CFG->wwwroot,
+
+    // Carrossel context
+    'habilitar_carrossel1' => $habilitar_carrossel1,
+    'imagem_carrossel1' => $imagem_carrossel1,
+    'link_carrossel1' => $link_carrossel1,
+    'legenda_carrossel1' => $legenda_carrossel1,
+
+    'habilitar_carrossel2' => $habilitar_carrossel2,
+    'imagem_carrossel2' => $imagem_carrossel2,
+    'link_carrossel2' => $link_carrossel2,
+    'legenda_carrossel2' => $legenda_carrossel2,
+
+    'habilitar_carrossel3' => $habilitar_carrossel3,
+    'imagem_carrossel3' => $imagem_carrossel3,
+    'link_carrossel3' => $link_carrossel3,
+    'legenda_carrossel3' => $legenda_carrossel3,
+
+    // Cursos em destaque context_coursecat::instance($category->id);
+    'habilitar_destaque1' => $habilitar_destaque1,
+    'imagem_destaque1' => $imagem_destaque1,
+    'curso_destaque1' => $curso_destaque1,
+
+    'habilitar_destaque2' => $habilitar_destaque2,
+    'imagem_destaque2' => $imagem_destaque2,
+    'curso_destaque2' => $curso_destaque2,
+    
+    'habilitar_destaque3' => $habilitar_destaque3,
+    'imagem_destaque3' => $imagem_destaque3,
+    'curso_destaque3' => $curso_destaque3
 ];
 
 $nav = $PAGE->flatnav;
