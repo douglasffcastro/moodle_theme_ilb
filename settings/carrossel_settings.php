@@ -26,7 +26,7 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'URL da imagem';
   $description = 'Imagem que será exibida no item.';
   $default = '';
-  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 40);
   $page->add($setting);
 
 
@@ -34,7 +34,7 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'URL da notícia';
   $description = 'Notícia que abrirá quando o usuário clicar no item.';
   $default = '';
-  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 40);
   $page->add($setting);
 
 
@@ -42,14 +42,15 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'Descrição';
   $description = 'Descrição do item.';
   $default = '';
-  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 40);
   $page->add($setting);
+  
 
   $name = 'theme_ilb/ordem1';
   $title = 'Ordem';
   $description = 'Posição do item.';
-  $default = '';
-  $choices = array( primeiro  => 1, segundo => 2, terceiro => 3);
+  $default = primeiro;
+  $choices = array(nulo => null, primeiro  => 1, segundo => 2, terceiro => 3);
   $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
   $page->add($setting);
 
@@ -61,7 +62,7 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'URL da imagem';
   $description = 'Imagem que será exibida no item.';
   $default = '';
-  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 40);
   $page->add($setting);
 
 
@@ -69,7 +70,7 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'URL da notícia';
   $description = 'Notícia que abrirá quando o usuário clicar no item.';
   $default = '';
-  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 40);
   $page->add($setting);
 
 
@@ -77,14 +78,14 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'Descrição';
   $description = 'Descrição do item.';
   $default = '';
-  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 40);
   $page->add($setting);
 
   $name = 'theme_ilb/ordem2';
   $title = 'Ordem';
   $description = 'Posição do item.';
-  $default = '';
-  $choices = array( primeiro  => 1, segundo => 2, terceiro => 3);
+  $default = segundo;
+  $choices = array(nulo => null, primeiro  => 1, segundo => 2, terceiro => 3);
   $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
   $page->add($setting);
 
@@ -96,7 +97,7 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'URL da imagem';
   $description = 'Imagem que será exibida no item.';
   $default = '';
-  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 40);
   $page->add($setting);
 
 
@@ -104,7 +105,7 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'URL da notícia';
   $description = 'Notícia que abrirá quando o usuário clicar no item.';
   $default = '';
-  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 40);
   $page->add($setting);
 
 
@@ -112,14 +113,14 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'Descrição';
   $description = 'Descrição do item.';
   $default = '';
-  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 40);
   $page->add($setting);
 
   $name = 'theme_ilb/ordem3';
   $title = 'Ordem';
   $description = 'Posição do item.';
-  $default = '';
-  $choices = array( primeiro  => 1, segundo => 2, terceiro => 3);
+  $default = terceiro;
+  $choices = array(nulo => null, primeiro  => 1, segundo => 2, terceiro => 3);
   $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
   $page->add($setting);
 

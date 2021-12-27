@@ -34,20 +34,20 @@ if (isloggedin()) {
 }
 
 // Carrossel
-$habilitar_carrossel1 = $this->page->theme->settings->habilitar_carrossel1;
-$imagem_carrossel1 = $this->page->theme->settings->imagem_carrossel1;
-$link_carrossel1 = $this->page->theme->settings->link_carrossel1;
-$legenda_carrossel1 = $this->page->theme->settings->legenda_carrossel1;
+$urlimagem1 = $this->page->theme->settings->urlimagem1;
+$urlnoticia1 = $this->page->theme->settings->urlnoticia1;
+$descricao1 = $this->page->theme->settings->descricao1;
+$ordem1 = $this->page->theme->settings->ordem1;
 
-$habilitar_carrossel2 = $this->page->theme->settings->habilitar_carrossel2;
-$imagem_carrossel2 = $this->page->theme->settings->imagem_carrossel2;
-$link_carrossel2 = $this->page->theme->settings->link_carrossel2;
-$legenda_carrossel2 = $this->page->theme->settings->legenda_carrossel2;
+$urlimagem2 = $this->page->theme->settings->urlimagem2;
+$urlnoticia2 = $this->page->theme->settings->urlnoticia2;
+$descricao2 = $this->page->theme->settings->descricao2;
+$ordem2 = $this->page->theme->settings->ordem2;
 
-$habilitar_carrossel3 = $this->page->theme->settings->habilitar_carrossel3;
-$imagem_carrossel3 = $this->page->theme->settings->imagem_carrossel3;
-$link_carrossel3 = $this->page->theme->settings->link_carrossel3;
-$legenda_carrossel3 = $this->page->theme->settings->legenda_carrossel3;
+$urlimagem3 = $this->page->theme->settings->urlimagem3;
+$urlnoticia3 = $this->page->theme->settings->urlnoticia3;
+$descricao3 = $this->page->theme->settings->descricao3;
+$ordem3 = $this->page->theme->settings->ordem3;
 
 // Cursos em destaque
 $habilitar_destaque1 = $this->page->theme->settings->habilitar_destaque1;
@@ -84,20 +84,20 @@ $templatecontext = [
     'moodle_url' => $CFG->wwwroot,
 
     // Carrossel context
-    'habilitar_carrossel1' => $habilitar_carrossel1,
-    'imagem_carrossel1' => $imagem_carrossel1,
-    'link_carrossel1' => $link_carrossel1,
-    'legenda_carrossel1' => $legenda_carrossel1,
+    'urlimagem1' => $urlimagem1,
+    'urlnoticia1' => $urlnoticia1,
+    'descricao1' => $descricao1,
+    'ordem1' => $ordem1,
 
-    'habilitar_carrossel2' => $habilitar_carrossel2,
-    'imagem_carrossel2' => $imagem_carrossel2,
-    'link_carrossel2' => $link_carrossel2,
-    'legenda_carrossel2' => $legenda_carrossel2,
+    'urlimagem2' => $urlimagem2,
+    'urlnoticia2' => $urlnoticia2,
+    'descricao2' => $descricao2,
+    'ordem2' => $ordem2,
 
-    'habilitar_carrossel3' => $habilitar_carrossel3,
-    'imagem_carrossel3' => $imagem_carrossel3,
-    'link_carrossel3' => $link_carrossel3,
-    'legenda_carrossel3' => $legenda_carrossel3,
+    'urlimagem3' => $urlimagem3,
+    'urlnoticia3' => $urlnoticia3,
+    'descricao3' => $descricao3,
+    'ordem3' => $ordem3,
 
     // Cursos em destaque context_coursecat::instance($category->id);
     'habilitar_destaque1' => $habilitar_destaque1,
