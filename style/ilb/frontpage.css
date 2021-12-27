@@ -43,14 +43,23 @@
   font-weight: bold;
   text-align: center;
   transition: all .6s ease;
+  text-decoration: none !important;
 }
 
 .painel-estudante:hover, .ver-mais:hover {
   background: rgb(1,91,158, .9);
   box-shadow: 0 0 .2em #333;
   top:-2px;
-  color: #fff;
-  text-decoration: none;
+  color: #f1f1f1;
+  text-decoration: none !important;
+}
+
+.painel-estudante:link, 
+.painel-estudante:visited, 
+.ver-mais:link, 
+.ver-mais:visited {
+  color: #f1f1f1;
+  text-decoration: none !important;
 }
 
 .carousel, .carousel-inner, .carousel-control-prev, .carousel-control-next, .carousel-item {
