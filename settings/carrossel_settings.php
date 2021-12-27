@@ -17,38 +17,113 @@
 defined('MOODLE_INTERNAL') || die();
 
 $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
-  for ($i = 1; $i <= 3; $i++) {
-      $setting = new admin_setting_heading('theme_ilb/carrossel'.$i, 'Imagem '.$i, '');
-      $page->add($setting);
 
-      $name = 'theme_ilb/habilitar_carrossel'.$i;
-      $title = 'Habilitar';
-      $description = 'Habilita o item do carrossel.';
-      $default = 0;
-      $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-      $page->add($setting);
+  // Primeiro item
+  $setting = new admin_setting_heading('theme_ilb/carrossel', 'Item 1', '');
+  $page->add($setting);
 
-      $name = 'theme_ilb/imagem_carrossel'.$i;
-      $title = 'Imagem';
-      $description = 'Imagem que será exibida no item ' . $i . ' do carrossel.';
-      $default = '';
-      $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
-      $page->add($setting);
+  $name = 'theme_ilb/urlimagem1';
+  $title = 'URL da imagem';
+  $description = 'Imagem que será exibida no item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
 
 
-      $name = 'theme_ilb/link_carrossel'.$i;
-      $title = 'Link';
-      $description = 'Link de redirecionamento.';
-      $default = '';
-      $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
-      $page->add($setting);
+  $name = 'theme_ilb/urlnoticia1';
+  $title = 'URL da notícia';
+  $description = 'Notícia que abrirá quando o usuário clicar no item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
 
 
-      $name = 'theme_ilb/legenda_carrossel'.$i;
-      $title = 'Legenda';
-      $description = 'Legenda da imagem.';
-      $default = '';
-      $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
-      $page->add($setting);
-  }
+  $name = 'theme_ilb/descricao1';
+  $title = 'Descrição';
+  $description = 'Descrição do item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
+
+  $name = 'theme_ilb/ordem1';
+  $title = 'Ordem';
+  $description = 'Posição do item.';
+  $default = '';
+  $choices = array( primeiro  => 1, segundo => 2, terceiro => 3);
+  $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+  $page->add($setting);
+
+  // Segundo item
+  $setting = new admin_setting_heading('theme_ilb/carrossel', 'Item 2', '');
+  $page->add($setting);
+
+  $name = 'theme_ilb/urlimagem2';
+  $title = 'URL da imagem';
+  $description = 'Imagem que será exibida no item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
+
+
+  $name = 'theme_ilb/urlnoticia2';
+  $title = 'URL da notícia';
+  $description = 'Notícia que abrirá quando o usuário clicar no item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
+
+
+  $name = 'theme_ilb/descricao2';
+  $title = 'Descrição';
+  $description = 'Descrição do item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
+
+  $name = 'theme_ilb/ordem2';
+  $title = 'Ordem';
+  $description = 'Posição do item.';
+  $default = '';
+  $choices = array( primeiro  => 1, segundo => 2, terceiro => 3);
+  $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+  $page->add($setting);
+
+  // Terceiro item
+  $setting = new admin_setting_heading('theme_ilb/carrossel', 'Item 3', '');
+  $page->add($setting);
+
+  $name = 'theme_ilb/urlimagem3';
+  $title = 'URL da imagem';
+  $description = 'Imagem que será exibida no item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
+
+
+  $name = 'theme_ilb/urlnoticia3';
+  $title = 'URL da notícia';
+  $description = 'Notícia que abrirá quando o usuário clicar no item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
+
+
+  $name = 'theme_ilb/descricao3';
+  $title = 'Descrição';
+  $description = 'Descrição do item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
+
+  $name = 'theme_ilb/ordem3';
+  $title = 'Ordem';
+  $description = 'Posição do item.';
+  $default = '';
+  $choices = array( primeiro  => 1, segundo => 2, terceiro => 3);
+  $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+  $page->add($setting);
+
 $settings->add($page);
+
+
+	
