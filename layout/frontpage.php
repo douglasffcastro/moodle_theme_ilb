@@ -24,6 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require('util/carrossel.php');
+
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
 
@@ -32,22 +34,6 @@ if (isloggedin()) {
 } else {
     $navdraweropen = false;
 }
-
-// Carrossel
-$urlimagem1 = $this->page->theme->settings->urlimagem1;
-$urlnoticia1 = $this->page->theme->settings->urlnoticia1;
-$descricao1 = $this->page->theme->settings->descricao1;
-$ordem1 = $this->page->theme->settings->ordem1;
-
-$urlimagem2 = $this->page->theme->settings->urlimagem2;
-$urlnoticia2 = $this->page->theme->settings->urlnoticia2;
-$descricao2 = $this->page->theme->settings->descricao2;
-$ordem2 = $this->page->theme->settings->ordem2;
-
-$urlimagem3 = $this->page->theme->settings->urlimagem3;
-$urlnoticia3 = $this->page->theme->settings->urlnoticia3;
-$descricao3 = $this->page->theme->settings->descricao3;
-$ordem3 = $this->page->theme->settings->ordem3;
 
 // Cursos em destaque
 $habilitar_destaque1 = $this->page->theme->settings->habilitar_destaque1;
@@ -87,17 +73,8 @@ $templatecontext = [
     'urlimagem1' => $urlimagem1,
     'urlnoticia1' => $urlnoticia1,
     'descricao1' => $descricao1,
-    'ordem1' => $ordem1,
-
-    'urlimagem2' => $urlimagem2,
-    'urlnoticia2' => $urlnoticia2,
-    'descricao2' => $descricao2,
-    'ordem2' => $ordem2,
-
-    'urlimagem3' => $urlimagem3,
-    'urlnoticia3' => $urlnoticia3,
-    'descricao3' => $descricao3,
-    'ordem3' => $ordem3,
+    'apenasumitem' => $apenasumitem,
+    'itenscarrossel' => $itenscarrossel,
 
     // Cursos em destaque context_coursecat::instance($category->id);
     'habilitar_destaque1' => $habilitar_destaque1,
