@@ -157,7 +157,7 @@
   min-height: 100px;
 }
 
-@media(max-width: 510px) {
+@media(max-width: 375px) {
   .header-title {
     display: flex;
     align-items: center;
@@ -165,12 +165,55 @@
   }
   
   .header-title h1 { 
-    margin: 0;
-    font-weight: 400;
-    font-size: 160%;
+    font-size: 200%;
   }
 
   .painel-estudante, .ver-mais {
     font-size: 70%;
+  }
+}
+
+@media(max-width: 507px) {
+  .header-title h1 { 
+    font-size: 200%;
+  }
+
+  .painel-estudante, .ver-mais {
+    font-size: 70%;
+  }
+}
+
+@media(max-width: 304px) {
+  .header-title h1 { 
+    font-size: 170%;
+  }
+}
+
+@media(max-width: 280px) {
+  .header-title h1 { 
+    font-size: 170%;
+  }
+}
+
+@media(max-width: 275px) {
+  .header-title h1 { 
+    font-size: 170%;
+  }
+
+  .header-title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .header-title h1 { 
+    font-size: 200%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .painel-estudante, .ver-mais {
+    font-size: 70%;
+    width: 100%;
   }
 }
