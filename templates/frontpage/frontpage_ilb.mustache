@@ -71,47 +71,56 @@ Context variables required for this template:
         </div>
 
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <a href="{{{link_carrossel1}}}">
-                        <img src="{{{ imagem_carrossel1 }}}" class="d-block w-100" alt="">
-                    </a>
+            {{#apenasumitem}}
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        {{#urlnoticia1}}
+                        <a href="{{{ urlnoticia1 }}}" target="_blank">
+                            <img src="{{{ urlimagem1 }}}" class="d-block w-100" alt="">
+                        </a>
+                        {{/urlnoticia1}}
+                        {{^urlnoticia1}}
+                        <img src="{{{ urlimagem1 }}}" class="d-block w-100" alt="">
+                        {{/urlnoticia1}}
 
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>{{{legenda_carrossel1}}} <br /></p>
+                        <div class="carousel-caption d-none d-md-block">
+                            <p>{{{ descricao1 }}}<br /></p>
+                        </div>
                     </div>
                 </div>
+            {{/apenasumitem}}
+            {{^apenasumitem}}
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        {{#urlnoticia1}}
+                        <a href="{{{ urlnoticia1 }}}" target="_blank">
+                            <img src="{{{ urlimagem1 }}}" class="d-block w-100" alt="">
+                        </a>
+                        {{/urlnoticia1}}
+                        {{^urlnoticia1}}
+                        <img src="{{{ urlimagem1 }}}" class="d-block w-100" alt="">
+                        {{/urlnoticia1}}
 
-                <div class="carousel-item">
-                    <a href="{{{link_carrossel2}}}">
-                        <img src="{{{ imagem_carrossel2 }}}" class="d-block w-100" alt="">
-                    </a>
-
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>{{{legenda_carrossel2}}} <br /></p>
+                        <div class="carousel-caption d-none d-md-block">
+                            <p>{{{ descricao1 }}}<br /></p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="carousel-item">
-                    <a href="{{{link_carrossel3}}}">
-                        <img src="{{{ imagem_carrossel3 }}}" class="d-block w-100" alt="">
-                    </a>
-
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>{{{legenda_carrossel3}}} <br /></p>
-                    </div>
+                    {{#itenscarrossel}}
+                    {{> theme_ilb/frontpage/item }}
+                    {{/itenscarrossel}}
                 </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            {{/apenasumitem}}
         </div>
 
         <div class="cursos">
