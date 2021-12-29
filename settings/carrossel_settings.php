@@ -19,7 +19,7 @@ defined('MOODLE_INTERNAL') || die();
 $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
 
   // Primeiro item
-  $setting = new admin_setting_heading('theme_ilb/carrossel', 'Item 1', '');
+  $setting = new admin_setting_heading('theme_ilb/item1', 'Item', '');
   $page->add($setting);
 
   $name = 'theme_ilb/urlimagem1';
@@ -50,12 +50,12 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'Ordem';
   $description = 'Posição do item.';
   $default = primeiro;
-  $choices = array(nulo => null, primeiro  => 1, segundo => 2, terceiro => 3);
+  $choices = array(1, 2, 3);
   $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
   $page->add($setting);
 
   // Segundo item
-  $setting = new admin_setting_heading('theme_ilb/carrossel', 'Item 2', '');
+  $setting = new admin_setting_heading('theme_ilb/item2', 'Item', '');
   $page->add($setting);
 
   $name = 'theme_ilb/urlimagem2';
@@ -85,12 +85,12 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'Ordem';
   $description = 'Posição do item.';
   $default = segundo;
-  $choices = array(nulo => null, primeiro  => 1, segundo => 2, terceiro => 3);
+  $choices = array(1, 2, 3);
   $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
   $page->add($setting);
 
   // Terceiro item
-  $setting = new admin_setting_heading('theme_ilb/carrossel', 'Item 3', '');
+  $setting = new admin_setting_heading('theme_ilb/item3', 'Item', '');
   $page->add($setting);
 
   $name = 'theme_ilb/urlimagem3';
@@ -120,7 +120,7 @@ $page = new admin_settingpage('theme_ilb_carrossel', 'Carrossel');
   $title = 'Ordem';
   $description = 'Posição do item.';
   $default = terceiro;
-  $choices = array(nulo => null, primeiro  => 1, segundo => 2, terceiro => 3);
+  $choices = array(1, 2, 3);
   $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
   $page->add($setting);
 
