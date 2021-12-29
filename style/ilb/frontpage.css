@@ -1,12 +1,12 @@
 .page-content {
-  margin: 0 70px;
-  padding: 0 15px;
+  margin: 0 4%;
+  padding: 0 2%;
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Noto Sans,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
 
 .content-header {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .content-header .container {
@@ -15,7 +15,7 @@
 }
 
 .portal-breadcrumbs ol{
-  margin-top: 5px;
+  margin-top: 1%;
   padding-left: 0;
 }
 
@@ -28,7 +28,7 @@
 .header-title h1 { 
   margin: 0;
   font-weight: 400;
-  font-size: 3.8rem;
+  font-size: 350%;
   letter-spacing: .5px;
   color: #3E6892;
 }
@@ -38,7 +38,7 @@
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-  font-size: 1.5rem;
+  font-size: 150%;
   color: #f1f1f1;
   font-weight: bold;
   text-align: center;
@@ -60,39 +60,6 @@
 .ver-mais:visited {
   color: #f1f1f1;
   text-decoration: none !important;
-}
-
-.carousel, .carousel-inner, .carousel-control-prev, .carousel-control-next, .carousel-item {
-  height: 325px;
-}
-
-.d-block, .w-100 {
-  position: relative;
-  bottom: 50%;
-}
-
-.carousel-caption {
-  left: 0;
-  bottom: 0;
-  color: #333333;
-  text-shadow: none;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-
-.carousel-caption::before {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #333333;
-  text-shadow: none;
-}
-
-.carousel-caption p{
-  margin: 10px 0;
-  color: #fff;
-  text-shadow: none;
-  font-size: 2.5rem;
-  padding: 0;
-  text-align: start;
 }
 
 .cursos {
@@ -154,4 +121,56 @@
   width: 150px;
   padding: 10px 0;
   color: #fff;
+}
+
+.carousel-caption {
+  left: 0;
+  bottom: 0;
+  color: #333333;
+  text-shadow: none;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.carousel-caption::before {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #333333;
+  text-shadow: none;
+}
+
+.carousel-caption p{
+  margin: 10px 0;
+  color: #fff;
+  text-shadow: none;
+  font-size: 2.5rem;
+  padding: 0;
+  text-align: start;
+}
+
+.carousel .carousel-item {
+  height: 400px;
+}
+
+.carousel-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100px;
+}
+
+@media(max-width: 510px) {
+  .header-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header-title h1 { 
+    margin: 0;
+    font-weight: 400;
+    font-size: 160%;
+  }
+
+  .painel-estudante, .ver-mais {
+    font-size: 70%;
+  }
 }
