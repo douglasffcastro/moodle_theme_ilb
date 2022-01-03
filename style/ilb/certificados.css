@@ -1,0 +1,93 @@
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.card {
+  display: flex;
+  align-items: center;
+}
+
+.card-header {
+  font-size: 2em;
+  font-weight: 500;
+  color: #3E6892;
+}
+
+.card-text {
+  font-size: 1.5em;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.loginform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input, 
+.pull-right, 
+.btn-certificados, 
+.loginform,
+.card-body {
+  width: 100%;
+}
+
+.loginform input {
+  width: 100%;
+  background-color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  height: 52px;
+  border-radius: 4px;
+  outline: none;
+  padding: 0 16px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in; ;
+  appearance: none;
+}
+
+
+.loginform input {
+  border: 2px solid #3E6892;
+  margin-bottom: 15px;
+}
+
+.pull-right .btn-certificados, 
+.card-body .btn-certificados {
+  background-color: #424b80;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 150%;
+  color: #f1f1f1;
+  font-weight: bold;
+  text-align: center;
+  transition: all .6s ease;
+  text-decoration: none !important;
+}
+
+.pull-right .btn-certificados:hover, 
+.card-body .btn-certificados:hover {
+  background: rgb(1,91,158, .9);
+  box-shadow: 0 0 .2em #333;
+  top:-2px;
+  color: #f1f1f1;
+  text-decoration: none !important;
+}
+
+
+/* .painel-estudante:link, 
+.painel-estudante:visited, 
+.ver-mais:link, 
+.ver-mais:visited {
+  color: #f1f1f1;
+  text-decoration: none !important;
+} */

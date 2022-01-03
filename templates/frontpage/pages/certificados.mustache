@@ -1,0 +1,111 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle. If not, see
+    <http: //www.gnu.org/licenses />.
+}}
+{{!
+    @template theme_ilb/columns2
+
+    Admin time setting template.
+
+    Ilb 2 column layout template.
+
+    Context variables required for this template:
+    * sitename - The name of the site
+    * output - The core renderer for the page
+    * bodyattributes - attributes for the body tag as a string of html attributes
+    * sidepreblocks - HTML for the blocks
+    * hasblocks - true if there are blocks on this page
+    * navdraweropen - true if the nav drawer should be open on page load
+    * regionmainsettingsmenu - HTML for the region main settings menu
+    * hasregionmainsettingsmenu - There is a region main settings menu on this page.
+}}
+
+
+
+<div class="container" style="visibility:visible">
+    <div id="div.validacert" class="tabcontent tabcontentCert" style="display: block;">
+        <!-- Breadcrumbs -->
+        <!-- Pagina Inicial > Escola de Governo > Saberes > Certificados -->
+        <div class="content-header">
+            <div class="header-title">
+                <h1>Instituto Legislativo Brasileiro (ILB)</h1>
+                <a class="painel-estudante" href="{{{moodle_url}}}/my">Painel de acesso</a>
+            </div>
+            <div class="container">
+                <div id="toolbar">
+                    <div id="portal-breadcrumbs" class="portal-breadcrumbs">
+                        <ol class="Breadcrumbs">
+                            <li id="breadcrumbs-you-are-here">Você está aqui:</li>
+                            <li id="breadcrumbs-home">
+                                <a href="https://www12.senado.leg.br/institucional">Página Inicial</a>
+                            </li>
+                            <li id="breadcrumbs-saberes">
+                                <a href="{{{moodle_url}}}">
+                                    Instituto Legislativo Brasileiro</a>
+                            </li>
+                            <li id="breadcrumbs-certificados">
+                                <span id="breadcrumbs-current">Certificados</span>
+                            </li>
+                        </ol>
+                    </div>
+                    <div id="portal-login" class="portal-login"><ins></ins><a href="logout">Sair</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="card">
+                <div class="card-header">
+                  Validar Certificado
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Digite o código do certificado para verificar:</p>
+                  
+                  <form class="loginform" name="cert" method="post" action="blocks/verify_certificate/index.php">
+    
+                    <input type="text" name="certnumber" id="certnumber" size="10" value="">
+                    <div class="pull-right">
+                        <input class="btn-certificados" type="submit" value="Verificar">
+                    </div>
+                    </form>
+                </div>
+            </div>
+    
+            <div class="card">
+                <div class="card-header">
+                  Obter certificados
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Para obter o certificado de cursos já concluídos, clique no botão abaixo.</p>
+                  <a class="btn-certificados" href="blocks/get_certificate/index.php">Obter certificados</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#js}}
+M.util.js_pending('theme_ilb/loader');
+require(['theme_ilb/loader'], function() {
+M.util.js_complete('theme_ilb/loader');
+});
+
+M.util.js_pending('theme_ilb/drawer');
+require(['theme_ilb/drawer'], function(drawer) {
+drawer.init();
+M.util.js_complete('theme_ilb/drawer');
+});
+{{/js}}
