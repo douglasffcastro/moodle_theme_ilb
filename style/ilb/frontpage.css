@@ -157,6 +157,21 @@
   min-height: 100px;
 }
 
+:not(#_) .sf-wrapper .sidebar-overlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+  backdrop-filter: blur(3px);
+  z-index: 100;
+  display: none;
+}
+
+:not(#_) .sf-wrapper .is-open + .sidebar-overlay {
+  display: block;
+}
+
 @media(max-width: 375px) {
   .header-title {
     display: flex;
@@ -179,7 +194,8 @@
   }
 
   .painel-estudante, .ver-mais {
-    font-size: 70%;
+    font-size: 100%;
+    padding: 5px 15px;
   }
 }
 
@@ -191,7 +207,12 @@
 
 @media(max-width: 280px) {
   .header-title h1 { 
-    font-size: 170%;
+    font-size: 160%;
+  }
+  
+  .painel-estudante, .ver-mais {
+    font-size: 80%;
+    padding: 5px 15px;
   }
 }
 
