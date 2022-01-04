@@ -25,6 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 require('util/carrossel.php');
+require('util/cursos_destaque.php');
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
@@ -34,19 +35,6 @@ if (isloggedin()) {
 } else {
     $navdraweropen = false;
 }
-
-// Cursos em destaque
-$habilitar_destaque1 = $this->page->theme->settings->habilitar_destaque1;
-$imagem_destaque1 = $this->page->theme->settings->imagem_destaque1;
-$curso_destaque1 = $this->page->theme->settings->curso_destaque1;
-
-$habilitar_destaque2 = $this->page->theme->settings->habilitar_destaque2;
-$imagem_destaque2 = $this->page->theme->settings->imagem_destaque2;
-$curso_destaque2 = $this->page->theme->settings->curso_destaque2;
-
-$habilitar_destaque3 = $this->page->theme->settings->habilitar_destaque3;
-$imagem_destaque3 = $this->page->theme->settings->imagem_destaque3;
-$curso_destaque3 = $this->page->theme->settings->curso_destaque3;
 
 $extraclasses = [];
 if ($navdraweropen) {
@@ -73,21 +61,13 @@ $templatecontext = [
     'urlimagem1' => $urlimagem1,
     'urlnoticia1' => $urlnoticia1,
     'descricao1' => $descricao1,
-    'apenasumitem' => $apenasumitem,
+    'unicoitem' => $unicoitem,
     'itenscarrossel' => $itenscarrossel,
 
-    // Cursos em destaque context_coursecat::instance($category->id);
-    'habilitar_destaque1' => $habilitar_destaque1,
-    'imagem_destaque1' => $imagem_destaque1,
-    'curso_destaque1' => $curso_destaque1,
-
-    'habilitar_destaque2' => $habilitar_destaque2,
-    'imagem_destaque2' => $imagem_destaque2,
-    'curso_destaque2' => $curso_destaque2,
-    
-    'habilitar_destaque3' => $habilitar_destaque3,
-    'imagem_destaque3' => $imagem_destaque3,
-    'curso_destaque3' => $curso_destaque3
+    // Cursos em destaque
+    'url_imagem_destaque1' => $url_imagem1,
+    'id_curso_destaque1' => $id_curso1,
+    'unico_curso' => $unico_curso
 ];
 
 $nav = $PAGE->flatnav;

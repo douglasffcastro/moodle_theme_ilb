@@ -17,29 +17,81 @@
 defined('MOODLE_INTERNAL') || die();
 
 $page = new admin_settingpage('theme_ilb_courses', 'Cursos em destaque');
-  for ($i = 1; $i <= 3; $i++) {
-      $setting = new admin_setting_heading('theme_ilb/destaque'.$i, 'Curso '.$i, '');
-      $page->add($setting);
+  // Primeiro curso
+  $setting = new admin_setting_heading('theme_ilb/destaque_1', 'Curso', '');
+  $page->add($setting);
 
-      $name = 'theme_ilb/habilitar_destaque'.$i;
-      $title = 'Habilitar';
-      $description = 'Indica se deve ser exibido o curso em destaque na página inicial.';
-      $default = 0;
-      $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-      $page->add($setting);
+  $name = 'theme_ilb/url_imagem1';
+  $title = 'Imagem de destaque';
+  $description = 'Imagem a ser exibida no item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
 
-      $name = 'theme_ilb/imagem_destaque'.$i;
-      $title = 'Imagem de destaque';
-      $description = 'Imagem a ser exibida no item.';
-      $default = '';
-      $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
-      $page->add($setting);
+  $name = 'theme_ilb/id_curso1';
+  $title = 'Curso de destaque';
+  $description = 'ID do curso que será acessado ao clicar na imagem de destaque.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
 
-      $name = 'theme_ilb/curso_destaque'.$i;
-      $title = 'Curso de destaque';
-      $description = 'ID do curso acessado ao clicar na imagem de destaque.';
-      $default = '';
-      $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
-      $page->add($setting);
-  }
+  $name = 'theme_ilb/ordem_destaque1';
+  $title = 'Ordem';
+  $description = 'Posição do curso.';
+  $default = segundo;
+  $choices = array(1, 2, 3);
+  $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+  $page->add($setting);
+
+  // Segundo curso
+  $setting = new admin_setting_heading('theme_ilb/destaque_2', 'Curso', '');
+  $page->add($setting);
+
+  $name = 'theme_ilb/url_imagem2';
+  $title = 'Imagem de destaque';
+  $description = 'Imagem a ser exibida no item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
+
+  $name = 'theme_ilb/id_curso2';
+  $title = 'Curso de destaque';
+  $description = 'ID do curso que será acessado ao clicar na imagem de destaque.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
+
+  $name = 'theme_ilb/ordem_destaque2';
+  $title = 'Ordem';
+  $description = 'Posição do curso.';
+  $default = segundo;
+  $choices = array(1, 2, 3);
+  $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+  $page->add($setting);
+
+  // Terceiro curso
+  $setting = new admin_setting_heading('theme_ilb/destaque_3', 'Curso', '');
+  $page->add($setting);
+
+  $name = 'theme_ilb/url_imagem3';
+  $title = 'Imagem de destaque';
+  $description = 'Imagem a ser exibida no item.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
+
+  $name = 'theme_ilb/id_curso3';
+  $title = 'Curso de destaque';
+  $description = 'ID do curso que será acessado ao clicar na imagem de destaque.';
+  $default = '';
+  $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT, 20);
+  $page->add($setting);
+
+  $name = 'theme_ilb/ordem_destaque3';
+  $title = 'Ordem';
+  $description = 'Posição do curso.';
+  $default = segundo;
+  $choices = array(1, 2, 3);
+  $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+  $page->add($setting);
 $settings->add($page);

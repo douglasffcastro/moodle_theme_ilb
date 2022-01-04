@@ -1,8 +1,14 @@
+#pagina-certificados {
+  display: none;
+}
+
 .card-container {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-around;
+  margin: 60px 0;
 }
+
 .card {
   display: flex;
   align-items: center;
@@ -16,6 +22,7 @@
 
 .card-text {
   font-size: 1.5em;
+  text-align: center;
 }
 
 .card-body {
@@ -72,6 +79,8 @@ input,
   text-align: center;
   transition: all .6s ease;
   text-decoration: none !important;
+  min-height: 50px;
+
 }
 
 .pull-right .btn-certificados:hover, 
@@ -83,11 +92,8 @@ input,
   text-decoration: none !important;
 }
 
-
-/* .painel-estudante:link, 
-.painel-estudante:visited, 
-.ver-mais:link, 
-.ver-mais:visited {
-  color: #f1f1f1;
-  text-decoration: none !important;
-} */
+@media(max-width: 507px) {
+  .card-container {
+    flex-direction: column;
+  }
+}

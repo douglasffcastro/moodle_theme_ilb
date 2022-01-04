@@ -1,124 +1,118 @@
 {{!
-    This file is part of Moodle - http://moodle.org/
+This file is part of Moodle - http://moodle.org/
 
-    Moodle is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+Moodle is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-    Moodle is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+Moodle is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with Moodle. If not, see
-    <http: //www.gnu.org/licenses />.
+You should have received a copy of the GNU General Public License
+along with Moodle. If not, see
+<http: //www.gnu.org/licenses />.
 }}
 {{!
-    @template theme_ilb/columns2
+@template theme_ilb/columns2
 
-    Admin time setting template.
+Admin time setting template.
 
-    Ilb 2 column layout template.
+Ilb 2 column layout template.
 
-    Context variables required for this template:
-    * sitename - The name of the site
-    * output - The core renderer for the page
-    * bodyattributes - attributes for the body tag as a string of html attributes
-    * sidepreblocks - HTML for the blocks
-    * hasblocks - true if there are blocks on this page
-    * navdraweropen - true if the nav drawer should be open on page load
-    * regionmainsettingsmenu - HTML for the region main settings menu
-    * hasregionmainsettingsmenu - There is a region main settings menu on this page.
+Context variables required for this template:
+* sitename - The name of the site
+* output - The core renderer for the page
+* bodyattributes - attributes for the body tag as a string of html attributes
+* sidepreblocks - HTML for the blocks
+* hasblocks - true if there are blocks on this page
+* navdraweropen - true if the nav drawer should be open on page load
+* regionmainsettingsmenu - HTML for the region main settings menu
+* hasregionmainsettingsmenu - There is a region main settings menu on this page.
 }}
 
-<div class="page-content">
-    <div class="content-header">
-        <div class="header-title">
-            <h1>Instituto Legislativo Brasileiro (ILB)</h1>
-            <a class="painel-estudante" href="{{{moodle_url}}}/my">Painel de acesso</a>
-        </div>
-        <div class="container">
-            <div id="toolbar">
-                <div id="portal-breadcrumbs" class="portal-breadcrumbs">
-                    <ol class="Breadcrumbs">
-                        <li id="breadcrumbs-you-are-here">
-                            Você está aqui:
-                        </li>
-                        <li id="breadcrumbs-home">
+<div class="page-content" id="pagina-principal">
+    <div class="container-breadcrumbs">
+        <div id="toolbar">
+            <div id="portal-breadcrumbs" class="portal-breadcrumbs">
+                <ol class="Breadcrumbs">
+                    <li id="breadcrumbs-you-are-here">
+                        Você está aqui:
+                    </li>
+                    <li id="breadcrumbs-home">
 
-                            <a href="https://www12.senado.leg.br/institucional">Página Inicial</a>
+                        <a href="https://www12.senado.leg.br/institucional">Página Inicial</a>
 
-                        </li>
-                        <li id="breadcrumbs-1">
+                    </li>
+                    <li id="breadcrumbs-1">
 
-                            <span id="breadcrumbs-current">Instituto Legislativo Brasileiro</span>
+                        <span id="breadcrumbs-current">Instituto Legislativo Brasileiro</span>
 
-                        </li>
-                    </ol>
-                </div>
-                <div id="portal-login" class="portal-login"><ins></ins><a href="logout">Sair</a></div>
+                    </li>
+                </ol>
             </div>
+            <div id="portal-login" class="portal-login"><ins></ins><a href="logout">Sair</a></div>
         </div>
     </div>
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         {{#apenasumitem}}
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    {{#urlnoticia1}}
-                    <a href="{{{ urlnoticia1 }}}" target="_blank">
-                        <img src="{{{ urlimagem1 }}}" class="d-block w-100" alt="">
-                    </a>
-                    {{/urlnoticia1}}
-                    {{^urlnoticia1}}
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                {{#urlnoticia1}}
+                <a href="{{{ urlnoticia1 }}}" target="_blank">
                     <img src="{{{ urlimagem1 }}}" class="d-block w-100" alt="">
-                    {{/urlnoticia1}}
+                </a>
+                {{/urlnoticia1}}
+                {{^urlnoticia1}}
+                <img src="{{{ urlimagem1 }}}" class="d-block w-100" alt="">
+                {{/urlnoticia1}}
 
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>{{{ descricao1 }}}<br /></p>
-                    </div>
+                <div class="carousel-caption d-none d-md-block">
+                    <p>{{{ descricao1 }}}<br /></p>
                 </div>
             </div>
+        </div>
         {{/apenasumitem}}
         {{^apenasumitem}}
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    {{#urlnoticia1}}
-                    <a href="{{{ urlnoticia1 }}}" target="_blank">
-                        <img src="{{{ urlimagem1 }}}" class="d-block w-100" alt="">
-                    </a>
-                    {{/urlnoticia1}}
-                    {{^urlnoticia1}}
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                {{#urlnoticia1}}
+                <a href="{{{ urlnoticia1 }}}" target="_blank">
                     <img src="{{{ urlimagem1 }}}" class="d-block w-100" alt="">
-                    {{/urlnoticia1}}
+                </a>
+                {{/urlnoticia1}}
+                {{^urlnoticia1}}
+                <img src="{{{ urlimagem1 }}}" class="d-block w-100" alt="">
+                {{/urlnoticia1}}
 
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>{{{ descricao1 }}}<br /></p>
-                    </div>
+                <div class="carousel-caption d-none d-md-block">
+                    <p>{{{ descricao1 }}}<br /></p>
                 </div>
-
-                {{#itenscarrossel}}
-                {{> theme_ilb/frontpage/carousel_item }}
-                {{/itenscarrossel}}
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+
+            {{#itenscarrossel}}
+            {{> theme_ilb/frontpage/carousel_item }}
+            {{/itenscarrossel}}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
         {{/apenasumitem}}
     </div>
 
     <div class="cursos">
         <div class="container-destaque">
-            <div class="cursos-container">
+            <div class="cursos-container" id="destaque">
                 <h2>Cursos em destaque</h2>
                 <div class="cursos-content">
                     <a href="{{{moodle_url}}}/course/view.php?id={{{curso_destaque1}}}" class="curso-item">
@@ -135,16 +129,72 @@
                 </div>
             </div>
 
+            <div class="cursos-container" id="categorias">
+                <div class="col-xs-12">
+                    <div class="col-xs-12">
+                        <h3 class="text-uppercase">Categoria de cursos</span></h3>
+                    </div>
+                </div>
+                <div align="center">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3 text-center">
+                            <a href="course/index.php?categoryid=134"><img
+                                    src="https://saberes.senado.leg.br/theme/image.php/ilb/theme/1632407899/Cursos-on-line-sem-tutor"></a>
+                            <p>Cursos on-line sem tutoria</p>
+                        </div>
+                        <div class="col-xs-6 col-md-3 text-center">
+                            <a href="course/index.php?categoryid=130"><img
+                                    src="https://saberes.senado.leg.br/theme/image.php/ilb/theme/1632407899/Cursos-on-line"></a>
+                            <p>Cursos on-line com tutoria</p>
+                        </div>
+                        <div class="col-xs-6 col-md-3 text-center">
+                            <a href="course/index.php?categoryid=102"><img
+                                    src="https://saberes.senado.leg.br/theme/image.php/ilb/theme/1632407899/formacao_interna"></a>
+                            <p>Formação interna </p>
+                        </div>
+                        <div class="col-xs-6 col-md-3 text-center">
+                            <a href="course/index.php?categoryid=46"><img
+                                    src="https://saberes.senado.leg.br/theme/image.php/ilb/theme/1632407899/pos-graduacao"></a>
+                            <p>Pós-graduação</p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3 text-center">
+                            <a href="course/index.php?categoryid=112"><img
+                                    src="https://saberes.senado.leg.br/theme/image.php/ilb/theme/1632407899/oficinas-interlegis"></a>
+                            <p>Oficinas Interlegis</p>
+                        </div>
+                        <div class="col-xs-6 col-md-3 text-center">
+                            <a href="course/index.php?categoryid=127"><img
+                                    src="https://saberes.senado.leg.br/theme/image.php/ilb/theme/1632407899/video-aula"></a>
+                            <p>Videoaulas</p>
+                        </div>
+                        <div class="col-xs-6 col-md-3 text-center">
+                            <a href="course/index.php?categoryid=180"><img
+                                    src="https://saberes.senado.leg.br/theme/image.php/ilb/theme/1632407899/projetos_especiais"></a>
+                            <p>Projetos Especiais</p>
+                        </div>
+                        <div class="col-xs-6 col-md-3 text-center">
+                            <a href="course/index.php?categoryid=163"><img
+                                    src="https://saberes.senado.leg.br/theme/image.php/ilb/theme/1632407899/conheca-senado"></a>
+                            <p>Conheça o Senado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="divider"></div>
 
             <div class="validacao-certificados">
                 <h2>Validação<br />de certificados</h2>
-                <a href="{{{moodle_url}}}" class="qrcode-link">
+                <div onclick="toggle_page();" class="qrcode-link">
                     <img src="{{{moodle_url}}}/theme/ilb/image/qrcode-icon.png" alt="" class="qrcode-icon">
-                </a>
+                </div>
             </div>
         </div>
-        <a href="{{{moodle_url}}}" class="ver-mais">Ver mais</a>
+        <div onclick="ver_mais();" class="ver-mais" id="ver-mais">Ver mais</div>
+        </a>
     </div>
 </div>
 
