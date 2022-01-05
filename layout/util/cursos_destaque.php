@@ -24,8 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once('array_sort.php');
-
 $cursos_destaque = array();
 
 $url_imagem1 = $this->page->theme->settings->url_imagem1;
@@ -71,10 +69,3 @@ if($url_imagem3 != null ) {
 }
 
 $cursos_destaque = array_sort($cursos_destaque, 'ordem');
-
-$primeirocurso = array_shift($cursos_destaque);
-
-$url_imagem1 = $primeirocurso['url_imagem'];
-$id_curso1 = $primeirocurso['id_curso'];
-
-$cursos_destaque != null ? $unico_curso = false : $unico_curso = true;

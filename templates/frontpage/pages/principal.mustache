@@ -115,17 +115,11 @@ Context variables required for this template:
             <div class="cursos-container" id="destaque">
                 <h2>Cursos em destaque</h2>
                 <div class="cursos-content">
-                    <a href="{{{moodle_url}}}/course/view.php?id={{{curso_destaque1}}}" class="curso-item">
-                        <img class="curso-image" src="{{{imagem_destaque1}}}" alt="">
+                    {{#cursos_destaque}}
+                    <a href="{{{moodle_url}}}/course/view.php?id={{{id_curso}}}" class="curso-item">
+                        <img class="curso-image" src="{{{url_imagem}}}" alt="">
                     </a>
-
-                    <a href="{{{moodle_url}}}/course/view.php?id={{{curso_destaque2}}}" class="curso-item">
-                        <img class="curso-image" src="{{{imagem_destaque2}}}" alt="">
-                    </a>
-
-                    <a href="{{{moodle_url}}}/course/view.php?id={{{curso_destaque3}}}" class="curso-item">
-                        <img class="curso-image" src="{{{imagem_destaque3}}}" alt="">
-                    </a>
+                    {{/cursos_destaque}}
                 </div>
             </div>
 

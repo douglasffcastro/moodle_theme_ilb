@@ -65,9 +65,7 @@ $templatecontext = [
     'itenscarrossel' => $itenscarrossel,
 
     // Cursos em destaque
-    'url_imagem_destaque1' => $url_imagem1,
-    'id_curso_destaque1' => $id_curso1,
-    'unico_curso' => $unico_curso
+    'cursos_destaque' => $cursos_destaque
 ];
 
 $nav = $PAGE->flatnav;
