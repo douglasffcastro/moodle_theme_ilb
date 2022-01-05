@@ -84,4 +84,4 @@ $urlimagem1 = $primeiroitem['urlimagem'];
 $urlnoticia1 = $primeiroitem['urlnoticia'];
 $descricao1 = $primeiroitem['descricao'];
 
-$itenscarrossel != null ? $apenasumitem = false : $apenasumitem = true;
+$itenscarrossel != null ? $unicoitem = false : $unicoitem = true;
