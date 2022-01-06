@@ -103,6 +103,10 @@
   margin-right: 30px;
 }
 
+.curso-item {
+  margin-top: 20px;
+}
+
 .curso-item:hover {
   box-shadow: 0 0 .3em #333;
 }
@@ -245,4 +249,23 @@
     font-size: 70%;
     width: 100%;
   }
+}
+
+@media(max-width: 1060px) {
+  .cursos-content {
+    align-items: center;
+    justify-content: center !important;
+  }
+
+  .ver-mais {
+    margin-right: 170px;
+  }
+}
+
+@media(max-width: 1060px) {
+  .curso-item:nth-child(n+2) { margin-left: 20px;}
+}
+
+@media(max-width: 759px) {
+  .curso-item:nth-child(n+2) { margin-left: 0;}
 }

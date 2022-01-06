@@ -24,6 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once('array_sort.php');
+
 $cursos_destaque = array();
 
 $url_imagem1 = $this->page->theme->settings->url_imagem1;
