@@ -48,23 +48,17 @@ input,
 }
 
 .loginform input {
-  width: 100%;
   background-color: #fff;
-  border: 2px solid #fff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  margin-bottom: 15px;
   height: 52px;
   border-radius: 4px;
   outline: none;
   padding: 0 16px;
-  font-size: 1rem;
-  transition: border-color 0.2s ease-in; ;
-  appearance: none;
 }
 
-
-.loginform input {
-  border: 2px solid #3E6892;
-  margin-bottom: 15px;
+.form-control:focus {
+  border-color: #424b80;
+  box-shadow: 0 0 0 0.25rem rgb(66, 75, 128, 0.30);
 }
 
 .pull-right .btn-certificados, 
