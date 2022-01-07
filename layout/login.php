@@ -26,8 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $bodyattributes = $OUTPUT->body_attributes();
 
-$logourl = $CFG->wwwroot.'/theme/ilb/image/ilb-logo.png';
-
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
