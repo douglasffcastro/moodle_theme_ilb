@@ -1,0 +1,17 @@
+.catalogo-cursos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.categorias ul{
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-top {
+  max-width: 300px;
+}
+
+.card {
+  max-width: 310px;
+}
