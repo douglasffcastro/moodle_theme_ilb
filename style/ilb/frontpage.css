@@ -134,18 +134,20 @@
 .carousel-caption {
   left: 0;
   bottom: 0;
+  color: #333333;
   text-shadow: none;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .carousel-caption::before {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #333333;
   text-shadow: none;
 }
 
 .carousel-caption p{
   margin: 10px 0;
-  color: #000;
+  color: #fff;
   text-shadow: none;
   font-size: 2.5rem;
   padding: 0;
@@ -181,37 +183,6 @@
 #categorias { display: none; }
 
 #destaque { border-bottom: none;}
-
-.item-categoria {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.item-categoria a {
-  background-color: #fff;
-  padding: 15px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  text-align: center;
-  color: #424b80;
-  margin: 0;
-  font-weight: bold;
-  font-size: 1.5rem;
-  box-shadow: 0 0 0 3px #424b80;
-  transition: all .3s ease-in-out;
-}
-
-.item-categoria a:hover {
-  background-color: #424b80;
-  color: #fff;
-}
-
-.item-categoria a:nth-child(n+2) {
-  margin-left: 20px;
-}
 
 @media(max-width: 375px) {
   .header-title {
@@ -286,49 +257,15 @@
     justify-content: center !important;
   }
 
-  .ver-mais { margin-right: 170px; }
-
-  .item-categoria { flex-direction: column; }
-  .container-categoria { display: flex; }
-
-  .item-categoria a:nth-child(n+2) {
-    margin-top: 20px;
-    margin-left: 0;
-  }
-
-  .item-categoria a { width: 100%; }
-
-  .item-categoria:nth-child(2) { margin-left: 20px; }
-
-  .curso-item:nth-child(n+2) { margin-left: 20px; }
-
-  .validacao-certificados { justify-content: end; }
-
-  .validacao-certificados h2 { 
-    margin-bottom: 10px; 
+  .ver-mais {
+    margin-right: 170px;
   }
 }
 
-@media(max-width: 1124px) {
-  .cursos-content {
-    align-items: center;
-    justify-content: center !important;
-  }
-
-  .curso-item:nth-child(n+2) { margin-left: 20px; }
+@media(max-width: 1060px) {
+  .curso-item:nth-child(n+2) { margin-left: 20px;}
 }
 
-@media(max-width: 828px) {
+@media(max-width: 759px) {
   .curso-item:nth-child(n+2) { margin-left: 0;}
 }
-
-@media(max-width: 817px) {
-  .container-categoria {
-    flex-direction: column;
-  }
-
-  .item-categoria:nth-child(2) {
-    margin-left: 0;
-  }
-}
-
