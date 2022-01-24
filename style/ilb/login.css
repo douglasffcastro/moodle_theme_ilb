@@ -1,13 +1,14 @@
-.card {
+.col-xl-6 .card {
   margin-top: 25px;
 }
 
 .card-header img {
-  max-width: 450px;
+  max-width: 100%;
+	height: auto;
 }
 
 @media (max-width: 575px) {
-  .card {
+  .col-xl-6 .card {
     margin-top: 70px;
   }
 }
