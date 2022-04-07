@@ -1,21 +1,15 @@
-.login-container {
-  margin-top: 50px;
-  padding: 20px 200px;
+.col-xl-6 .card {
+  margin-top: 25px;
 }
 
-.login-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border: 1px solid #333;
-  margin: 0 100px
+.card-header img {
+  max-width: 100%;
+	height: auto;
 }
 
-.logo {
-  padding: 10px;
+@media (max-width: 575px) {
+  .col-xl-6 .card {
+    margin-top: 70px;
+  }
 }
 
-.logo img {
-  max-height: 60px;
-  overflow: hidden;
-}
