@@ -1,0 +1,38 @@
+<div class="col-xs-12 col-md-4">
+  <form class="loginform" id="login" method="post" action="login/index.php">
+<input type="hidden" name="logintoken" value="{{logintoken}}">
+
+      <div class="col-xs-12" style="background-color: #F7F7F7; border: 1px solid #E6E6E6; border-bottom: 0;">
+          <h4 style="color: #0F5688; border: 0;">ACESSO</h4>
+          <div class="c1 fld username">
+              <label for="login_username">CPF</label>
+              <br />
+              <div class="input-group" style="width: 100%;">
+                  <input type="text" name="username" id="login_username" value="" class="form-control input-sm">
+              </div>
+          </div>
+          <div class="c1 fld password">
+              <label for="login_password">Senha</label>
+              <br />
+              <div class="input-group" style="width: 100%;">
+                  <input type="password" name="password" id="login_password" value="" class="form-control input-sm">
+              </div>
+          </div>
+          <div class="c1 rememberusername">
+              <input type="checkbox" name="rememberusername" id="rememberusername" value="1">
+              <label for="rememberusername">Lembrar CPF</label>
+          </div>
+      </div>
+      <div class="col-xs-12" style="background-color: #F7F7F7; border: 1px solid #E6E6E6; border-top: 0; padding-bottom: 3%;">
+          <div class="col-xs-5" style="padding-top: 3%; line-height: 100%; padding-left: 0;">
+              <a href="login/signup.php" style="font-size:13px;">Cadastre-se</a>
+              <br />
+              <a href="login/forgot_password.php" style="font-size:11px;">Perdeu a senha?</a>
+          </div>
+          <div class="pull-right">
+              <input class="btn btn-primary" type="submit" value="Acessar">
+          </div>
+      </div>
+  </form>
+</div>
+</div>
