@@ -1,0 +1,373 @@
+/*########################################
+  Tema
+  ########################################*/
+body {
+    /* font-family: 'Lucida Grande','Lucida Sans Unicode','Lucida Sans','Geneva','Verdana','sans-serif'; */
+}
+#tema {
+    margin: 0 auto;
+}
+#tema-portal {
+    min-height: 400px;
+}
+a#portal-home-link {
+}
+#portal-menu {
+    margin-bottom: 0px;
+}
+#toolbar {
+    overflow: auto;
+    clear: right;
+}
+#portal-breadcrumbs {
+    float: left;
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+.portal-breadcrumbs {
+    display: none;
+}
+#breadcrumbs-you-are-here {
+  display: none;
+}
+#breadcrumbs-you-are-here + li::before {
+  display: none;
+}
+.portal-breadcrumbs > ol > li:last-of-type {
+  color: #777;
+}
+#portal-breadcrumbs > ol {
+  margin-bottom: 0;
+}
+#portal-breadcrumbs > ol > li > a {
+    color: #3e6892;
+    text-decoration:none;
+}
+#portal-breadcrumbs > ol > li + li::before {
+    content: "›";
+    padding: 0 5px;
+    color: #999;
+}
+
+#portal-personaltools-wrapper {
+    float: right;
+}
+.portal-personaltools-wrapper {
+    display: none;
+}
+
+/* Barra de login */
+.portal-login {
+    display: none;
+}
+.portal-login {
+    float: right;
+    font-size: 11px;
+    margin-bottom: 1em;
+}
+.portal-login ins {
+    margin-right: 12px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+#content h1.documentFirstHeading {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  font-size: 28px;
+  margin-top: 10px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.1px;
+}
+
+/*########################################
+  AdaptaÃ§Ãµes senado.essencial
+  ########################################*/
+:not(#_) .nav_control-title a,
+:not(#_) .nav_control-title a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+:not(#_) .sf-wrapper .collapse.in {
+    display: block;
+}
+:not(#_) .sf-wrapper .menu-local__social {
+    display: none;
+}
+#js-navbar-dropdown {
+	height: auto !important; /* Fix submenu secundario */
+}
+:not(#_) .sf-wrapper .navbar-toggler--sf::after {
+    transition: all 0.5s;
+}
+.sf-wrapper h1 {
+    letter-spacing: normal;
+}
+/* Ãšltimo menu Ã  direita */
+:not(#_) .sf-wrapper ul.navbar-nav > li.dropdown:last-child:not(:first-child) > div.dropdown-menu {
+    right: 0;
+    left: auto;
+}
+:not(#_) .sf-wrapper ul.navbar-nav > li.dropdown:last-child:not(:first-child) > div.dropdown-menu::before {
+    left: 85%;
+}
+/* @font-face { */
+/*   font-family: 'Glyphicons Halflings'; */
+/*   src: url('fonts/glyphicons-halflings-regular.eot'); */
+/*   src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg'); */
+/* } */
+/*
+.PortalTopo-id a {
+  color: #3e6892;
+  text-decoration: none;
+}
+.PortalTopo-id .PortalTopo-sub a {
+  color: #999;
+  text-decoration: none;
+}
+.PortalTopo-title a img {
+  max-width: 200px;
+}
+.PortalTopo-busca > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.NavGlobal-toggle {
+  color:white
+}
+.NavGlobal-middle {
+  font-size: 14px;
+}
+.Nav--secundaria {
+  padding-left: 0;
+  padding-right: 0;
+}
+.Nav--secundaria > ul > li:not(:last-child)::after {   
+   line-height: 23px;
+}
+*/
+
+/* Extra small - Phone */
+/*
+@media(max-width:767px){
+
+    .PortalTopo-busca > div {
+      display: inherit;
+      margin: 10px 0 0;
+    }
+    .Nav--secundaria {
+      background-color: transparent;
+      float: right;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .Nav--secundaria > ul {
+      float: none !important;
+    }
+    .Nav--secundaria > ul > li > a {
+      font-size: 12px;
+      line-height: 26px;
+    }
+
+}
+*/ /* @media xs */
+
+/*
+.navbar-inverse {
+    background-color: transparent;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #777;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+  background-color: transparent;
+  color: #333;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+  background-color: transparent;
+  color: #333;
+}
+.navbar-senado {
+}
+.navbar-senado .dropdown-menu > li {
+    display: block;
+}
+*/
+
+p.busca-avancada a {
+    color: #3e6892;
+}
+
+#footer-institucional {
+    clear: both;
+    padding-top: 40px;
+}
+#portal-columns {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/*########################################
+  Accordion
+  ########################################*/
+.accordion {
+  position: relative;
+}
+.accordion > .accordion-group {
+  border: 1px solid #e5e5e5;
+  border-radius: 0px;
+  margin-bottom: 20px;
+}
+.accordion > .accordion-group > .accordion-heading {
+  border-bottom: 1px solid #ddd;
+  color: #3e6892;
+  font-size: 18px;
+}
+.accordion-heading .accordion-toggle {
+  display: block;
+  padding: 8px 15px;
+}
+.accordion .accordion-caret .accordion-toggle.collapsed::before {
+  content: "â–¸";
+}
+.accordion .accordion-caret .accordion-toggle:not(.collapsed)::before {
+  content: "â–¾";
+}
+.accordion .accordion-caret .accordion-toggle::before {
+  font-size: 25px;
+/*   vertical-align: -3px; */
+/*   line-height: 21px; */
+  margin-right: 0;
+  position: absolute;
+  right: 20px;
+}
+.accordion .accordion-inner {
+  border-top: 1px solid #e5e5e5;
+  padding: 8px 15px;
+}
+#content a.accordion-toggle:hover,
+#content a.accordion-toggle:focus {
+  color: #28425c !important;
+  text-decoration: none;
+}
+
+/*########################################
+  Carousel
+  ########################################*/
+.carousel .item img {
+  margin: auto;
+}
+.carousel-indicators {
+  top: 10px;
+  height: 10px;
+}
+.carousel-control {
+  cursor: alias;
+  text-shadow: 2px 2px 0 #000;
+}
+.carousel-control span {
+  color: white;
+}
+.carousel-control .icon-next, .carousel-control .glyphicon-chevron-right {
+  right: 19%;
+  font-size: 22px;
+}
+.carousel-control .icon-prev, .carousel-control .glyphicon-chevron-left {
+  left: 19%;
+  font-size: 22px;
+}
+/* Carousel control color. */
+/* .carousel-control.right { */
+/*   background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0px, #00305c 100%); */
+/* } */
+/* .carousel-control.left { */
+/*   background-image: linear-gradient(to right, #00305c 0px, rgba(0, 0, 0, 0) 100%); */
+/* } */
+.carousel-caption {
+  bottom: 0;
+  left: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  width: 100%;
+  max-height: 50%;
+}
+/* Faixa transparente */
+.carousel-caption::before {
+  opacity: .5;
+  background: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  content: no-open-quote;
+  color: transparent;
+}
+.carousel-caption p {
+  color: #fff;
+  font-size: 13px;
+  line-height: 14px;
+}
+
+/* Carousel Caption Quadro */
+.carousel-caption-quadro {
+  bottom: 5%;
+  left: 5%;
+  max-height: 90%;
+  text-align: left;
+  width: 24%;
+}
+
+#painel-em-manutencao {
+  background: white none repeat scroll 0 0;
+  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-family: arial;
+}
+#painel-em-manutencao i {
+  color: orange;
+}
+
+
+
+/*
+============================== 
+Bootstrap Media Queries
+==============================
+*/
+
+/* Extra small - Phone */
+@media(max-width:767px){
+
+/* .carousel-caption { */
+/*   position: static; */
+/* } */
+/* .carousel-control .glyphicon-chevron-left, */
+/* .carousel-control .glyphicon-chevron-right, */
+/* .carousel-control .icon-next, */
+/* .carousel-control .icon-prev { */
+/*   top: 30%; */
+/* } */
+
+} /* @media xs */
+
+/* Small - Tablet */
+@media(min-width:768px){
+
+} /* @media sm */
+
+/* Medium - Desktop */
+@media(min-width:992px){
+
+} /* @media md */
+
+/* Large - Desktop */
+@media(min-width:1200px){
+
+} /* @media lg */
