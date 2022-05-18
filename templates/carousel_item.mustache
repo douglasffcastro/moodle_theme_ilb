@@ -1,0 +1,10 @@
+<div class="carousel-item">
+  {{#urlnoticia}}
+      <a href="{{{ urlnoticia }}}" target="_blank">
+          <img src="{{{ urlimagem }}}" class="d-block w-100" width="560" height="273">
+      </a>
+  {{/urlnoticia}}
+  {{^urlnoticia}}
+      <img src="{{{ urlimagem }}}" class="d-block w-100" width="560" height="273">
+  {{/urlnoticia}}
+</div>
