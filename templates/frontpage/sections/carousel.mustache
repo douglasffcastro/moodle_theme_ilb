@@ -1,0 +1,24 @@
+<div id="carouselILB" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000000" >
+      <iframe width="100%" height="326px" src="https://www.youtube.com/embed/mvqFvkBF0PE?rel=0&loop=1" frameborder="0" allowfullscreen title="Novo vídeo sobre os cursos online da Plataforma Saberes" ></iframe>
+    </div>
+    {{#semitem}}
+        </div>
+      </div>
+    {{/semitem}}
+    {{^semitem}}
+      {{#itenscarrossel}}
+        {{> theme_ilb/frontpage/sections/carousel_item }}
+      {{/itenscarrossel}}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselILB"
+    data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselILB"
+    data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+{{/semitem}}

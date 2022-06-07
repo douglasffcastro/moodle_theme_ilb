@@ -1,0 +1,47 @@
+<div class="container-login">
+    <form class="loginform" id="login" method="post" action="login/index.php">
+        <div class="form-container">
+            <div class="header">
+                <img src="{{{ output.favicon }}}" alt="Saberes">
+                <h2>Acesso</h2>
+            </div>
+
+            <input type="hidden" name="logintoken" value="{{logintoken}}">
+
+            <div class="username">
+                <label for="login_username">CPF</label>
+                <br />
+                <div class="input-group">
+                    <input type="text" name="username" id="login_username">
+                </div>
+            </div>
+
+            <div class="password">
+                <label for="login_password">Senha</label>
+                <br />
+                <div class="input-group">
+                    <input type="password" name="password" id="login_password">
+                </div>
+            </div>
+
+            <div class="ru-fp">
+                <div class="rememberusername">
+                    <input type="checkbox" name="rememberusername" id="rememberusername" value="1">
+                    <label for="rememberusername">Lembrar CPF</label>
+                </div>
+                <div class="forgot-password">
+                    <span><a href="{{moodle_url}}/login/forgot_password.php">Esqueceu sua senha?</a></span>
+                </div>
+            </div>
+
+            <div class="footer-form">
+                <div class="signup">
+                    <span>Não possui uma conta?</span>
+                    <br>
+                    <a href="login/signup.php">Cadastre-se</a>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Acessar">
+            </div>
+        </div>
+    </form>
+</div>

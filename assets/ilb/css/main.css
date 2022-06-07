@@ -1,0 +1,63 @@
+:not(#_) .sf-wrapper .sidebar-overlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+  z-index: 100;
+  display: none;
+  transition:.2s ease-in;
+}
+
+:not(#_) .sf-wrapper .is-open + .sidebar-overlay {
+  display: block;
+}
+
+section .container .row-container,
+.Breadcrumbs {
+  padding: 0;
+}
+
+section .container .row-container,
+.carousel-login {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.carousel-login {
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.carousel-login .container {
+  display: block;
+  max-width: 1140px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+section .container .row-container {
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  section .container .row-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 370px) {
+  div.ru-fp, div.footer-form .signup, div.container-login {
+    font-size: 12px;
+  }
+
+  form .header h2 {
+    font-size: 24px;
+  }
+}
