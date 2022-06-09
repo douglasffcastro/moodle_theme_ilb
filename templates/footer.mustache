@@ -31,57 +31,16 @@
         }
     }
 }}
+  
+<footer id="page-footer" class="p-y-1" style="background-color: #002e56; color: #FFFFFF; text-align: center;font-size: 10px; padding: 20px 0;">
+    <div class="container" style="background-color: #002e56;">
+        <p>Senado Federal - Praça dos Três Poderes - Brasília DF - CEP 70165-900</p>
+        <div id="course-footer" style="font-color: white;">{{{ output.course_footer }}}</div>    
 
-<footer id="page-footer" class="footer-popover bg-white">
-    <div data-region="footer-container-popover">
-        <button class="btn btn-icon bg-secondary icon-no-margin btn-footer-popover" data-action="footer-popover" aria-label="{{#str}}showfooter, theme_ilb{{/str}}">
-            {{#pix}}e/question, core{{/pix}}
-        </button>
-    </div>
-    <div class="footer-content-popover container" data-region="footer-content-popover">
-        {{# output.has_popover_links }}
-            <div class="footer-section p-3 border-bottom">
-                {{# output.page_doc_link }}
-                    <div>{{{ output.page_doc_link }}}</div>
-                {{/ output.page_doc_link }}
+        {{{ output.login_info }}}
+        {{{ output.home_link }}}
 
-                {{# output.services_support_link }}
-                    <div>{{{ output.services_support_link }}}</div>
-                {{/ output.services_support_link }}
-
-                {{# output.supportemail }}
-                    <div>{{{ output.supportemail }}}</div>
-                {{/ output.supportemail }}
-            </div>
-        {{/ output.has_popover_links }}
-        <div class="footer-section p-3 border-bottom">
-            <div class="logininfo">
-                {{{ output.login_info }}}
-            </div>
-            <div class="tool_usertours-resettourcontainer">
-            </div>
-
-            {{{ output.standard_footer_html }}}
-            {{{ output.standard_end_of_body_html }}}
-        </div>
-        <div class="footer-section p-3">
-            <div>{{#str}}poweredbymoodle, core{{/str}}</div>
-            {{#output.moodle_release}}
-                <div>
-                    {{#str}}version, core{{/str}} {{{ output.moodle_release }}}
-                </div>
-            {{/output.moodle_release}}
-        </div>
-    </div>
-
-    <div class="footer-content-debugging footer-dark bg-dark text-light">
-        <div class="container-fluid footer-dark-inner">
-            {{{ output.debug_footer_html }}}
-        </div>
+        {{{ output.standard_footer_html }}}
+        {{{ output.standard_end_of_body_html }}}
     </div>
 </footer>
-{{#js}}
-require(['theme_ilb/footer-popover'], function(FooterPopover) {
-    FooterPopover.init();
-});
-{{/js}}
