@@ -55,7 +55,7 @@
         ]
     }
 }}
-<nav class="navbar fixed-top navbar-light bg-white navbar-expand" aria-label="{{#str}}sitemenubar, admin{{/str}}" style="background-color: red;">
+<nav class="navbar fixed-top navbar-light bg-white navbar-expand colorNarbarSenadoOriginal" aria-label="{{#str}}sitemenubar, admin{{/str}}" style="background-color: red;">
 
     <button class="navbar-toggler aabtn d-block d-md-none px-1 my-1 border-0" data-toggler="drawers" data-action="toggle" data-target="theme_ilb-drawers-primary">
         <span class="navbar-toggler-icon"></span>
@@ -102,3 +102,36 @@
 </nav>
 
 {{> theme_ilb/primary-drawer-mobile }}
+
+<style>
+    .navbar.colorNarbarSenadoOriginal {
+        border-bottom: 0;
+        box-shadow: 0 4px 0 #fae042, 0 8px 0 #00824a !important;
+    }
+
+    .navbar.colorNarbarSenadoOriginal .nav-link.active {
+        border-top-color: #fff;
+        border-bottom-color: transparent;
+    }
+
+    .navbar.colorNarbarSenadoOriginal .nav-link.active, 
+    .navbar.colorNarbarSenadoOriginal .navbar-brand,
+    .navbar.colorNarbarSenadoOriginal .navbar-brand:hover,
+    .navbar.colorNarbarSenadoOriginal .input-group,
+    .navbar.colorNarbarSenadoOriginal #user-menu-toggle,
+    .navbar.colorNarbarSenadoOriginal .nav-link.icon-no-margin:hover,
+    .navbar-light .navbar-nav .nav-link {
+        color: #fff !important;
+    }
+
+    .navbar.colorNarbarSenadoOriginal .nav-link.active:hover,
+    .navbar.colorNarbarSenadoOriginal .nav-link:hover {
+        color: #00305c !important;
+        border: 0;
+        margin: 0;
+    }
+    
+    .colorNarbarSenadoOriginal{
+        background-color: #00305c !important;
+    }
+</style>
