@@ -209,3 +209,30 @@ body#page-enrol-index {
 .card-body{
     margin-bottom: 10px;
 }
+
+#page-footer {
+    background-color: #002e56; 
+    color: #FFFFFF !important; 
+    text-align: center;
+    font-size: 10px; 
+    padding: 20px 0; 
+    text-decoration: none;
+}
+
+.homelink a,
+.logininfo a,
+.tool_dataprivacy a {
+    color: #fff;
+}
+  
+#page-footer .container {
+background-color: #002e56;
+}
+
+#course-footer {
+color: white;
+}
+
+#page {
+    padding: 0 !important;
+}
