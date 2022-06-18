@@ -168,7 +168,7 @@ class theme_ilb_core_course_renderer extends \core_course_renderer {
         $coursecount = 1;
         $content .= html_writer::start_tag('div', array('class' => ' row card-deck my-4'));
         foreach ($courses as $course) {
-            $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view boxCursos tamanhoBoxCursos customPaddingBottom');
+            $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view boxCursos tamanhoBoxCursos customPaddingBottomCat');
             $coursecount ++;
         }
         $content .= html_writer::end_tag('div');
@@ -182,6 +182,7 @@ class theme_ilb_core_course_renderer extends \core_course_renderer {
 
         return $content;
     }
+
     /**
      * Displays one course in the list of courses.
      *
@@ -234,6 +235,7 @@ class theme_ilb_core_course_renderer extends \core_course_renderer {
         // End col-md-4.
         return $content;
     }
+
     /**
      * Returns HTML to display course content (summary, course contacts and optionally category name)
      *
@@ -333,6 +335,7 @@ class theme_ilb_core_course_renderer extends \core_course_renderer {
 
         return $content;
     }
+
     /** <img src=""
      * Returns the first course's summary issue
      *
@@ -365,6 +368,7 @@ class theme_ilb_core_course_renderer extends \core_course_renderer {
 
         return $contentimage;
     }
+
     /**
      * Generate a semi-random color based on the courseid number (so it will always return
      * the same color for a course)
@@ -378,5 +382,244 @@ class theme_ilb_core_course_renderer extends \core_course_renderer {
                         '#fdcb6e', '#fd79a8', '#6c5ce7'];
         $color = $basecolors[$courseid % 10];
         return $color;
+    }
+
+    /**
+     * Returns HTML to display a course category as a part of a tree
+     *
+     * This is an internal function, to display a particular category and all its contents
+     * use {@link core_course_renderer::course_category()}
+     *
+     * @param coursecat_helper $chelper various display options
+     * @param core_course_category $coursecat
+     * @param int $depth depth of this category in the current tree
+     * @return string
+     */
+    protected function coursecat_category(coursecat_helper $chelper, $coursecat, $depth) {
+        if($coursecat->parent == 2) {
+            $classes[] = 'collapsed card mb-3 course-card-view boxCursos tamanhoBoxCursos customPaddingBottomCat ';
+            $categoryname = $coursecat->get_formatted_name();
+            $categoryname = html_writer::link(new moodle_url('/course/index.php', 
+                array('categoryid' => $coursecat->id)),
+                $categoryname,
+                array('class' => 'propertiesTextColor'));
+            $coursecaturl = new moodle_url('/course/index.php', array('categoryid' => $coursecat->id));
+
+            $content = html_writer::start_tag('div', array(
+                'class' => join(' ', $classes),
+                'data-categoryid' => $coursecat->id,
+                'data-depth' => $depth,
+                'data-showcourses' => $chelper->get_show_courses(),
+                'data-type' => self::COURSECAT_TYPE_CATEGORY,
+            ));
+                $content .= html_writer::start_tag('a', array ('href' => $coursecaturl, 'class' => 'course-card-img'));
+                    $content .= "<div style=\"background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzgiIGhlaWdodD0iMTc4Ij48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJyZ2IoMCwgMTg0LCAxNDgpIiAvPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMTE1MzMzMzMzMzMzMzM7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjkuNzA0NSwgLTI5LjcwNDUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMTE1MzMzMzMzMzMzMzM7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDguNTIyNSwgLTI5LjcwNDUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMTE1MzMzMzMzMzMzMzM7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjkuNzA0NSwgMTQ4LjUyMjUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMTE1MzMzMzMzMzMzMzM7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDguNTIyNSwgMTQ4LjUyMjUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4xMDY2NjY2NjY2NjY2NzsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIC0xNC44NTIyNSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4xMDY2NjY2NjY2NjY2NzsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDE2My4zNzQ3NSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wODkzMzMzMzMzMzMzMzM7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOS43MDQ1LCAtMjkuNzA0NSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wODkzMzMzMzMzMzMzMzM7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOS43MDQ1LCAxNDguNTIyNSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wMjsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU5LjQwOSwgLTE0Ljg1MjI1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjAyOyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTkuNDA5LCAxNjMuMzc0NzUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDI4NjY2NjY2NjY2NjY3OyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODkuMTEzNSwgLTI5LjcwNDUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDI4NjY2NjY2NjY2NjY3OyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODkuMTEzNSwgMTQ4LjUyMjUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMTQxMzMzMzMzMzMzMzM7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTguODE4LCAtMTQuODUyMjUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMTQxMzMzMzMzMzMzMzM7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTguODE4LCAxNjMuMzc0NzUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDgwNjY2NjY2NjY2NjY3OyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI5LjcwNDUsIDApIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDgwNjY2NjY2NjY2NjY3OyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQ4LjUyMjUsIDApIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMDg5MzMzMzMzMzMzMzMzOyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwgMTQuODUyMjUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMDI7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOS43MDQ1LCAwKSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjExNTMzMzMzMzMzMzMzOyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTkuNDA5LCAxNC44NTIyNSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4wNDY7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4OS4xMTM1LCAwKSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjA5ODsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExOC44MTgsIDE0Ljg1MjI1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjA5ODsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yOS43MDQ1LCAyOS43MDQ1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjA5ODsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0OC41MjI1LCAyOS43MDQ1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjEzMjY2NjY2NjY2NjY3OyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwgNDQuNTU2NzUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMDcyOyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjkuNzA0NSwgMjkuNzA0NSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4wNDY7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1OS40MDksIDQ0LjU1Njc1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjA0NjsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg5LjExMzUsIDI5LjcwNDUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDgwNjY2NjY2NjY2NjY3OyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTE4LjgxOCwgNDQuNTU2NzUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMTA2NjY2NjY2NjY2Njc7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjkuNzA0NSwgNTkuNDA5KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjEwNjY2NjY2NjY2NjY3OyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQ4LjUyMjUsIDU5LjQwOSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wMjsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDc0LjI2MTI1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjA0NjsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI5LjcwNDUsIDU5LjQwOSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wNzI7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1OS40MDksIDc0LjI2MTI1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjA4OTMzMzMzMzMzMzMzMzsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg5LjExMzUsIDU5LjQwOSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4wOTg7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTguODE4LCA3NC4yNjEyNSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4xNDEzMzMzMzMzMzMzMzsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yOS43MDQ1LCA4OS4xMTM1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjE0MTMzMzMzMzMzMzMzOyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQ4LjUyMjUsIDg5LjExMzUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDgwNjY2NjY2NjY2NjY3OyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwgMTAzLjk2NTc1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjA2MzMzMzMzMzMzMzMzMzsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI5LjcwNDUsIDg5LjExMzUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMTE1MzMzMzMzMzMzMzM7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1OS40MDksIDEwMy45NjU3NSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wODkzMzMzMzMzMzMzMzM7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4OS4xMTM1LCA4OS4xMTM1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjEyNDsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExOC44MTgsIDEwMy45NjU3NSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wMjsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yOS43MDQ1LCAxMTguODE4KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjAyOyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQ4LjUyMjUsIDExOC44MTgpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMDI7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjkuNzA0NSwgLTU5LjQwOSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4wNDY7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLCAxMzMuNjcwMjUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDQ2OyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwgLTQ0LjU1Njc1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjEwNjY2NjY2NjY2NjY3OyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjkuNzA0NSwgMTE4LjgxOCkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4xMDY2NjY2NjY2NjY2NzsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI5LjcwNDUsIC01OS40MDkpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMTA2NjY2NjY2NjY2Njc7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1OS40MDksIDEzMy42NzAyNSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4xMDY2NjY2NjY2NjY2NzsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU5LjQwOSwgLTQ0LjU1Njc1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48ZyBmaWxsPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjA2MzMzMzMzMzMzMzMzMzsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg5LjExMzUsIDExOC44MTgpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDYzMzMzMzMzMzMzMzMzOyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODkuMTEzNSwgLTU5LjQwOSkgcm90YXRlKDQ1LCAyOS43MDQ1LCAyOS43MDQ1KSIgPjxyZWN0IHg9IjIxIiB5PSIwIiB3aWR0aD0iMjEiIGhlaWdodD0iNjMiIC8+PHJlY3QgeD0iMCIgeT0iMjEiIHdpZHRoPSI2MyIgaGVpZ2h0PSIyMSIgLz48L2c+PGcgZmlsbD0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4wODA2NjY2NjY2NjY2Njc7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTguODE4LCAxMzMuNjcwMjUpIHJvdGF0ZSg0NSwgMjkuNzA0NSwgMjkuNzA0NSkiID48cmVjdCB4PSIyMSIgeT0iMCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjYzIiAvPjxyZWN0IHg9IjAiIHk9IjIxIiB3aWR0aD0iNjMiIGhlaWdodD0iMjEiIC8+PC9nPjxnIGZpbGw9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDgwNjY2NjY2NjY2NjY3OyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTE4LjgxOCwgLTQ0LjU1Njc1KSByb3RhdGUoNDUsIDI5LjcwNDUsIDI5LjcwNDUpIiA+PHJlY3QgeD0iMjEiIHk9IjAiIHdpZHRoPSIyMSIgaGVpZ2h0PSI2MyIgLz48cmVjdCB4PSIwIiB5PSIyMSIgd2lkdGg9IjYzIiBoZWlnaHQ9IjIxIiAvPjwvZz48L3N2Zz4=')\" class=\"card-img-top minheight\"></div>";
+                $content .= html_writer::end_tag('a');
+
+                $content .= html_writer::start_tag('div', array('class' => 'card-body'));
+                    $content .= html_writer::tag('div' , $categoryname, array('class' => 'elegantshd textCardEdited'));
+                $content .= html_writer::end_tag('div');
+
+                $content .= html_writer::start_tag('a', array('href' => $coursecaturl, 'class' => 'btn btn-mais-info btn-mais-infocat sizeBlock bottomAlign'));
+                    $content .= 'Mais informações';
+                $content .= html_writer::end_tag('a');
+            $content .= html_writer::end_tag('div');
+        } else {
+            // open category tag
+            $classes = array('category');
+            if (empty($coursecat->visible)) {
+                $classes[] = 'dimmed_category';
+            }
+            if ($chelper->get_subcat_depth() > 0 && $depth >= $chelper->get_subcat_depth()) {
+                // do not load content
+                $categorycontent = '';
+                $classes[] = 'notloaded';
+                if ($coursecat->get_children_count() ||
+                        ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_COLLAPSED && $coursecat->get_courses_count())) {
+                    $classes[] = 'with_children';
+                    $classes[] = 'collapsed';
+                }
+            } else {
+                // load category content
+                $categorycontent = $this->coursecat_category_content($chelper, $coursecat, $depth);
+                $classes[] = 'loaded';
+                if (!empty($categorycontent)) {
+                    $classes[] = 'with_children';
+                    // Category content loaded with children.
+                    $this->categoryexpandedonload = true;
+                }
+            }
+
+            // Make sure JS file to expand category content is included.
+            $this->coursecat_include_js();
+
+            $content = html_writer::start_tag('div', array(
+                'class' => join(' ', $classes),
+                'data-categoryid' => $coursecat->id,
+                'data-depth' => $depth,
+                'data-showcourses' => $chelper->get_show_courses(),
+                'data-type' => self::COURSECAT_TYPE_CATEGORY,
+            ));
+
+            // category name
+            $categoryname = $coursecat->get_formatted_name();
+            $categoryname = html_writer::link(new moodle_url('/course/index.php',
+                    array('categoryid' => $coursecat->id)),
+                    $categoryname);
+            if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_COUNT
+                    && ($coursescount = $coursecat->get_courses_count())) {
+                $categoryname .= html_writer::tag('span', ' ('. $coursescount.')',
+                        array('title' => get_string('numberofcourses'), 'class' => 'numberofcourse'));
+            }
+            $content .= html_writer::start_tag('div', array('class' => 'info'));
+
+            $content .= html_writer::tag(($depth > 1) ? 'h4' : 'h3', $categoryname, array('class' => 'categoryname aabtn'));
+            $content .= html_writer::end_tag('div'); // .info
+
+            // add category content to the output
+            $content .= html_writer::tag('div', $categorycontent, array('class' => 'content'));
+
+            $content .= html_writer::end_tag('div'); // .category
+         }
+
+        // Return the course category tree HTML
+        return $content;
+    }
+
+    /**
+     * Renders the list of subcategories in a category
+     *
+     * @param coursecat_helper $chelper various display options
+     * @param core_course_category $coursecat
+     * @param int $depth depth of the category in the current tree
+     * @return string
+     */
+    protected function coursecat_subcategories(coursecat_helper $chelper, $coursecat, $depth) {
+        if($coursecat->id == 2) {
+            global $CFG;
+
+            $subcategories = array();
+            if (!$chelper->get_categories_display_option('nodisplay')) {
+                $subcategories = $coursecat->get_children($chelper->get_categories_display_options());
+            }
+
+            $totalcount = $coursecat->get_children_count();
+            if (!$totalcount) {
+                // Note that we call core_course_category::get_children_count() AFTER core_course_category::get_children()
+                // to avoid extra DB requests.
+                // Categories count is cached during children categories retrieval.
+                return '';
+            }
+
+            // prepare content of paging bar or more link if it is needed
+            $paginationurl = $chelper->get_categories_display_option('paginationurl');
+            $paginationallowall = $chelper->get_categories_display_option('paginationallowall');
+            if ($totalcount > count($subcategories)) {
+                if ($paginationurl) {
+                    // the option 'paginationurl was specified, display pagingbar
+                    $perpage = $chelper->get_categories_display_option('limit', $CFG->coursesperpage);
+                    $page = $chelper->get_categories_display_option('offset') / $perpage;
+                    $pagingbar = $this->paging_bar($totalcount, $page, $perpage,
+                            $paginationurl->out(false, array('perpage' => $perpage)));
+                    if ($paginationallowall) {
+                        $pagingbar .= html_writer::tag('div', html_writer::link($paginationurl->out(false, array('perpage' => 'all')),
+                                get_string('showall', '', $totalcount)), array('class' => 'paging paging-showall'));
+                    }
+                } else if ($viewmoreurl = $chelper->get_categories_display_option('viewmoreurl')) {
+                    // the option 'viewmoreurl' was specified, display more link (if it is link to category view page, add category id)
+                    if ($viewmoreurl->compare(new moodle_url('/course/index.php'), URL_MATCH_BASE)) {
+                        $viewmoreurl->param('categoryid', $coursecat->id);
+                    }
+                    $viewmoretext = $chelper->get_categories_display_option('viewmoretext', new lang_string('viewmore'));
+                    $morelink = html_writer::tag('div', html_writer::link($viewmoreurl, $viewmoretext),
+                            array('class' => 'paging paging-morelink'));
+                }
+            } else if (($totalcount > $CFG->coursesperpage) && $paginationurl && $paginationallowall) {
+                // there are more than one page of results and we are in 'view all' mode, suggest to go back to paginated view mode
+                $pagingbar = html_writer::tag('div', html_writer::link($paginationurl->out(false, array('perpage' => $CFG->coursesperpage)),
+                    get_string('showperpage', '', $CFG->coursesperpage)), array('class' => 'paging paging-showperpage'));
+            }
+
+            $content = html_writer::start_tag('div', array('class' => 'subcategories row card-deck my-4 '));
+                if (!empty($pagingbar)) {
+                    $content .= $pagingbar;
+                }
+        
+                foreach ($subcategories as $subcategory) {
+                    $content .= $this->coursecat_category($chelper, $subcategory, $depth + 1);
+                }
+        
+                if (!empty($pagingbar)) {
+                    $content .= $pagingbar;
+                }
+                if (!empty($morelink)) {
+                    $content .= $morelink;
+                }
+            $content .= html_writer::end_tag('div');
+        } else {
+            global $CFG;
+            $subcategories = array();
+            if (!$chelper->get_categories_display_option('nodisplay')) {
+                $subcategories = $coursecat->get_children($chelper->get_categories_display_options());
+            }
+            $totalcount = $coursecat->get_children_count();
+            if (!$totalcount) {
+                // Note that we call core_course_category::get_children_count() AFTER core_course_category::get_children()
+                // to avoid extra DB requests.
+                // Categories count is cached during children categories retrieval.
+                return '';
+            }
+    
+            // prepare content of paging bar or more link if it is needed
+            $paginationurl = $chelper->get_categories_display_option('paginationurl');
+            $paginationallowall = $chelper->get_categories_display_option('paginationallowall');
+            if ($totalcount > count($subcategories)) {
+                if ($paginationurl) {
+                    // the option 'paginationurl was specified, display pagingbar
+                    $perpage = $chelper->get_categories_display_option('limit', $CFG->coursesperpage);
+                    $page = $chelper->get_categories_display_option('offset') / $perpage;
+                    $pagingbar = $this->paging_bar($totalcount, $page, $perpage,
+                            $paginationurl->out(false, array('perpage' => $perpage)));
+                    if ($paginationallowall) {
+                        $pagingbar .= html_writer::tag('div', html_writer::link($paginationurl->out(false, array('perpage' => 'all')),
+                                get_string('showall', '', $totalcount)), array('class' => 'paging paging-showall'));
+                    }
+                } else if ($viewmoreurl = $chelper->get_categories_display_option('viewmoreurl')) {
+                    // the option 'viewmoreurl' was specified, display more link (if it is link to category view page, add category id)
+                    if ($viewmoreurl->compare(new moodle_url('/course/index.php'), URL_MATCH_BASE)) {
+                        $viewmoreurl->param('categoryid', $coursecat->id);
+                    }
+                    $viewmoretext = $chelper->get_categories_display_option('viewmoretext', new lang_string('viewmore'));
+                    $morelink = html_writer::tag('div', html_writer::link($viewmoreurl, $viewmoretext),
+                            array('class' => 'paging paging-morelink'));
+                }
+            } else if (($totalcount > $CFG->coursesperpage) && $paginationurl && $paginationallowall) {
+                // there are more than one page of results and we are in 'view all' mode, suggest to go back to paginated view mode
+                $pagingbar = html_writer::tag('div', html_writer::link($paginationurl->out(false, array('perpage' => $CFG->coursesperpage)),
+                    get_string('showperpage', '', $CFG->coursesperpage)), array('class' => 'paging paging-showperpage'));
+            }
+    
+            // display list of subcategories
+            $content = html_writer::start_tag('div', array('class' => 'subcategories'));
+    
+            if (!empty($pagingbar)) {
+                $content .= $pagingbar;
+            }
+    
+            foreach ($subcategories as $subcategory) {
+                $content .= $this->coursecat_category($chelper, $subcategory, $depth + 1);
+            }
+    
+            if (!empty($pagingbar)) {
+                $content .= $pagingbar;
+            }
+            if (!empty($morelink)) {
+                $content .= $morelink;
+            }
+    
+            $content .= html_writer::end_tag('div');
+        }
+        
+        return $content;
     }
 }

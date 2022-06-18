@@ -81,6 +81,15 @@ body#page-enrol-index {
 .customPaddingBottom {
     padding-bottom: 20px !important;
 }
+
+.customPaddingBottomCat{
+    padding: 0 !important;
+}
+
+.btn-mais-infocat {
+    margin-bottom: 15px !important;
+}
+
 .bottomAlign{
     bottom: 0;
     position: relative;
@@ -235,4 +244,17 @@ color: white;
 
 #page {
     padding: 0 !important;
+}
+
+.collapsed.card {
+    margin: 0 4px;
+}
+
+@media (min-width: 768px){
+    .pagelayout-standard #page.drawers .main-inner, 
+    body.limitedwidth #page.drawers .main-inner,
+    .secondary-navigation,
+    .header-maxwidth {
+        max-width: 1200px;
+    }
 }
