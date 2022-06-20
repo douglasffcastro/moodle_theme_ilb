@@ -1,4 +1,35 @@
 <div class="container-login">
+    {{#isloggedin}}
+    <div class="user-profile">
+        <div class="user-container">
+            <div class="header">
+                <img src="{{{ output.favicon }}}" alt="Saberes">
+                <h2>Bem vindo ao Saberes!</h2>
+            </div>
+
+            <div class="user-picture">
+                <a href="{{{userprofileurl}}}">
+                    <img class="img-circle" alt="Foto do Perfil" src="{{{userpictureurl}}}" width="70px;" />
+                </a>
+            </div>
+
+            <div class="user-info">
+                <span>{{{ firstname }}} {{{ lastname }}}</span>
+                <span class="user-adress">{{{ usercity }}} / {{{ usercountry }}}</span>
+            </div>
+
+            <div class="buttons">
+                <a href="{{{ moodle_url }}}/my" class="btn-meus-cursos">
+                    <span>Meus cursos</span>
+                </a>
+                <a href="{{{ moodle_url }}}/login/logout.php?sesskey={{{ sessKey }}}" class="btn-sair">
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    {{/isloggedin}}
+    {{^isloggedin}}
     <form class="loginform" id="login" method="post" action="login/index.php">
         <div class="form-container">
             <div class="header">
@@ -44,4 +75,5 @@
             </div>
         </div>
     </form>
+    {{/isloggedin}}
 </div>

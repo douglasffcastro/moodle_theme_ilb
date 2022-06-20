@@ -27,6 +27,7 @@
 .container-login,
 .form-container,
 form .header,
+.user-container .header,
 .footer-form, .ru-fp {
   display: flex;
 }
@@ -46,7 +47,8 @@ form .header,
 
 .ru-fp .rememberusername
 .footer-form
-form .header 
+form .header,
+.user-container .header,
 .ru-fp {
   align-items: center;
 }
@@ -69,17 +71,20 @@ form .header
   padding: 30px;
 }
 
-form .header {
+form .header,
+.user-container .header {
   justify-content: center;
   margin-bottom: 10px;
 }
 
-form .header img {
+form .header img,
+.user-container  .header img {
   max-width: 30px;
   margin-right: 6px;
 }
 
-form .header h2 {
+form .header h2,
+.user-container  .header h2 {
   margin: 0;
   text-align: center;
   font-weight: bold;
@@ -129,4 +134,81 @@ label {
 
 #login_username:focus, #login_password:focus {
   border: 2px solid #3059A6;
+}
+
+/* fdsdf */
+
+.user-profile .user-container,
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.user-picture a img {
+  width: 100px;
+  height: auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-info span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.user-info .user-adress {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+}
+
+.buttons a,
+.buttons a:hover,
+.buttons a:active,
+.buttons a:focus {
+  text-decoration: none;
+  color: #fff;
+}
+
+.buttons a {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  transition: background-color 0.2s ease-in;
+}
+
+.btn-meus-cursos {
+  background-color: #2AC769;
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+.btn-meus-cursos:hover {
+  background-color: #21A054;
+}
+
+.btn-sair {
+  background-color: #FE5244;
+  margin-left: 15px;
+  font-size: 14px;
+}
+
+.btn-sair:hover {
+  background-color: #C24A40;
 }
