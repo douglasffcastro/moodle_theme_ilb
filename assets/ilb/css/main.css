@@ -61,3 +61,142 @@ section .container .row-container {
     font-size: 24px;
   }
 }
+
+/* Refatorar */
+.accordion {
+  margin-top: 25px;
+}
+
+.titulo {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  font-size: 28px;
+  margin-top: 10px;
+  font-weight: normal;
+  letter-spacing: 0.1px;
+}
+
+.subtitulo strong,
+button.subtitulo {
+  font-size: 18px;
+  line-height: 1em;
+  color: #333;
+  font-weight: 500;
+}
+
+button.subtitulo {
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.paragrafo,
+span.paragrafo {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-size: 14px;
+}
+
+.container p.subtitulo {
+  margin-top: 25px;
+}
+
+.card-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  margin: 25px 0 0 0;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.firstCard {
+  margin-right: 25px;
+}
+
+.card-header {
+  font-size: 2em;
+  font-weight: 500;
+  color: #3E6892;
+  width: 100%;
+  text-align: center;
+}
+
+.card-text {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.loginform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input, 
+.pull-right, 
+.btn-certificados, 
+.loginform,
+.card-body {
+  width: 100%;
+}
+
+.loginform input {
+  background-color: #fff;
+  margin-bottom: 15px;
+  height: 52px;
+  border-radius: 4px;
+  outline: none;
+  padding: 0 16px;
+}
+
+.form-control:focus {
+  border-color: #424b80;
+  box-shadow: 0 0 0 0.25rem rgb(66, 75, 128, 0.30);
+}
+
+.pull-right .btn-certificados, 
+.card-body .btn-certificados {
+  background-color: #424b80;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 150%;
+  color: #f1f1f1;
+  font-weight: bold;
+  text-align: center;
+  transition: all .6s ease;
+  text-decoration: none !important;
+  min-height: 50px;
+
+}
+
+.pull-right .btn-certificados:hover, 
+.card-body .btn-certificados:hover {
+  background: rgb(1,91,158, .9);
+  box-shadow: 0 0 .2em #333;
+  top:-2px;
+  color: #f1f1f1;
+  text-decoration: none !important;
+}
+
+@media(max-width: 507px) {
+  .card-container {
+    flex-direction: column;
+  }
+}
