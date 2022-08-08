@@ -142,7 +142,7 @@ label {
 
 #certnumber {
   margin: 25px 0;
-  background-color: #f1f1f1;
+  border: 2px solid #bcbfc4;
 }
 
 .user-profile .user-container,
@@ -218,4 +218,13 @@ label {
 
 .btn-sair:hover {
   background-color: #C24A40;
+}
+
+.btn-certificados {
+  background-color: #337AB7;
+  font-size: 14px;
+}
+
+.btn-certificados:hover {
+  background-color: #1360a3;
 }
