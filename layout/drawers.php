@@ -105,7 +105,8 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton
+    'addblockbutton' => $addblockbutton,
+    'moodle_url' => $CFG->wwwroot,
 ];
 
 echo $OUTPUT->render_from_template('theme_ilb/drawers', $templatecontext);
