@@ -67,6 +67,10 @@ section .container .row-container {
   margin-top: 25px;
 }
 
+h2.accordion-header {
+  margin: 0 !important;
+}
+
 .titulo {
   border-bottom: 1px solid #eee;
   padding-bottom: 15px;
@@ -141,28 +145,11 @@ span.paragrafo {
   flex-direction: column;
 }
 
-.loginform {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-input, 
 .pull-right, 
 .btn-certificados, 
 .loginform,
 .card-body {
   width: 100%;
-}
-
-.loginform input {
-  background-color: #fff;
-  margin-bottom: 15px;
-  height: 52px;
-  border-radius: 4px;
-  outline: none;
-  padding: 0 16px;
 }
 
 .form-control:focus {

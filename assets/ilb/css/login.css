@@ -118,7 +118,9 @@ label {
   margin-bottom: 10px;
 }
 
-#login_username, #login_password {
+#login_username, 
+#login_password, 
+#certnumber {
   width: 100%;
   background-color: #fff;
   border: 2px solid #fff;
@@ -132,11 +134,16 @@ label {
   appearance: none;
 }
 
-#login_username:focus, #login_password:focus {
+#login_username:focus, 
+#login_password:focus,
+#certnumber:focus {
   border: 2px solid #3059A6;
 }
 
-/* fdsdf */
+#certnumber {
+  margin: 25px 0;
+  background-color: #f1f1f1;
+}
 
 .user-profile .user-container,
 .user-profile {
