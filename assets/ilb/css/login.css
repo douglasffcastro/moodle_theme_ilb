@@ -204,6 +204,7 @@ label {
   background-color: #2AC769;
   margin-right: 15px;
   font-size: 14px;
+  text-align: center;
 }
 
 .btn-meus-cursos:hover {
@@ -227,4 +228,48 @@ label {
 
 .btn-certificados:hover {
   background-color: #1360a3;
+}
+
+@media (max-width: 1150px)  and (min-width: 768px)  {
+  .user-container {
+    height: 100% !important;
+    justify-content: space-between;
+  }
+
+  .container-login {
+    padding: 0;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .user-data div {
+    width: 100% !important;
+  }
+
+  .user-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100% !important;
+    margin-bottom: 5px;
+  }
+
+  .buttons a  {
+    height: 35px !important;
+  }
+
+  .header h2 {
+    font-size: 20px;
+  }
+
+  .user-data .user-picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+  }
+
+  .user-data .user-picture a img {
+    width: 70px;
+    height: 100%;
+  }
 }

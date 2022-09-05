@@ -4,8 +4,11 @@
   height: 100%;
 }
 
+div iframe {
+  height: 322px;
+}
+
 .carousel {
-  max-height: 325px;
   border-radius: 3px;
   margin-right: 50px;
   overflow: hidden;
@@ -15,6 +18,26 @@
 
 @media (max-width: 768px) {
   .carousel {
-    margin-bottom: 25px; 
+    margin-bottom: 25px;
+  }
+
+  #carouselILB {
+    height: 100%;
+  }
+
+  div iframe {
+    max-height: 140px;
+  }
+}
+
+@media (min-width: 280px) and (max-width: 768px)  {
+  div iframe {
+    max-height: 450px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1150px) {
+  div iframe {
+    max-height: 239px;
   }
 }
